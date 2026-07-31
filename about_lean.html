@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>About · Holly Nava</title>
+<meta name="description" content="About Holly Nava, a design-rooted Director of Product who creates clarity in complex spaces, where the physical and digital meet." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --page:#FCFBF9; --panel:#F1F0EC; --card:#FFFFFF;
+    --ink:#1B1B19; --muted:#7C7A74; --faint:#9B988F; --line:#E7E4DD;
+    --green:#3BA776; --tag:#ECEBE7;
+    --r:30px; --r2:18px; --max:1320px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--page);color:var(--ink);font-family:"Inter",system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;padding:14px}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto}
+  .muted{color:var(--muted)}
+  h1,h2,h3{letter-spacing:-.02em;font-weight:600;line-height:1.06}
+
+  /* Nav */
+  nav{max-width:var(--max);margin:0 auto 14px;display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase}
+  .status{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);font-weight:500;letter-spacing:0;text-transform:none}
+  .status .g{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(59,167,118,.16)}
+  .navlinks{display:flex;gap:30px;font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--muted)}
+  .navlinks a:hover{color:var(--ink)}
+  .navlinks a.here{color:var(--ink)}
+  @media(max-width:680px){.navlinks{gap:15px;font-size:11px}.status .txt{display:none}}
+
+  /* Panels + notched label */
+  .panel{position:relative;background:var(--panel);border-radius:var(--r);padding:72px;margin-bottom:22px}
+  @media(max-width:680px){.panel{padding:52px 24px 40px}}
+  .notch{position:absolute;top:0;left:0;z-index:3;height:52px;min-width:252px;display:flex;align-items:center;padding:0 30px 0 36px;background:var(--page);border-radius:var(--r) 0 20px 0;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .notch::after{content:"";position:absolute;left:100%;top:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
+  .notch::before{content:"";position:absolute;top:100%;left:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
+
+  /* Intro (photo + lede) */
+  .intro{display:grid;grid-template-columns:0.70fr 1.30fr;gap:56px;align-items:center}
+  .intro .photo{width:100%;aspect-ratio:4/5;border-radius:22px;object-fit:cover;object-position:center top;display:block}
+  .intro .eyebrow{font-weight:700;font-size:clamp(13px,1.3vw,15px);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+  .intro h1{font-size:clamp(29px,3.9vw,50px);margin:18px 0 22px}
+  .intro p{color:var(--muted);font-size:17px;max-width:76ch}
+  .intro p + p{margin-top:16px}
+  .intro b{color:var(--ink);font-weight:600}
+  @media(max-width:760px){.intro{grid-template-columns:1fr;gap:28px}.intro .photo{aspect-ratio:1/1;max-height:420px}}
+
+  /* Prose block inside a panel */
+  .block{padding-top:88px}
+  .block h2{font-size:clamp(26px,3.3vw,40px);margin-bottom:24px;max-width:none}
+  .prose{max-width:84ch}
+  .prose p{color:var(--muted);font-size:16.5px}
+  .prose p + p{margin-top:16px}
+  .prose b{color:var(--ink);font-weight:600}
+  .pull{margin:26px 0 6px;font-size:clamp(14px,1.6vw,18px);font-style:italic;font-weight:500;color:var(--ink);line-height:1.42;max-width:46ch}
+  .bigquote{margin:44px 0 2px;font-size:clamp(17px,2.2vw,26px);font-style:italic;font-weight:500;color:var(--ink);line-height:1.36;letter-spacing:-.01em;border-left:3px solid var(--green);padding-left:26px}
+  @media(max-width:680px){.bigquote{padding-left:18px}}
+
+  /* Beliefs list */
+  .beliefs{margin-top:24px;max-width:92ch}
+  .belief{padding:24px 0;border-top:1px solid var(--line)}
+  .belief:first-child{border-top:none;padding-top:4px}
+  .belief:last-child{padding-bottom:2px}
+  .belief h4{font-size:19px;font-weight:600;letter-spacing:-.01em;margin-bottom:9px;color:var(--ink)}
+  .belief p{color:var(--muted);font-size:15.5px;line-height:1.62}
+
+  /* History */
+  .hist{margin-top:10px;max-width:90ch}
+  .hist .row{display:flex;justify-content:space-between;gap:28px;padding:18px 0;border-top:1px solid var(--line)}
+  .hist .row:first-child{border-top:none}
+  .hist .role{font-weight:600;font-size:16px}
+  .hist .co{color:var(--muted);font-size:15px;margin-top:2px}
+  .hist .yr{color:var(--faint);font-size:13.5px;white-space:nowrap;text-align:right;padding-top:2px}
+
+  /* Contact footer */
+  .connect{text-align:center;padding:96px 24px 40px}
+  .connect h2{font-size:clamp(30px,4.4vw,48px)}
+  .connect p{color:var(--muted);margin:16px auto 0;max-width:46ch;font-size:16px}
+  .cbtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+  .cbtns a{padding:13px 26px;border-radius:999px;font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;background:var(--ink);color:#fff;border:1px solid var(--ink)}
+  .cbtns a:hover{opacity:.88}
+  footer{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:var(--faint);font-size:12.5px;padding:22px 20px 8px;border-top:1px solid var(--line)}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="brand">Holly Nava
+    <span class="status"><span class="g"></span><span class="txt">Open to New Opportunities</span></span>
+  </a>
+  <div class="navlinks">
+    <a href="work.html">Work</a><a href="about.html" class="here">About</a><a href="index.html#contact">Get in touch</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- INTRO -->
+  <section class="panel intro reveal">
+    <img class="photo" src="holly.jpg" alt="Holly Nava">
+    <div>
+      <div class="eyebrow">About</div>
+      <h1>I flex to what the problem and the team need.</h1>
+      <p>I'm a design-rooted product leader who creates clarity in complex spaces, most often where the physical and digital meet. I'm most useful on the problems that are fragmented and ambiguous, where the tidy version on paper doesn't match how things actually work.</p>
+      <p>My instinct is to <b>architect from what's actually there</b>: the real tools, the real data, and the real people, rather than from what a plan says should exist. I flex to the range each problem needs, from setting an ecosystem's strategy to designing the exact interface someone uses in the field, and to the team, by meeting people where their real strengths are.</p>
+      <p>I do my best work with real authority and direct lines to the people I'm building for: users and decision-makers within reach, low silos, and a mission that actually matters. That's when the range pays off.</p>
+    </div>
+  </section>
+
+  <!-- BELIEFS -->
+  <section class="panel block reveal">
+    <span class="notch">Hot Takes</span>
+    <h2>A few things I've come to believe</h2>
+    <div class="beliefs">
+      <div class="belief">
+        <h4>Flex the method, hold the vision</h4>
+        <p>No single process fits every product; every team and stack has its own constraints. I'd rather find or shape the right tool for the specific challenge and outcome than force-fit a familiar one to check a box.</p>
+      </div>
+      <div class="belief">
+        <h4>Velocity alone never builds a great product</h4>
+        <p>Moving fast is necessary but not sufficient, and it can just mean going the wrong way faster. Great teams ship quickly, hold a standard they won't drop, and treat short experiments as a way to find direction, never a substitute for a clear vision.</p>
+      </div>
+      <div class="belief">
+        <h4>Find the team's true superpowers instead of force-fitting</h4>
+        <p>I start from what people are genuinely best at and energized by, and build the work around that. It makes for happier teams and a truer read of what a team can actually do, not just what it should on paper.</p>
+      </div>
+      <div class="belief">
+        <h4>Specialists are interventions; experienced generalists steer the ship</h4>
+        <p>Depth matters most at key moments, to set taste and rigor. Between them, a design-rooted generalist holds direction and knows when to bring depth back in, at the right time and for the right duration, before the product stalls.</p>
+      </div>
+      <div class="belief">
+        <h4>AI as a multiplier, not an imposter</h4>
+        <p>AI is powerful layered on real expertise and dangerous as a quick replacement for it. Left alone it can lull you into false confidence, so you need people who know where it goes wrong steering and validating it.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI / HOW I WORK -->
+  <section class="panel block reveal">
+    <span class="notch">How I work with AI</span>
+    <h2>AI is only as good as the direction you give it</h2>
+    <div class="prose">
+      <p>I use AI heavily and deliberately, but always on top of real product judgment and craft. On its own it drifts, and it can lull you into false confidence if you don't know where it's likely to go wrong; what makes it reliable is clear direction, consistent rules, and a human who can spot the failure modes. With that in place it's genuinely powerful, whether it's generating and pressure-testing design concepts, combing through lengthy research for patterns easy to miss, managing a design system at scale, or building working prototypes that communicate a vision faster than clickable mockups. At ICON I built a Claude-based product-management system that processed dozens of meeting transcripts a week and tracked my roadmap to suggest sprint plans, filling missing team capacity during a hard phase.</p>
+    </div>
+    <blockquote class="bigquote">We have a clear opportunity to rethink the work humans are best at and most satisfied by, while making the redundant work we've always done higher-quality, more consistent, and mind-blowingly fast. Layered on real expertise, it can surface new connections buried in vast amounts of seemingly disparate information and trends. Done right, it lets us spend more time with our customers, not less, drawing out the value they actually need.</blockquote>
+  </section>
+
+  <!-- BACKGROUND -->
+  <section class="panel block reveal">
+    <span class="notch">Background</span>
+    <h2>Selected background</h2>
+    <div class="hist">
+      <div class="row">
+        <div><div class="role">Director, Digital Product Experience</div><div class="co">ICON · 3D-printed robotic homebuilding (promoted from Principal Product Experience Designer)</div></div>
+        <div class="yr">2022–2026</div>
+      </div>
+      <div class="row">
+        <div><div class="role">Sr. UX Researcher &amp; Designer</div><div class="co">DUST Identity · patented physical-security technology</div></div>
+        <div class="yr">2021–2022</div>
+      </div>
+      <div class="row">
+        <div><div class="role">Sr. UX Researcher &amp; Designer</div><div class="co">Robots &amp; Pencils · enterprise tools, incl. a retailer negotiation platform that drove $10M in savings pre-launch</div></div>
+        <div class="yr">2019–2021</div>
+      </div>
+      <div class="row">
+        <div><div class="role">Sr. UX Designer / Product Owner</div><div class="co">Toastmasters International · learning platform &amp; accessibility</div></div>
+        <div class="yr">2018–2019</div>
+      </div>
+      <div class="row">
+        <div><div class="role">Experience &amp; Design</div><div class="co">Monigle · brand and experience work with complex clients</div></div>
+        <div class="yr">2017–2018</div>
+      </div>
+      <div class="row">
+        <div><div class="role">Sr. Digital Marketing Manager</div><div class="co">AtkinsRéalis · where the marketing-to-product roots began</div></div>
+        <div class="yr">2013–2017</div>
+      </div>
+    </div>
+    <div class="prose" style="margin-top:26px">
+      <p>The full history, with metrics and detail, lives in my <a href="HollyNava-Resume.pdf" target="_blank" rel="noopener" style="color:var(--ink);border-bottom:1px solid var(--line)">résumé</a>, and the deeper stories are in <a href="work.html" style="color:var(--ink);border-bottom:1px solid var(--line)">selected projects</a>.</p>
+    </div>
+  </section>
+
+</div>
+
+<!-- CONNECT -->
+<section class="connect" id="contact">
+  <h2>Let's Connect</h2>
+  <p>Whether you're building something complex, or just need clarity on where to start.</p>
+  <div class="cbtns">
+    <a href="mailto:holly.a.nava@gmail.com">Email</a>
+    <a href="https://linkedin.com/in/hollynava" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="HollyNava-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+  </div>
+</section>
+<footer>
+  <span>© 2026 Holly Nava</span>
+  <span>Director of Product · Clarity in complex spaces</span>
+</footer>
+
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>

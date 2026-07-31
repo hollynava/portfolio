@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>$10M Negotiation Tool · Holly Nava</title>
+<meta name="description" content="A supplier-negotiation tool for one of the world's largest retailers that unlocked $10M in savings in its first trial negotiation." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --page:#FCFBF9; --panel:#F1F0EC; --card:#FFFFFF;
+    --ink:#1B1B19; --muted:#7C7A74; --faint:#9B988F; --line:#E7E4DD;
+    --green:#3BA776; --tag:#ECEBE7;
+    --r:30px; --r2:18px; --max:1320px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--page);color:var(--ink);font-family:"Inter",system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;padding:14px}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto}
+  h1,h2,h3{letter-spacing:-.02em;font-weight:600;line-height:1.06}
+
+  nav{max-width:var(--max);margin:0 auto 14px;display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase}
+  .status{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);font-weight:500;letter-spacing:0;text-transform:none}
+  .status .g{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(59,167,118,.16)}
+  .navlinks{display:flex;gap:30px;font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--muted)}
+  .navlinks a:hover{color:var(--ink)}
+  @media(max-width:680px){.navlinks{gap:15px;font-size:11px}.status .txt{display:none}}
+
+  .panel{position:relative;background:var(--panel);border-radius:var(--r);padding:72px;margin-bottom:22px}
+  @media(max-width:680px){.panel{padding:52px 24px 40px}}
+  .notch{position:absolute;top:0;left:0;z-index:3;height:52px;min-width:252px;display:flex;align-items:center;padding:0 30px 0 36px;background:var(--page);border-radius:var(--r) 0 20px 0;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .notch::after{content:"";position:absolute;left:100%;top:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
+  .notch::before{content:"";position:absolute;top:100%;left:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
+
+  .back{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:6px 20px 16px}
+  .back:hover{color:var(--ink)}
+
+  .cs-hero .eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+  .cs-hero h1{font-size:clamp(29px,4.2vw,52px);margin:14px 0 22px;max-width:none}
+  .cs-hero .summary{color:var(--muted);font-size:clamp(17px,1.7vw,19px);max-width:78ch}
+  .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+  .tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#54524d;background:var(--tag);padding:8px 13px;border-radius:7px}
+  .meta{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 44px;margin-top:36px;max-width:760px}
+  .meta .k{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+  .meta .v{font-size:15px;color:var(--ink)}
+  @media(max-width:680px){.meta{grid-template-columns:1fr;gap:18px}}
+
+  /* Feature stat band */
+  .feature{background:var(--ink);color:#fff;border-radius:var(--r);padding:56px;margin-bottom:22px;text-align:center}
+  .feature .big{font-size:clamp(52px,8vw,104px);font-weight:700;letter-spacing:-.03em;line-height:1}
+  .feature .cap{color:#c9c6bf;font-size:clamp(15px,1.6vw,18px);margin-top:14px;max-width:52ch;margin-left:auto;margin-right:auto}
+  .feature .real{display:inline-block;margin-top:18px;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8fe0bb;border:1px solid rgba(143,224,187,.4);border-radius:6px;padding:5px 11px}
+
+  .block{padding-top:88px}
+  .block h2{font-size:clamp(26px,3.3vw,40px);margin-bottom:24px;max-width:none}
+  .prose{max-width:104ch}
+  .prose p{color:var(--muted);font-size:18px;line-height:1.6}
+  .prose p + p{margin-top:16px}
+  .prose b{color:var(--ink);font-weight:600}
+
+  .moves{margin-top:6px;max-width:92ch}
+  .move{padding:22px 0;border-top:1px solid var(--line)}
+  .move:first-child{border-top:none;padding-top:2px}
+  .move h3{font-size:17px;font-weight:600;margin-bottom:7px;color:var(--ink)}
+  .move p{color:var(--muted);font-size:15.5px}
+
+  /* Before / after */
+  .ba{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:18px;margin-top:40px}
+  .ba .box{background:var(--card);border:1px solid var(--line);border-radius:var(--r2);padding:24px;min-height:120px;display:flex;flex-direction:column;justify-content:center}
+  .ba .k{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
+  .ba .box.before .v{color:var(--muted);font-size:16px}
+  .ba .box.after{border-color:rgba(59,167,118,.45)}
+  .ba .box.after .v{color:var(--ink);font-weight:600;font-size:17px}
+  .ba .arrow{font-size:30px;color:var(--faint)}
+  @media(max-width:680px){.ba{grid-template-columns:1fr}.ba .arrow{transform:rotate(90deg);justify-self:center}}
+
+  .bigquote{max-width:var(--max);margin:8px auto 26px;padding:6px 24px;border-left:3px solid var(--green);font-size:clamp(19px,2.3vw,27px);font-style:italic;font-weight:500;color:var(--ink);line-height:1.36;letter-spacing:-.01em}
+
+  .nextproj{display:flex;align-items:center;justify-content:space-between;gap:20px;background:var(--card);border:1px solid var(--line);border-radius:var(--r2);padding:28px 32px;margin-bottom:22px;transition:border-color .2s,transform .2s}
+  .nextproj:hover{border-color:#cbc7bf;transform:translateY(-2px)}
+  .nextproj .k{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+  .nextproj .t{font-size:clamp(18px,2vw,22px);font-weight:600;margin-top:6px}
+  .nextproj .arrow{font-size:26px;color:var(--muted)}
+
+  .connect{text-align:center;padding:96px 24px 40px}
+  .connect h2{font-size:clamp(30px,4.4vw,48px)}
+  .connect p{color:var(--muted);margin:16px auto 0;max-width:46ch;font-size:16px}
+  .cbtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+  .cbtns a{padding:13px 26px;border-radius:999px;font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;background:var(--ink);color:#fff;border:1px solid var(--ink)}
+  .cbtns a:hover{opacity:.88}
+  footer{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:var(--faint);font-size:12.5px;padding:22px 20px 8px;border-top:1px solid var(--line)}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="brand">Holly Nava
+    <span class="status"><span class="g"></span><span class="txt">Open to New Opportunities</span></span>
+  </a>
+  <div class="navlinks">
+    <a href="work.html">Work</a><a href="about.html">About</a><a href="index.html#contact">Get in touch</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <a class="back" href="work.html">‹ Selected Projects</a>
+
+  <!-- HERO -->
+  <section class="panel cs-hero reveal">
+    <div class="eyebrow">Robots &amp; Pencils · enterprise retail</div>
+    <h1>A negotiation tool that unlocked $10M in savings</h1>
+    <p class="summary">One of the world's largest retailers negotiated supplier costs through a manual, inconsistent process. I led the UX strategy and design that turned a nearly unusable data platform into a tool buyers could actually read their leverage from, and it paid off before it even launched.</p>
+    <div class="tags"><span class="tag">UX Research</span><span class="tag">Information Architecture</span><span class="tag">Enterprise</span><span class="tag">$10M Outcome</span></div>
+    <div class="meta">
+      <div><div class="k">Role</div><div class="v">UX Strategy &amp; Design Lead</div></div>
+      <div><div class="k">Team</div><div class="v">With a strategy lead, a program manager, and ~10 developers</div></div>
+      <div><div class="k">Client</div><div class="v">One of the world's largest retailers (via Robots &amp; Pencils)</div></div>
+      <div><div class="k">Timeline</div><div class="v">2019–2021</div></div>
+    </div>
+  </section>
+
+  <!-- FEATURE STAT -->
+  <div class="feature reveal">
+    <div class="big">$10M</div>
+    <div class="cap">saved in the tool's first trial negotiation, from a supplier the buyer had previously failed to move</div>
+    <span class="real">Real result · pre-launch</span>
+  </div>
+
+  <!-- PROBLEM -->
+  <section class="panel block reveal">
+    <span class="notch">The problem</span>
+    <h2>Weeks of prep, binders of data, and a tool no one could use</h2>
+    <div class="prose">
+      <p>Buyers negotiated supplier costs through a manual, inconsistent process: weeks of preparation, binders of performance data, and a scatter of disconnected tools. A proof-of-concept built in Tableau was meant to help, but it had ballooned to more than thirty data tabs and was nearly unusable.</p>
+      <p>The data existed. What was missing was a way to turn it into leverage a buyer could actually see and act on, fast, in the room.</p>
+    </div>
+  </section>
+
+  <!-- WHAT I DID -->
+  <section class="panel block reveal">
+    <span class="notch">What I did</span>
+    <h2>Turned tangled data into a decision buyers could read fast</h2>
+    <div class="moves">
+      <div class="move">
+        <h3>Audited the buyer-tool ecosystem</h3>
+        <p>I mapped the full set of tools and data buyers relied on, and built a clean information architecture out of what had become a thirty-tab tangle.</p>
+      </div>
+      <div class="move">
+        <h3>Tested the proof-of-concept with real buyers</h3>
+        <p>I ran usability sessions across buyer types to find what actually drove a negotiation, and separated the signal that mattered from the noise that didn't.</p>
+      </div>
+      <div class="move">
+        <h3>Designed for leverage at a glance</h3>
+        <p>I designed a scannable interface that let a buyer read their position and leverage quickly, instead of hunting across tabs mid-negotiation.</p>
+      </div>
+      <div class="move">
+        <h3>Aligned the team on scope</h3>
+        <p>I ran a full-team story-mapping workshop to define the MVP and get development and strategy pointed at the same outcome, then ran a post-launch Kano study to shape the roadmap.</p>
+      </div>
+    </div>
+
+    <div class="ba">
+      <div class="box before"><div class="k">Before</div><div class="v">A 30-plus-tab Tableau proof-of-concept, nearly unusable in a live negotiation.</div></div>
+      <div class="arrow">›</div>
+      <div class="box after"><div class="k">After</div><div class="v">One scannable tool where a buyer could read their leverage, and actively dial it up and adjust it, not just see it.</div></div>
+    </div>
+  </section>
+
+  <!-- OUTCOME -->
+  <section class="panel block reveal">
+    <span class="notch">Outcome</span>
+    <h2>$10M unlocked before the tool officially launched</h2>
+    <div class="prose">
+      <p>Before the official launch, a buyer used the tool in a trial negotiation and achieved <b>$10M in savings</b>, from a supplier they had previously failed to move. It replaced guesswork with a repeatable, data-grounded negotiation process the team could run again and again.</p>
+    </div>
+  </section>
+
+  <a class="nextproj reveal" href="buildos.html">
+    <div><div class="k">Next project</div><div class="t">BuildOS — a product ecosystem for 3D-printed construction</div></div>
+    <div class="arrow">›</div>
+  </a>
+
+</div>
+
+<!-- CONNECT -->
+<section class="connect" id="contact">
+  <h2>Let's Connect</h2>
+  <p>Whether you're building something complex, or just need clarity on where to start.</p>
+  <div class="cbtns">
+    <a href="mailto:holly.a.nava@gmail.com">Email</a>
+    <a href="https://linkedin.com/in/hollynava" target="_blank" rel="noopener">LinkedIn</a>
+    <a href="HollyNava-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
+  </div>
+</section>
+<footer>
+  <span>© 2026 Holly Nava</span>
+  <span>Director of Product · Clarity in complex spaces</span>
+</footer>
+
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+</script>
+</body>
+</html>
