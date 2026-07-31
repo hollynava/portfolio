@@ -12,7 +12,7 @@
   :root{
     --page:#FCFBF9; --panel:#F1F0EC; --card:#FFFFFF;
     --ink:#1B1B19; --muted:#7C7A74; --faint:#9B988F; --line:#E7E4DD;
-    --green:#3BA776; --tag:#ECEBE7;
+    --green:#1B1B19; --tag:#ECEBE7;
     --r:30px; --r2:18px; --max:1320px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -27,7 +27,7 @@
   nav{max-width:var(--max);margin:0 auto 14px;display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
   .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase}
   .status{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);font-weight:500;letter-spacing:0;text-transform:none}
-  .status .g{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(59,167,118,.16)}
+  .status .g{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(0,0,0,.16)}
   .navlinks{display:flex;gap:30px;font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--muted)}
   .navlinks a:hover{color:var(--ink)}
   @media(max-width:680px){.navlinks{gap:15px;font-size:11px}.status .txt{display:none}}
@@ -40,18 +40,18 @@
   .notch::before{content:"";position:absolute;top:100%;left:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
 
   /* Hero */
-  .hero{display:grid;grid-template-columns:0.70fr 1.30fr;gap:56px;align-items:center}
+  .hero{display:grid;grid-template-columns:0.56fr 1.44fr;gap:56px;align-items:center}
   .hero .photo{width:100%;aspect-ratio:4/5;border-radius:22px;object-fit:cover;object-position:center top;display:block}
   .hero .eyebrow{font-weight:700;font-size:clamp(15px,1.6vw,18px);letter-spacing:.08em;text-transform:uppercase}
   .hero .eyebrow span{color:var(--muted);font-weight:600}
-  .hero h1{font-size:clamp(31px,4vw,50px);margin:22px 0 24px}
+  .hero h1{font-size:clamp(28px,3.6vw,45px);margin:22px 0 24px}
   .hero p{color:var(--muted);font-size:17px;max-width:70ch}
   .hero p + p{margin-top:16px}
   @media(max-width:760px){.hero{grid-template-columns:1fr;gap:28px}.hero .photo{aspect-ratio:1/1;max-height:420px}}
 
   /* Testimonial — wide + consistent height */
   .tst{min-height:196px;padding:88px 72px 46px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center}
-  .tst blockquote{font-size:clamp(14px,1.5vw,18px);font-style:italic;font-weight:500;line-height:1.4;max-width:600px;letter-spacing:-.01em;min-height:130px;display:flex;align-items:center;justify-content:center}
+  .tst blockquote{font-size:clamp(17px,1.9vw,23px);font-style:italic;font-weight:500;line-height:1.4;max-width:660px;letter-spacing:-.01em;min-height:150px;display:flex;align-items:center;justify-content:center}
   @media(max-width:760px){.tst blockquote{min-height:210px}}
   .tst blockquote b{font-style:normal;font-weight:600}
   .tst cite{display:block;margin-top:24px;font-style:normal;font-size:13.5px;color:var(--muted);font-weight:600;letter-spacing:.02em}

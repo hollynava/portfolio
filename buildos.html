@@ -12,7 +12,7 @@
   :root{
     --page:#FCFBF9; --panel:#F1F0EC; --card:#FFFFFF;
     --ink:#1B1B19; --muted:#7C7A74; --faint:#9B988F; --line:#E7E4DD;
-    --green:#3BA776; --tag:#ECEBE7;
+    --green:#1B1B19; --tag:#ECEBE7;
     --r:30px; --r2:18px; --max:1320px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -26,7 +26,7 @@
   nav{max-width:var(--max);margin:0 auto 14px;display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
   .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase}
   .status{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);font-weight:500;letter-spacing:0;text-transform:none}
-  .status .g{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(59,167,118,.16)}
+  .status .g{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(0,0,0,.16)}
   .navlinks{display:flex;gap:30px;font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--muted)}
   .navlinks a:hover{color:var(--ink)}
   @media(max-width:680px){.navlinks{gap:15px;font-size:11px}.status .txt{display:none}}
@@ -44,8 +44,8 @@
 
   /* Case-study hero */
   .cs-hero .eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
-  .cs-hero h1{font-size:clamp(29px,4.2vw,52px);margin:14px 0 22px;max-width:none}
-  .cs-hero .summary{color:var(--muted);font-size:clamp(17px,1.7vw,19px);max-width:78ch}
+  .cs-hero h1{font-size:clamp(26px,3.8vw,47px);margin:14px 0 22px;max-width:none}
+  .cs-hero .summary{color:var(--muted);font-size:clamp(17px,1.7vw,19px);max-width:none}
   .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
   .tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#54524d;background:var(--tag);padding:8px 13px;border-radius:7px}
   .meta{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 44px;margin-top:36px;max-width:760px}
@@ -70,13 +70,13 @@
   /* Block sections */
   .block{padding-top:88px}
   .block h2{font-size:clamp(26px,3.3vw,40px);margin-bottom:24px;max-width:none}
-  .prose{max-width:104ch}
+  .prose{max-width:none}
   .prose p{color:var(--muted);font-size:18px;line-height:1.6}
   .prose p + p{margin-top:16px}
   .prose b{color:var(--ink);font-weight:600}
 
   /* Moves (rule-separated) */
-  .moves{margin-top:6px;max-width:92ch}
+  .moves{margin-top:6px;max-width:none}
   .move{padding:22px 0;border-top:1px solid var(--line)}
   .move:first-child{border-top:none;padding-top:2px}
   .move h3{font-size:17px;font-weight:600;margin-bottom:7px;color:var(--ink)}
@@ -92,7 +92,7 @@
   .node .d{font-size:12px;color:var(--muted);margin-top:3px}
   .core{background:#fff;border:1.5px solid var(--ink)}
   .supp{background:#F6F5F1;border:1px solid var(--line)}
-  .spine{margin:16px 0;text-align:center;font-size:12.5px;font-weight:600;color:#2c7a57;background:rgba(59,167,118,.10);border:1px solid rgba(59,167,118,.30);border-radius:999px;padding:9px 16px}
+  .spine{margin:16px 0;text-align:center;font-size:12.5px;font-weight:600;color:#1B1B19;background:rgba(0,0,0,.10);border:1px solid rgba(0,0,0,.30);border-radius:999px;padding:9px 16px}
   @media(max-width:680px){.eco .rowa{grid-template-columns:1fr}.eco .rowb{grid-template-columns:1fr;max-width:none}}
 
   /* Stats */
@@ -141,13 +141,12 @@
 
 <div class="wrap">
 
-  <a class="back" href="work.html">‹ Selected Projects</a>
 
   <!-- HERO -->
   <section class="panel cs-hero reveal">
     <div class="eyebrow">ICON · 3D-printed robotic homebuilding</div>
     <h1>BuildOS — a product ecosystem for 3D-printed construction</h1>
-    <p class="summary">ICON isn't just building a robot, it's trying to invent a new way to build, where design, hardware, materials, and services all have to come together at once. The software to tie those pieces into one experience didn't yet exist. I owned the strategy and design that turned a patchwork of internal tools into BuildOS, the digital thread that carries a customer from design through construction, adopted as the company's official product direction.</p>
+    <p class="summary">ICON isn't just building a robot, it's trying to invent a new way to build, where design, hardware, materials, and services all have to come together at once. The software to tie those pieces into one experience didn't yet exist. Rather than patch the disconnected tools one by one, I identified a single unified ecosystem, built on a common data spine and shared product components, and owned the strategy and design to make it real: BuildOS, the digital thread that carries a customer from design through construction, adopted as the company's official product direction.</p>
     <div class="tags"><span class="tag">Product Strategy</span><span class="tag">Systems Design</span><span class="tag">Physical / Digital</span><span class="tag">0→1</span></div>
     <div class="meta">
       <div><div class="k">Role</div><div class="v">Director, Digital Product Experience (promoted from Principal Product Experience Designer)</div></div>

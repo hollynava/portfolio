@@ -12,7 +12,7 @@
   :root{
     --page:#FCFBF9; --panel:#F1F0EC; --card:#FFFFFF;
     --ink:#1B1B19; --muted:#7C7A74; --faint:#9B988F; --line:#E7E4DD;
-    --green:#3BA776; --tag:#ECEBE7;
+    --green:#1B1B19; --tag:#ECEBE7;
     --r:30px; --r2:18px; --max:1320px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -27,7 +27,7 @@
   nav{max-width:var(--max);margin:0 auto 14px;display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
   .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase}
   .status{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);font-weight:500;letter-spacing:0;text-transform:none}
-  .status .g{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(59,167,118,.16)}
+  .status .g{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(0,0,0,.16)}
   .navlinks{display:flex;gap:30px;font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--muted)}
   .navlinks a:hover{color:var(--ink)}
   .navlinks a.here{color:var(--ink)}
@@ -41,10 +41,10 @@
   .notch::before{content:"";position:absolute;top:100%;left:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
 
   /* Intro (photo + lede) */
-  .intro{display:grid;grid-template-columns:0.70fr 1.30fr;gap:56px;align-items:center}
+  .intro{display:grid;grid-template-columns:0.56fr 1.44fr;gap:56px;align-items:center}
   .intro .photo{width:100%;aspect-ratio:4/5;border-radius:22px;object-fit:cover;object-position:center top;display:block}
   .intro .eyebrow{font-weight:700;font-size:clamp(13px,1.3vw,15px);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-  .intro h1{font-size:clamp(29px,3.9vw,50px);margin:18px 0 22px}
+  .intro h1{font-size:clamp(26px,3.5vw,45px);margin:18px 0 22px}
   .intro p{color:var(--muted);font-size:17px;max-width:76ch}
   .intro p + p{margin-top:16px}
   .intro b{color:var(--ink);font-weight:600}
@@ -105,24 +105,13 @@
 
   <!-- INTRO -->
   <section class="panel intro reveal">
-    <img class="photo" src="holly.jpg" alt="Holly Nava">
+    <img class="photo" src="holly-about.jpg" alt="Holly Nava">
     <div>
       <div class="eyebrow">About</div>
       <h1>I flex to what the problem and the team need.</h1>
       <p>I'm a design-rooted product leader who creates clarity in complex spaces, most often where the physical and digital meet. I'm most useful on the problems that are fragmented and ambiguous, where the tidy version on paper doesn't match how things actually work.</p>
-      <p>My instinct is to <b>architect from what's actually there</b>: the real tools, the real data, and the real people, rather than from what a plan says should exist. I flex to the range each problem needs, from setting an ecosystem's strategy to designing the exact interface someone uses in the field. And I flex to the team, meeting people where their real strengths are instead of forcing everyone into the same shape.</p>
-    </div>
-  </section>
-
-  <!-- THE WORK / RANGE -->
-  <section class="panel block reveal">
-    <span class="notch">Where I work best</span>
-    <h2>At the seam between systems, hardware, and the people who use them</h2>
-    <div class="prose">
-      <p>My most recent work lived at the intersection of hardware and software: 3D-printing robots that build homes. That meant translating machine-level realities into something a person can actually operate, and bridging mechanical engineers, application developers, and stakeholders who frequently don't speak the same language.</p>
-      <p>I started in design, and over time my work moved up the stack into product strategy and leadership, without letting go of the craft. That combination is the point: I can frame the problem, set the direction, and still get close enough to the interface to know whether the direction actually holds. The through-line across everything I've built is finding a coherent whole inside a genuinely messy one.</p>
+      <p>My instinct is to <b>architect from what's actually there</b>: the real tools, the real data, and the real people, rather than from what a plan says should exist. I flex to the range each problem needs, from setting an ecosystem's strategy to designing the exact interface someone uses in the field, and to the team, by meeting people where their real strengths are.</p>
       <p>I do my best work with real authority and direct lines to the people I'm building for: users and decision-makers within reach, low silos, and a mission that actually matters. That's when the range pays off.</p>
-      <p class="pull">"Creating clarity in complex spaces."</p>
     </div>
   </section>
 
@@ -133,23 +122,23 @@
     <div class="beliefs">
       <div class="belief">
         <h4>Flex the method, hold the vision</h4>
-        <p>There's no standard process that works across every product. Every team, every company, every stack has its own unique constraints and opportunities. Good, repeatable tools exist, but force-fitting a familiar process because you think you <i>should</i> leaves value on the table and can waste valuable time. It's more valuable to find or shape the right tool for the specific challenge and outcome you're really seeking than to check a box.</p>
+        <p>No single process fits every product; every team and stack has its own constraints. I'd rather find or shape the right tool for the specific challenge and outcome than force-fit a familiar one to check a box.</p>
       </div>
       <div class="belief">
         <h4>Velocity alone never builds a great product</h4>
-        <p>Moving fast is usually necessary, but it isn't sufficient. The teams that make great products are the ones that ship quickly and hold a standard they won't drop under pressure. Velocity alone can also mean moving in the wrong direction faster. Short-term experiments can be highly effective at helping identify a product direction, but should never be a substitute for defining a clear product vision.</p>
+        <p>Moving fast is necessary but not sufficient, and it can just mean going the wrong way faster. Great teams ship quickly, hold a standard they won't drop, and treat short experiments as a way to find direction, never a substitute for a clear vision.</p>
       </div>
       <div class="belief">
         <h4>Find the team's true superpowers instead of force-fitting</h4>
-        <p>Rather than forcing a static role onto a person, I start by discovering what they're genuinely best at and energized by, and build the work around that. It makes for happier teams, better outcomes, and a truer picture of what a team's capabilities and gaps actually are, not just what they should be on paper.</p>
+        <p>I start from what people are genuinely best at and energized by, and build the work around that. It makes for happier teams and a truer read of what a team can actually do, not just what it should on paper.</p>
       </div>
       <div class="belief">
         <h4>Specialists are interventions; experienced generalists steer the ship</h4>
-        <p>Depth matters most at key moments, to set taste, standard, and rigor. Between those moments, a design-rooted generalist keeps direction and coherence, and knows when it's time to bring depth back in before the product stalls. It will be increasingly important to target that depth at the right time, and for the right duration, to gain an edge in competitive markets.</p>
+        <p>Depth matters most at key moments, to set taste and rigor. Between them, a design-rooted generalist holds direction and knows when to bring depth back in, at the right time and for the right duration, before the product stalls.</p>
       </div>
       <div class="belief">
         <h4>AI as a multiplier, not an imposter</h4>
-        <p>AI is a powerful force multiplier when it's layered on top of real expertise and evaluation, but it falls down when it's asked to become a quick replacement for it. Unless you're working in a cookie-cutter industry, you need humans with real knowledge and understanding steering it, guiding and validating the work so you aren't lulled into a false sense of quality.</p>
+        <p>AI is powerful layered on real expertise and dangerous as a quick replacement for it. Left alone it can lull you into false confidence, so you need people who know where it goes wrong steering and validating it.</p>
       </div>
     </div>
   </section>
@@ -159,8 +148,7 @@
     <span class="notch">How I work with AI</span>
     <h2>AI is only as good as the direction you give it</h2>
     <div class="prose">
-      <p>I use AI heavily and deliberately, but always layered on top of real product judgment and craft. On its own it drifts, and it can lull you into a false sense of confidence if you don't know where it's likely to be going wrong. What makes it reliable is a layer of clear direction and consistent rules, plus a human who can spot the failure modes and hold it to a quality bar. With that scaffolding in place it becomes genuinely powerful, whether it's rapidly generating and pressure-testing design concepts, combing through lengthy research to surface trends and common threads that are easy to lose in the minutiae, or helping manage, apply, and audit a design system at scale.</p>
-      <p>I've used it to build working coded prototypes that communicate a vision and surface real challenges far faster than the clickable mockups we used to rely on. And during a demanding stretch at ICON, I built a Claude-based product-management operating system that processed dozens of meeting transcripts a week into structured status, and tracked my roadmap to suggest sprint plans and analyze progress, filling missing team capacity while the team was in a hard phase.</p>
+      <p>I use AI heavily and deliberately, but always on top of real product judgment and craft. On its own it drifts, and it can lull you into false confidence if you don't know where it's likely to go wrong; what makes it reliable is clear direction, consistent rules, and a human who can spot the failure modes. With that in place it's genuinely powerful, whether it's generating and pressure-testing design concepts, combing through lengthy research for patterns easy to miss, managing a design system at scale, or building working prototypes that communicate a vision faster than clickable mockups. At ICON I built a Claude-based product-management system that processed dozens of meeting transcripts a week and tracked my roadmap to suggest sprint plans, filling missing team capacity during a hard phase.</p>
     </div>
     <blockquote class="bigquote">We have a clear opportunity to rethink the work humans are best at and most satisfied by, while making the redundant work we've always done higher-quality, more consistent, and mind-blowingly fast. Layered on real expertise, it can surface new connections buried in vast amounts of seemingly disparate information and trends. Done right, it lets us spend more time with our customers, not less, drawing out the value they actually need.</blockquote>
   </section>

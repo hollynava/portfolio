@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--page:#FCFBF9;--panel:#F1F0EC;--card:#FFFFFF;--ink:#1B1B19;--muted:#7C7A74;--faint:#9B988F;--line:#E7E4DD;--green:#3BA776;--tag:#ECEBE7;--r:30px;--r2:18px;--max:1320px;}
+  :root{--page:#FCFBF9;--panel:#F1F0EC;--card:#FFFFFF;--ink:#1B1B19;--muted:#7C7A74;--faint:#9B988F;--line:#E7E4DD;--green:#1B1B19;--tag:#ECEBE7;--r:30px;--r2:18px;--max:1320px;}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{background:var(--page);color:var(--ink);font-family:"Inter",system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;padding:14px}
@@ -20,7 +20,7 @@
   nav{max-width:var(--max);margin:0 auto 14px;display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
   .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase}
   .status{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);font-weight:500;letter-spacing:0;text-transform:none}
-  .status .g{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(59,167,118,.16)}
+  .status .g{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(0,0,0,.16)}
   .navlinks{display:flex;gap:30px;font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--muted)}
   .navlinks a:hover,.navlinks a.on{color:var(--ink)}
   @media(max-width:680px){.navlinks{gap:15px;font-size:11px}.status .txt{display:none}}
@@ -31,7 +31,7 @@
   .notch::before{content:"";position:absolute;top:100%;left:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
   .work-head{margin-top:22px}
   .work-head .eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:14px}
-  .work-head h1{font-size:clamp(31px,4vw,50px);margin-bottom:16px}
+  .work-head h1{font-size:clamp(28px,3.6vw,45px);margin-bottom:16px}
   .work-head p{color:var(--muted);max-width:70ch;font-size:17px}
   .cards{display:flex;flex-direction:column;gap:18px;margin-top:38px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r2);padding:28px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:36px;align-items:center;transition:border-color .2s,transform .2s}
@@ -69,7 +69,6 @@
 </nav>
 <div class="wrap">
   <section class="panel reveal">
-    <span class="notch">Selected Projects</span>
     <div class="work-head">
       <div class="eyebrow">Work</div>
       <h1>A few things I've shaped</h1>
@@ -112,7 +111,7 @@
         <div>
           <div class="plabel">ICON · 3D-printed robotic homebuilding</div>
           <h3>Vitruvius — helping make an AI architect usable</h3>
-          <div class="desc">Joined a rushed generative-AI beta and supported post-launch strategy, defining a product vision that put humans at the right place in the loop.</div>
+          <div class="desc">Joined a rushed generative-AI beta and supported post-launch strategy, defining a product vision that gave people more control of the outcome, stepping into the loop at the moments that matter.</div>
           <div class="tags"><span class="tag">AI Product</span><span class="tag">Product Strategy</span><span class="tag">Hands-on Design</span></div>
           <div class="cta">Read the case study ›</div>
         </div>

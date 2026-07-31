@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--page:#FCFBF9;--panel:#F1F0EC;--card:#FFFFFF;--ink:#1B1B19;--muted:#7C7A74;--faint:#9B988F;--line:#E7E4DD;--green:#3BA776;--tag:#ECEBE7;--r:30px;--r2:18px;--max:1320px;}
+  :root{--page:#FCFBF9;--panel:#F1F0EC;--card:#FFFFFF;--ink:#1B1B19;--muted:#7C7A74;--faint:#9B988F;--line:#E7E4DD;--green:#1B1B19;--tag:#ECEBE7;--r:30px;--r2:18px;--max:1320px;}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{background:var(--page);color:var(--ink);font-family:"Inter",system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;padding:14px}
@@ -19,7 +19,7 @@
   nav{max-width:var(--max);margin:0 auto 14px;display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
   .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase}
   .status{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);font-weight:500}
-  .status .g{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(59,167,118,.16)}
+  .status .g{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(0,0,0,.16)}
   .navlinks{display:flex;gap:30px;font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--muted)}
   .navlinks a:hover{color:var(--ink)}
   @media(max-width:680px){.navlinks{gap:15px;font-size:11px}.status .txt{display:none}}
@@ -31,8 +31,8 @@
   .back{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:6px 20px 16px}
   .back:hover{color:var(--ink)}
   .cs-hero .eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
-  .cs-hero h1{font-size:clamp(29px,4.2vw,52px);margin:14px 0 22px;max-width:none}
-  .cs-hero .summary{color:var(--muted);font-size:clamp(17px,1.7vw,19px);max-width:78ch}
+  .cs-hero h1{font-size:clamp(26px,3.8vw,47px);margin:14px 0 22px;max-width:none}
+  .cs-hero .summary{color:var(--muted);font-size:clamp(17px,1.7vw,19px);max-width:none}
   .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
   .tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#54524d;background:var(--tag);padding:8px 13px;border-radius:7px}
   .livecta{display:inline-flex;align-items:center;gap:9px;margin-top:30px;padding:14px 26px;border-radius:999px;background:var(--green);color:#fff;font-weight:600;font-size:13px;letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--green);transition:opacity .2s}
@@ -52,11 +52,11 @@
   .media .mdots i.on{background:var(--ink)}
   .block{padding-top:88px}
   .block h2{font-size:clamp(26px,3.3vw,40px);margin-bottom:24px;max-width:none}
-  .prose{max-width:104ch}
+  .prose{max-width:none}
   .prose p{color:var(--muted);font-size:18px;line-height:1.6}
   .prose p + p{margin-top:16px}
   .prose b{color:var(--ink);font-weight:600}
-  .moves{margin-top:6px;max-width:92ch}
+  .moves{margin-top:6px;max-width:none}
   .move{padding:22px 0;border-top:1px solid var(--line)}
   .move:first-child{border-top:none;padding-top:2px}
   .move h3{font-size:17px;font-weight:600;margin-bottom:7px;color:var(--ink)}
@@ -95,17 +95,16 @@
   </div>
 </nav>
 <div class="wrap">
-  <a class="back" href="work.html">‹ Selected Projects</a>
   <section class="panel cs-hero reveal">
     <div class="eyebrow">Self-initiated concept · Consumer / media product</div>
     <h1>Working backwards from a press release to a shipped app</h1>
-    <p class="summary">Every major podcast app fails listeners somewhere, and none aligns what delights a listener with what grows a creator's business. I set out to design the product that puts listeners, creators, and advertisers on the same side, then took it the whole distance myself: from an Amazon-style press release, through market and business strategy, to a working, deployed app.</p>
+    <p class="summary">Every major podcast app fails listeners somewhere, and none aligns what delights a listener with what grows a creator's business. I set out to design the product that puts listeners, creators, and advertisers on the same side, then took it the whole distance myself: from an Amazon-style press release, through market and business strategy, to a working, deployed app. I built the entire thing in about a week, using Claude as a force multiplier, as a sample of how I work.</p>
     <div class="tags"><span class="tag">0→1</span><span class="tag">Strategy → Prototype</span><span class="tag">Consumer / Media</span><span class="tag">Solo build</span></div>
     <div class="meta">
       <div><div class="k">Role</div><div class="v">Solo — market research, product strategy, design, and build</div></div>
       <div><div class="k">Type</div><div class="v">Self-initiated concept; not affiliated with Libsyn</div></div>
       <div><div class="k">Output</div><div class="v">Working-backwards PR-FAQ, product strategy, and a live progressive web app</div></div>
-      <div><div class="k">Why I built it</div><div class="v">To show, end to end, how I decide and how I ship</div></div>
+      <div><div class="k">Timeframe</div><div class="v">Built in about a week, using Claude as a force multiplier</div></div>
     </div>
     <a class="livecta" href="https://opensignal-iota.vercel.app/#app" target="_blank" rel="noopener">View the live app <span class="ico">↗</span></a>
   </section>
@@ -146,10 +145,10 @@
       <div class="stat"><div class="big">Offer card</div><div class="cap">Makes a host-read ad measurable without interrupting the audio</div></div>
       <div class="stat"><div class="big">"Your Algorithm"</div><div class="cap">Listener-controlled, glass-box discovery in a black-box category</div></div>
     </div>
-    <p class="honest">Every control in the app is real and interactive. Audience analytics are clearly labeled illustrative, since there's no live audience to measure. This is a self-initiated concept and is not affiliated with Libsyn.</p>
+    <p class="honest">Built in about a week as a sample project, using Claude as a force multiplier. Every control in the app is real and interactive; audience analytics are clearly labeled illustrative, since there's no live audience to measure. This is a self-initiated concept and is not affiliated with Libsyn.</p>
   </section>
   <a class="nextproj reveal" href="vitruvius.html">
-    <div><div class="k">Next project</div><div class="t">Vitruvius — making an AI architect usable and trustworthy</div></div>
+    <div><div class="k">Next project</div><div class="t">Vitruvius — making an AI architect usable</div></div>
     <div class="arrow">›</div>
   </a>
 </div>
