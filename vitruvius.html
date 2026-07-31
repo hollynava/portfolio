@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--page:#FCFBF9;--panel:#F1F0EC;--card:#FFFFFF;--ink:#1B1B19;--muted:#7C7A74;--faint:#9B988F;--line:#E7E4DD;--green:#1B1B19;--tag:#ECEBE7;--r:30px;--r2:18px;--max:1320px;}
+  :root{--page:#FCFAF5;--panel:#F3EFE8;--card:#FFFFFF;--ink:#1C1A16;--muted:#7E786F;--faint:#9E9488;--line:#EBE4D9;--green:#1C1A16;--tag:#EFE9E0;--r:30px;--r2:18px;--max:1320px;}
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{background:var(--page);color:var(--ink);font-family:"Inter",system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;padding:14px}
@@ -25,15 +25,15 @@
   @media(max-width:680px){.navlinks{gap:15px;font-size:11px}.status .txt{display:none}}
   .panel{position:relative;background:var(--panel);border-radius:var(--r);padding:72px;margin-bottom:22px}
   @media(max-width:680px){.panel{padding:52px 24px 40px}}
-  .notch{position:absolute;top:0;left:0;z-index:3;height:52px;min-width:252px;display:flex;align-items:center;padding:0 46px 0 36px;background:var(--page);border-radius:var(--r) 0 0 0;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);clip-path:polygon(0 0,100% 0,calc(100% - 26px) 100%,0 100%)}
-  .notch::before{content:"";position:absolute;top:100%;left:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
+  .notch{position:absolute;top:0;left:0;z-index:3;height:50px;min-width:230px;display:flex;align-items:center;padding:0 40px;background:var(--page);border-radius:var(--r) 16px 16px 16px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);transform:skewX(-12deg);transform-origin:bottom left}
+  .notch .nl{display:inline-block;transform:skewX(12deg)}
   .back{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:6px 20px 16px}
   .back:hover{color:var(--ink)}
   .cs-hero .eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
   .cs-hero h1{font-size:clamp(26px,3.8vw,47px);margin:14px 0 22px;max-width:none}
   .cs-hero .summary{color:var(--muted);font-size:clamp(17px,1.7vw,19px);max-width:none}
   .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
-  .tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#54524d;background:var(--tag);padding:8px 13px;border-radius:7px}
+  .tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#57524a;background:var(--tag);padding:8px 13px;border-radius:7px}
   .meta{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 44px;margin-top:36px;max-width:760px}
   .meta .k{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
   .meta .v{font-size:15px;color:var(--ink)}
@@ -44,7 +44,7 @@
   .media .mslide img,.media .mslide video{width:100%;max-width:940px;height:auto;display:block;border-radius:8px}
   .media .mdots{display:flex;gap:8px;justify-content:center;margin-top:22px}
   .media .mdots:empty{display:none}
-  .media .mdots i{width:7px;height:7px;border-radius:50%;background:#cfcdc7;cursor:pointer;transition:background .2s}
+  .media .mdots i{width:7px;height:7px;border-radius:50%;background:#d2cdc3;cursor:pointer;transition:background .2s}
   .media .mdots i.on{background:var(--ink)}
   .block{padding-top:88px}
   .block h2{font-size:clamp(26px,3.3vw,40px);margin-bottom:24px;max-width:none}
@@ -66,7 +66,7 @@
   @media(max-width:680px){.stats{grid-template-columns:1fr}}
   .honest{font-size:13.5px;color:var(--faint);font-style:italic;margin-top:16px;max-width:66ch}
   .nextproj{display:flex;align-items:center;justify-content:space-between;gap:20px;background:var(--card);border:1px solid var(--line);border-radius:var(--r2);padding:28px 32px;margin-bottom:22px;transition:border-color .2s,transform .2s}
-  .nextproj:hover{border-color:#cbc7bf;transform:translateY(-2px)}
+  .nextproj:hover{border-color:#cec7bc;transform:translateY(-2px)}
   .nextproj .k{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
   .nextproj .t{font-size:clamp(18px,2vw,22px);font-weight:600;margin-top:6px}
   .nextproj .arrow{font-size:26px;color:var(--muted)}
@@ -84,7 +84,6 @@
 <body>
 <nav>
   <a href="index.html" class="brand">Holly Nava
-    <span class="status"><span class="g"></span><span class="txt">Open to New Opportunities</span></span>
   </a>
   <div class="navlinks">
     <a href="work.html">Work</a><a href="about.html">About</a><a href="index.html#contact">Get in touch</a>
@@ -95,7 +94,7 @@
     <div class="eyebrow">ICON · Generative-AI home design</div>
     <h1>Making an AI architect usable</h1>
     <p class="summary">Vitruvius let people describe a dream home in natural language and get renderings and a floor plan from an LLM-based system. It was rushed to a public beta for a marketing milestone, and it showed: plans that didn't match the imagery, outputs that didn't hold up, and eroding trust. I was already at ICON, and joined the team just after launch to evaluate what was really happening and define what this could honestly become.</p>
-    <div class="tags"><span class="tag">AI Product</span><span class="tag">Product Strategy</span><span class="tag">Hands-on Design</span><span class="tag">Usability</span></div>
+    <div class="tags"><span class="tag">AI Product</span><span class="tag">Usability</span><span class="tag">UX Design</span></div>
     <div class="meta">
       <div><div class="k">Role</div><div class="v">Joined the team post-launch to evaluate the beta and define the product vision</div></div>
       <div><div class="k">Company</div><div class="v">ICON · generative-AI home design</div></div>
@@ -110,7 +109,7 @@
     <div class="mdots"></div>
   </div>
   <section class="panel block reveal">
-    <span class="notch">The problem</span>
+    <span class="notch"><span class="nl">The problem</span></span>
     <h2>A beta shipped ahead of the trust it needed</h2>
     <div class="prose">
       <p>Vitruvius was ICON's internal generative-AI product: describe your dream home in natural language, and an LLM-based system returns interior and exterior renderings and a simple floor plan. It was pushed to a public beta for a marketing moment before the experience was ready.</p>
@@ -118,7 +117,7 @@
     </div>
   </section>
   <section class="panel block reveal">
-    <span class="notch">What I did</span>
+    <span class="notch"><span class="nl">What I did</span></span>
     <h2>Steadied the experience, then pointed it somewhere real</h2>
     <div class="moves">
       <div class="move"><h3>Tested the beta live</h3><p>I ran moderated usability sessions across homeowners, builders, and industry-adjacent users, then delivered findings with clear severity ratings and primary- and secondary-customer clarity, so the team knew what to fix first and for whom.</p></div>
@@ -128,7 +127,7 @@
     </div>
   </section>
   <section class="panel block reveal">
-    <span class="notch">Outcome</span>
+    <span class="notch"><span class="nl">Outcome</span></span>
     <h2>Clarity in the gap between AI's promise and its reach</h2>
     <div class="prose">
       <p>The work delivered <b>immediate UX improvements</b> for the live beta, a <b>clear, prioritized path</b> toward product maturity, and a documented strategy for how AI-human design could feel trustworthy and usable. Development was later paused over the real technical challenge of generating architecture-grade outputs, a candid lesson in the messy space where innovation meets reality, and exactly the kind of judgment call I want to be close to.</p>

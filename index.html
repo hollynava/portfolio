@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --page:#FCFBF9; --panel:#F1F0EC; --card:#FFFFFF;
-    --ink:#1B1B19; --muted:#7C7A74; --faint:#9B988F; --line:#E7E4DD;
-    --green:#1B1B19; --tag:#ECEBE7;
+    --page:#FCFAF5; --panel:#F3EFE8; --card:#FFFFFF;
+    --ink:#1C1A16; --muted:#7E786F; --faint:#9E9488; --line:#EBE4D9;
+    --green:#1C1A16; --tag:#EFE9E0;
     --r:30px; --r2:18px; --max:1320px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -35,8 +35,8 @@
   /* Panels + notched label */
   .panel{position:relative;background:var(--panel);border-radius:var(--r);padding:72px;margin-bottom:22px}
   @media(max-width:680px){.panel{padding:52px 24px 40px}}
-  .notch{position:absolute;top:0;left:0;z-index:3;height:52px;min-width:252px;display:flex;align-items:center;padding:0 46px 0 36px;background:var(--page);border-radius:var(--r) 0 0 0;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);clip-path:polygon(0 0,100% 0,calc(100% - 26px) 100%,0 100%)}
-  .notch::before{content:"";position:absolute;top:100%;left:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
+  .notch{position:absolute;top:0;left:0;z-index:3;height:50px;min-width:230px;display:flex;align-items:center;padding:0 40px;background:var(--page);border-radius:var(--r) 16px 16px 16px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);transform:skewX(-12deg);transform-origin:bottom left}
+  .notch .nl{display:inline-block;transform:skewX(12deg)}
 
   /* Hero */
   .hero{display:grid;grid-template-columns:0.56fr 1.44fr;gap:56px;align-items:center}
@@ -44,7 +44,7 @@
   .hero .eyebrow{font-weight:700;font-size:clamp(15px,1.6vw,18px);letter-spacing:.08em;text-transform:uppercase}
   .hero .eyebrow span{color:var(--muted);font-weight:600}
   .hero h1{font-size:clamp(28px,3.6vw,45px);margin:22px 0 24px}
-  .hero p{color:var(--muted);font-size:17px;max-width:70ch}
+  .hero p{color:var(--muted);font-size:17px}
   .hero p + p{margin-top:16px}
   @media(max-width:760px){.hero{grid-template-columns:1fr;gap:28px}.hero .photo{aspect-ratio:1/1;max-height:420px}}
 
@@ -55,7 +55,7 @@
   .tst blockquote b{font-style:normal;font-weight:600}
   .tst cite{display:block;margin-top:24px;font-style:normal;font-size:13.5px;color:var(--muted);font-weight:600;letter-spacing:.02em}
   .dots{display:flex;gap:9px;justify-content:center;margin-top:22px}
-  .dots i{width:7px;height:7px;border-radius:50%;background:#cfcdc7;cursor:pointer;transition:background .2s}
+  .dots i{width:7px;height:7px;border-radius:50%;background:#d2cdc3;cursor:pointer;transition:background .2s}
   .dots i.on{background:var(--ink)}
 
   /* Logos */
@@ -65,11 +65,11 @@
   /* Selected work */
   .work-head{margin-top:22px}
   .work-head h2{font-size:clamp(30px,4vw,48px);margin-bottom:14px}
-  .work-head p{color:var(--muted);max-width:66ch;font-size:16px}
+  .work-head p{color:var(--muted);font-size:16px}
   .cards{display:flex;flex-direction:column;gap:18px;margin-top:38px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r2);padding:28px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:36px;align-items:center;transition:border-color .2s,transform .2s}
-  .card:hover{border-color:#cbc7bf;transform:translateY(-2px)}
-  .card .thumb{width:100%;aspect-ratio:4/3;border-radius:12px;object-fit:cover;display:block;background:#EDEBE7;border:1px solid var(--line)}
+  .card:hover{border-color:#cec7bc;transform:translateY(-2px)}
+  .card .thumb{width:100%;aspect-ratio:4/3;border-radius:12px;object-fit:cover;display:block;background:#EFE9E0;border:1px solid var(--line)}
   .t1{background:linear-gradient(135deg,#dedcd6,#c7c4bd)}
   .t2{background:linear-gradient(135deg,#26242b,#403e48)}
   .t3{background:linear-gradient(135deg,#2c2442,#5b4a86 60%,#8e73b4)}
@@ -78,7 +78,7 @@
   .card h3{font-size:clamp(20px,2.3vw,25px);margin:10px 0 12px}
   .card .desc{color:var(--muted);font-size:15.5px}
   .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
-  .tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#54524d;background:var(--tag);padding:8px 13px;border-radius:7px}
+  .tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#57524a;background:var(--tag);padding:8px 13px;border-radius:7px}
   .card .note{font-size:12.5px;color:var(--faint);font-style:italic;margin-top:10px}
   .card .cta{margin-top:16px;font-size:13px;font-weight:700;letter-spacing:.02em;color:var(--muted);transition:color .2s}
   .card:hover .cta{color:var(--green)}
@@ -140,7 +140,6 @@
 
 <nav class="gated">
   <div class="brand">Holly Nava
-    <span class="status"><span class="g"></span><span class="txt">Open to New Opportunities</span></span>
   </div>
   <div class="navlinks">
     <a href="work.html">Work</a><a href="about.html">About</a><a href="#contact">Get in touch</a>
@@ -176,7 +175,7 @@
 
   <!-- TESTIMONIAL -->
   <section class="panel tst reveal gated">
-    <span class="notch">What people said</span>
+    <span class="notch"><span class="nl">What people said</span></span>
     <blockquote id="q"></blockquote>
     <cite id="qc"></cite>
     <div class="dots" id="dots"></div>
@@ -189,7 +188,7 @@
 
   <!-- SELECTED WORK -->
   <section class="panel reveal gated" id="work">
-    <span class="notch">Selected Projects</span>
+    <span class="notch"><span class="nl">Selected Projects</span></span>
     <div class="work-head">
       <h2>A few things I've shaped</h2>
       <p>From a construction-robotics ecosystem to a podcast product I built from a working-backwards PR. Problem first, outcome up front.</p>
@@ -201,7 +200,7 @@
           <div class="plabel">ICON · 3D-printed robotic homebuilding</div>
           <h3>BuildOS — a product ecosystem for 3D-printed construction</h3>
           <div class="desc">Took a fragmented set of internal tools and architected them into a unified, five-part ecosystem spanning design, planning, and robotic print execution — adopted as the company's official product direction and now in active build.</div>
-          <div class="tags"><span class="tag">Product Strategy</span><span class="tag">Systems Design</span><span class="tag">Physical / Digital</span></div>
+          <div class="tags"><span class="tag">Product Strategy</span><span class="tag">Systems Design</span><span class="tag">0→1</span></div>
           <div class="cta">Read the case study ›</div>
         </div>
       </a>
@@ -211,7 +210,7 @@
           <div class="plabel">Self-initiated concept</div>
           <h3>OpenSignal — working-backwards from PR to a functioning app</h3>
           <div class="desc">I started with an Amazon-style press release, defined the product, and built a working prototype: a podcast player that puts listeners and creators on the same wavelength — listener-controlled discovery, in-player creator metrics, and shoppable moments that turn a listen into creator revenue.</div>
-          <div class="tags"><span class="tag">0→1</span><span class="tag">Strategy → Prototype</span><span class="tag">Consumer / Media</span></div>
+          <div class="tags"><span class="tag">Product Strategy</span><span class="tag">UX Design</span><span class="tag">Consumer Media</span><span class="tag">Coded Prototype</span></div>
           <div class="note">Self-initiated concept; not affiliated with Libsyn.</div>
           <div class="cta">Read the case study ›</div>
         </div>
@@ -222,7 +221,7 @@
           <div class="plabel">Robots &amp; Pencils · enterprise retail</div>
           <h3>A negotiation tool that unlocked $10M</h3>
           <div class="desc">For one of the world's largest retailers, I turned a bloated 30-plus-tab data platform into a scannable decision tool. In its first trial negotiation, a buyer used it to unlock $10M in savings from a supplier they had previously failed to move.</div>
-          <div class="tags"><span class="tag">UX Research</span><span class="tag">Information Architecture</span><span class="tag">$10M Outcome</span></div>
+          <div class="tags"><span class="tag">Retail</span><span class="tag">Data Product</span><span class="tag">Research</span><span class="tag">UX Design</span></div>
           <div class="cta">Read the case study ›</div>
         </div>
       </a>

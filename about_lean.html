@@ -10,9 +10,9 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
   :root{
-    --page:#FCFBF9; --panel:#F1F0EC; --card:#FFFFFF;
-    --ink:#1B1B19; --muted:#7C7A74; --faint:#9B988F; --line:#E7E4DD;
-    --green:#1B1B19; --tag:#ECEBE7;
+    --page:#FCFAF5; --panel:#F3EFE8; --card:#FFFFFF;
+    --ink:#1C1A16; --muted:#7E786F; --faint:#9E9488; --line:#EBE4D9;
+    --green:#1C1A16; --tag:#EFE9E0;
     --r:30px; --r2:18px; --max:1320px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -36,18 +36,19 @@
   /* Panels + notched label */
   .panel{position:relative;background:var(--panel);border-radius:var(--r);padding:72px;margin-bottom:22px}
   @media(max-width:680px){.panel{padding:52px 24px 40px}}
-  .notch{position:absolute;top:0;left:0;z-index:3;height:52px;min-width:252px;display:flex;align-items:center;padding:0 46px 0 36px;background:var(--page);border-radius:var(--r) 0 0 0;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);clip-path:polygon(0 0,100% 0,calc(100% - 26px) 100%,0 100%)}
-  .notch::before{content:"";position:absolute;top:100%;left:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
+  .notch{position:absolute;top:0;left:0;z-index:3;height:50px;min-width:230px;display:flex;align-items:center;padding:0 40px;background:var(--page);border-radius:var(--r) 16px 16px 16px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);transform:skewX(-12deg);transform-origin:bottom left}
+  .notch .nl{display:inline-block;transform:skewX(12deg)}
 
   /* Intro (photo + lede) */
-  .intro{display:grid;grid-template-columns:1.44fr 0.56fr;gap:56px;align-items:center}
+  .intro{display:block}
+  .intro-cols{display:grid;grid-template-columns:1.44fr 0.56fr;gap:56px;align-items:start;margin-top:26px}
   .intro .photo{width:100%;aspect-ratio:4/5;border-radius:22px;object-fit:cover;object-position:center top;display:block}
   .intro .eyebrow{font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-  .intro h1{font-size:clamp(26px,3.5vw,45px);margin:18px 0 22px}
-  .intro p{color:var(--muted);font-size:17px;max-width:76ch}
+  .intro h1{font-size:clamp(26px,3.5vw,45px);margin:14px 0 0}
+  .intro p{color:var(--muted);font-size:17px}
   .intro p + p{margin-top:16px}
   .intro b{color:var(--ink);font-weight:600}
-  @media(max-width:760px){.intro{grid-template-columns:1fr;gap:28px}.intro .photo{aspect-ratio:1/1;max-height:420px}}
+  @media(max-width:760px){.intro-cols{grid-template-columns:1fr;gap:28px}.intro .photo{aspect-ratio:1/1;max-height:420px}}
 
   /* Prose block inside a panel */
   .block{padding-top:88px}
@@ -61,7 +62,7 @@
   @media(max-width:680px){.bigquote{padding-left:18px}}
 
   /* Beliefs list */
-  .beliefs{margin-top:24px;max-width:92ch}
+  .beliefs{margin-top:24px}
   .belief{padding:24px 0;border-top:1px solid var(--line)}
   .belief:first-child{border-top:none;padding-top:4px}
   .belief:last-child{padding-bottom:2px}
@@ -69,7 +70,7 @@
   .belief p{color:var(--muted);font-size:15.5px;line-height:1.62}
 
   /* History */
-  .hist{margin-top:10px;max-width:90ch}
+  .hist{margin-top:10px}
   .hist .row{display:flex;justify-content:space-between;gap:28px;padding:18px 0;border-top:1px solid var(--line)}
   .hist .row:first-child{border-top:none}
   .hist .role{font-weight:600;font-size:16px}
@@ -93,7 +94,6 @@
 
 <nav>
   <a href="index.html" class="brand">Holly Nava
-    <span class="status"><span class="g"></span><span class="txt">Open to New Opportunities</span></span>
   </a>
   <div class="navlinks">
     <a href="work.html">Work</a><a href="about.html" class="here">About</a><a href="index.html#contact">Get in touch</a>
@@ -104,19 +104,21 @@
 
   <!-- INTRO -->
   <section class="panel intro reveal">
-    <div>
-      <div class="eyebrow">About</div>
-      <h1>I flex to what the problem and the team need.</h1>
+    <div class="eyebrow">About</div>
+    <h1>I flex to what the problem and the team need.</h1>
+    <div class="intro-cols">
+      <div>
       <p>I'm a design-rooted product leader who creates clarity in complex spaces, most often where the physical and digital meet. I'm most useful on the problems that are fragmented and ambiguous, where the tidy version on paper doesn't match how things actually work.</p>
-      <p>My instinct is to <b>architect from what's actually there</b>: the real tools, the real data, and the real people, rather than from what a plan says should exist. I flex to the range each problem needs, from setting an ecosystem's strategy to designing the exact interface someone uses in the field, and to the team, by meeting people where their real strengths are. And I stay hands-on throughout: <b>I dig in and do the work myself</b>, close to the craft rather than directing from a distance.</p>
+      <p>My instinct is to <b>architect from what's actually there</b>: the real tools, the real data, and the real people, rather than from what a plan says should exist. I flex to the range each problem needs, from setting an ecosystem's strategy to designing the exact interface someone uses in the field, and to the team, by meeting people where their real strengths are. And I stay hands-on throughout: <b>I dig in and stay close to the craft</b>, rather than directing from a distance.</p>
       <p>I do my best work with real authority and direct lines to the people I'm building for: users and decision-makers within reach, low silos, and a mission that actually matters. That's when the range pays off.</p>
+      </div>
+      <img class="photo" src="holly-about.jpg" alt="Holly Nava">
     </div>
-    <img class="photo" src="holly-about.jpg" alt="Holly Nava">
   </section>
 
   <!-- BELIEFS -->
   <section class="panel block reveal">
-    <span class="notch">Hot Takes</span>
+    <span class="notch"><span class="nl">Hot Takes</span></span>
     <h2>A few things I've come to believe</h2>
     <div class="beliefs">
       <div class="belief">
@@ -144,7 +146,7 @@
 
   <!-- AI / HOW I WORK -->
   <section class="panel block reveal">
-    <span class="notch">How I work with AI</span>
+    <span class="notch"><span class="nl">How I work with AI</span></span>
     <h2>AI is as good as the direction you give it</h2>
     <div class="prose">
       <p>I use AI heavily and deliberately, but always on top of real product judgment and craft. On its own it drifts, and it can lull you into false confidence if you don't know where it's likely to go wrong; what makes it reliable is clear direction, consistent rules, and a human who can spot the failure modes. With that in place it's genuinely powerful, whether it's generating and pressure-testing design concepts, combing through lengthy research for patterns easy to miss, managing a design system at scale, or building working prototypes that communicate a vision faster than clickable mockups. At ICON I built a Claude-based product-management system that processed dozens of meeting transcripts a week and tracked my roadmap to suggest sprint plans, filling missing team capacity during a hard phase.</p>
@@ -154,7 +156,7 @@
 
   <!-- BACKGROUND -->
   <section class="panel block reveal">
-    <span class="notch">Background</span>
+    <span class="notch"><span class="nl">Background</span></span>
     <h2>Selected background</h2>
     <div class="hist">
       <div class="row">
