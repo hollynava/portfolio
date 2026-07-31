@@ -12,7 +12,7 @@
   :root{
     --page:#FCFBF9; --panel:#F1F0EC; --card:#FFFFFF;
     --ink:#1B1B19; --muted:#7C7A74; --faint:#9B988F; --line:#E7E4DD;
-    --green:#3BA776; --tag:#ECEBE7;
+    --green:#1B1B19; --tag:#ECEBE7;
     --r:30px; --r2:18px; --max:1320px;
   }
   *{box-sizing:border-box;margin:0;padding:0}
@@ -27,7 +27,7 @@
   nav{max-width:var(--max);margin:0 auto 14px;display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
   .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase}
   .status{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);font-weight:500;letter-spacing:0;text-transform:none}
-  .status .g{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(59,167,118,.16)}
+  .status .g{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(0,0,0,.16)}
   .navlinks{display:flex;gap:30px;font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--muted)}
   .navlinks a:hover{color:var(--ink)}
   .navlinks a.here{color:var(--ink)}
@@ -36,15 +36,14 @@
   /* Panels + notched label */
   .panel{position:relative;background:var(--panel);border-radius:var(--r);padding:72px;margin-bottom:22px}
   @media(max-width:680px){.panel{padding:52px 24px 40px}}
-  .notch{position:absolute;top:0;left:0;z-index:3;height:52px;min-width:252px;display:flex;align-items:center;padding:0 30px 0 36px;background:var(--page);border-radius:var(--r) 0 20px 0;font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-  .notch::after{content:"";position:absolute;left:100%;top:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
+  .notch{position:absolute;top:0;left:0;z-index:3;height:52px;min-width:252px;display:flex;align-items:center;padding:0 46px 0 36px;background:var(--page);border-radius:var(--r) 0 0 0;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);clip-path:polygon(0 0,100% 0,calc(100% - 26px) 100%,0 100%)}
   .notch::before{content:"";position:absolute;top:100%;left:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
 
   /* Intro (photo + lede) */
-  .intro{display:grid;grid-template-columns:0.70fr 1.30fr;gap:56px;align-items:center}
+  .intro{display:grid;grid-template-columns:1.44fr 0.56fr;gap:56px;align-items:center}
   .intro .photo{width:100%;aspect-ratio:4/5;border-radius:22px;object-fit:cover;object-position:center top;display:block}
-  .intro .eyebrow{font-weight:700;font-size:clamp(13px,1.3vw,15px);letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
-  .intro h1{font-size:clamp(29px,3.9vw,50px);margin:18px 0 22px}
+  .intro .eyebrow{font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .intro h1{font-size:clamp(26px,3.5vw,45px);margin:18px 0 22px}
   .intro p{color:var(--muted);font-size:17px;max-width:76ch}
   .intro p + p{margin-top:16px}
   .intro b{color:var(--ink);font-weight:600}
@@ -53,12 +52,12 @@
   /* Prose block inside a panel */
   .block{padding-top:88px}
   .block h2{font-size:clamp(26px,3.3vw,40px);margin-bottom:24px;max-width:none}
-  .prose{max-width:84ch}
+  .prose{max-width:none}
   .prose p{color:var(--muted);font-size:16.5px}
   .prose p + p{margin-top:16px}
   .prose b{color:var(--ink);font-weight:600}
   .pull{margin:26px 0 6px;font-size:clamp(14px,1.6vw,18px);font-style:italic;font-weight:500;color:var(--ink);line-height:1.42;max-width:46ch}
-  .bigquote{margin:44px 0 2px;font-size:clamp(17px,2.2vw,26px);font-style:italic;font-weight:500;color:var(--ink);line-height:1.36;letter-spacing:-.01em;border-left:3px solid var(--green);padding-left:26px}
+  .bigquote{margin:44px 0 2px;font-size:clamp(15px,2vw,23px);font-style:italic;font-weight:500;color:var(--ink);line-height:1.36;letter-spacing:-.01em;border-left:3px solid var(--green);padding-left:26px}
   @media(max-width:680px){.bigquote{padding-left:18px}}
 
   /* Beliefs list */
@@ -105,14 +104,14 @@
 
   <!-- INTRO -->
   <section class="panel intro reveal">
-    <img class="photo" src="holly-about.jpg" alt="Holly Nava">
     <div>
       <div class="eyebrow">About</div>
       <h1>I flex to what the problem and the team need.</h1>
       <p>I'm a design-rooted product leader who creates clarity in complex spaces, most often where the physical and digital meet. I'm most useful on the problems that are fragmented and ambiguous, where the tidy version on paper doesn't match how things actually work.</p>
-      <p>My instinct is to <b>architect from what's actually there</b>: the real tools, the real data, and the real people, rather than from what a plan says should exist. I flex to the range each problem needs, from setting an ecosystem's strategy to designing the exact interface someone uses in the field, and to the team, by meeting people where their real strengths are.</p>
+      <p>My instinct is to <b>architect from what's actually there</b>: the real tools, the real data, and the real people, rather than from what a plan says should exist. I flex to the range each problem needs, from setting an ecosystem's strategy to designing the exact interface someone uses in the field, and to the team, by meeting people where their real strengths are. And I stay hands-on throughout: <b>I dig in and do the work myself</b>, close to the craft rather than directing from a distance.</p>
       <p>I do my best work with real authority and direct lines to the people I'm building for: users and decision-makers within reach, low silos, and a mission that actually matters. That's when the range pays off.</p>
     </div>
+    <img class="photo" src="holly-about.jpg" alt="Holly Nava">
   </section>
 
   <!-- BELIEFS -->
@@ -146,7 +145,7 @@
   <!-- AI / HOW I WORK -->
   <section class="panel block reveal">
     <span class="notch">How I work with AI</span>
-    <h2>AI is only as good as the direction you give it</h2>
+    <h2>AI is as good as the direction you give it</h2>
     <div class="prose">
       <p>I use AI heavily and deliberately, but always on top of real product judgment and craft. On its own it drifts, and it can lull you into false confidence if you don't know where it's likely to go wrong; what makes it reliable is clear direction, consistent rules, and a human who can spot the failure modes. With that in place it's genuinely powerful, whether it's generating and pressure-testing design concepts, combing through lengthy research for patterns easy to miss, managing a design system at scale, or building working prototypes that communicate a vision faster than clickable mockups. At ICON I built a Claude-based product-management system that processed dozens of meeting transcripts a week and tracked my roadmap to suggest sprint plans, filling missing team capacity during a hard phase.</p>
     </div>
