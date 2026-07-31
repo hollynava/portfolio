@@ -25,8 +25,9 @@
   @media(max-width:680px){.navlinks{gap:15px;font-size:11px}.status .txt{display:none}}
   .panel{position:relative;background:var(--panel);border-radius:var(--r);padding:72px;margin-bottom:22px}
   @media(max-width:680px){.panel{padding:52px 24px 40px}}
-  .notch{position:absolute;top:0;left:0;z-index:3;height:50px;min-width:230px;display:flex;align-items:center;padding:0 40px;background:var(--page);border-radius:var(--r) 16px 16px 16px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);transform:skewX(-12deg);transform-origin:bottom left}
-  .notch .nl{display:inline-block;transform:skewX(12deg)}
+  .notch{position:absolute;top:0;left:0;z-index:3;height:52px;min-width:252px;display:flex;align-items:center;padding:0 30px 0 36px;background:var(--page);border-radius:var(--r) 0 20px 0;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .notch::after{content:"";position:absolute;left:100%;top:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
+  .notch::before{content:"";position:absolute;top:100%;left:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
   .back{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:6px 20px 16px}
   .back:hover{color:var(--ink)}
   .cs-hero .eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
@@ -109,7 +110,7 @@
     <div class="mdots"></div>
   </div>
   <section class="panel block reveal">
-    <span class="notch"><span class="nl">The problem</span></span>
+    <span class="notch">The problem</span>
     <h2>A beta shipped ahead of the trust it needed</h2>
     <div class="prose">
       <p>Vitruvius was ICON's internal generative-AI product: describe your dream home in natural language, and an LLM-based system returns interior and exterior renderings and a simple floor plan. It was pushed to a public beta for a marketing moment before the experience was ready.</p>
@@ -117,7 +118,7 @@
     </div>
   </section>
   <section class="panel block reveal">
-    <span class="notch"><span class="nl">What I did</span></span>
+    <span class="notch">What I did</span>
     <h2>Steadied the experience, then pointed it somewhere real</h2>
     <div class="moves">
       <div class="move"><h3>Tested the beta live</h3><p>I ran moderated usability sessions across homeowners, builders, and industry-adjacent users, then delivered findings with clear severity ratings and primary- and secondary-customer clarity, so the team knew what to fix first and for whom.</p></div>
@@ -127,7 +128,7 @@
     </div>
   </section>
   <section class="panel block reveal">
-    <span class="notch"><span class="nl">Outcome</span></span>
+    <span class="notch">Outcome</span>
     <h2>Clarity in the gap between AI's promise and its reach</h2>
     <div class="prose">
       <p>The work delivered <b>immediate UX improvements</b> for the live beta, a <b>clear, prioritized path</b> toward product maturity, and a documented strategy for how AI-human design could feel trustworthy and usable. Development was later paused over the real technical challenge of generating architecture-grade outputs, a candid lesson in the messy space where innovation meets reality, and exactly the kind of judgment call I want to be close to.</p>

@@ -36,8 +36,9 @@
   /* Panels + notched label */
   .panel{position:relative;background:var(--panel);border-radius:var(--r);padding:72px;margin-bottom:22px}
   @media(max-width:680px){.panel{padding:52px 24px 40px}}
-  .notch{position:absolute;top:0;left:0;z-index:3;height:50px;min-width:230px;display:flex;align-items:center;padding:0 40px;background:var(--page);border-radius:var(--r) 16px 16px 16px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);transform:skewX(-12deg);transform-origin:bottom left}
-  .notch .nl{display:inline-block;transform:skewX(12deg)}
+  .notch{position:absolute;top:0;left:0;z-index:3;height:52px;min-width:252px;display:flex;align-items:center;padding:0 30px 0 36px;background:var(--page);border-radius:var(--r) 0 20px 0;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .notch::after{content:"";position:absolute;left:100%;top:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
+  .notch::before{content:"";position:absolute;top:100%;left:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
 
   /* Intro (photo + lede) */
   .intro{display:block}
@@ -118,7 +119,7 @@
 
   <!-- BELIEFS -->
   <section class="panel block reveal">
-    <span class="notch"><span class="nl">Hot Takes</span></span>
+    <span class="notch">Hot Takes</span>
     <h2>A few things I've come to believe</h2>
     <div class="beliefs">
       <div class="belief">
@@ -146,7 +147,7 @@
 
   <!-- AI / HOW I WORK -->
   <section class="panel block reveal">
-    <span class="notch"><span class="nl">How I work with AI</span></span>
+    <span class="notch">How I work with AI</span>
     <h2>AI is as good as the direction you give it</h2>
     <div class="prose">
       <p>I use AI heavily and deliberately, but always on top of real product judgment and craft. On its own it drifts, and it can lull you into false confidence if you don't know where it's likely to go wrong; what makes it reliable is clear direction, consistent rules, and a human who can spot the failure modes. With that in place it's genuinely powerful, whether it's generating and pressure-testing design concepts, combing through lengthy research for patterns easy to miss, managing a design system at scale, or building working prototypes that communicate a vision faster than clickable mockups. At ICON I built a Claude-based product-management system that processed dozens of meeting transcripts a week and tracked my roadmap to suggest sprint plans, filling missing team capacity during a hard phase.</p>
@@ -156,7 +157,7 @@
 
   <!-- BACKGROUND -->
   <section class="panel block reveal">
-    <span class="notch"><span class="nl">Background</span></span>
+    <span class="notch">Background</span>
     <h2>Selected background</h2>
     <div class="hist">
       <div class="row">

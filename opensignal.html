@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>OpenSignal — from a working-backwards PR to a shipped app · Holly Nava</title>
+<title>OpenSignal — from idea to focused working app within a week · Holly Nava</title>
 <meta name="description" content="A self-initiated podcast product taken from an Amazon-style press release through market strategy to a working, deployed app." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -25,8 +25,9 @@
   @media(max-width:680px){.navlinks{gap:15px;font-size:11px}.status .txt{display:none}}
   .panel{position:relative;background:var(--panel);border-radius:var(--r);padding:72px;margin-bottom:22px}
   @media(max-width:680px){.panel{padding:52px 24px 40px}}
-  .notch{position:absolute;top:0;left:0;z-index:3;height:50px;min-width:230px;display:flex;align-items:center;padding:0 40px;background:var(--page);border-radius:var(--r) 16px 16px 16px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);transform:skewX(-12deg);transform-origin:bottom left}
-  .notch .nl{display:inline-block;transform:skewX(12deg)}
+  .notch{position:absolute;top:0;left:0;z-index:3;height:52px;min-width:252px;display:flex;align-items:center;padding:0 30px 0 36px;background:var(--page);border-radius:var(--r) 0 20px 0;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .notch::after{content:"";position:absolute;left:100%;top:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
+  .notch::before{content:"";position:absolute;top:100%;left:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
   .back{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:6px 20px 16px}
   .back:hover{color:var(--ink)}
   .cs-hero .eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
@@ -95,7 +96,7 @@
 <div class="wrap">
   <section class="panel cs-hero reveal">
     <div class="eyebrow">Self-initiated concept · Consumer / media product</div>
-    <h1>Working backwards from a press release to a shipped app</h1>
+    <h1>OpenSignal — from idea to focused working app within a week</h1>
     <p class="summary">Every major podcast app fails listeners somewhere, and none aligns what delights a listener with what grows a creator's business. I set out to design the product that puts listeners, creators, and advertisers on the same side, then took it the whole distance myself: from an Amazon-style press release, through market and business strategy, to a working, deployed app. I built the entire thing in about a week, using Claude as a force multiplier, as a sample of how I work.</p>
     <div class="tags"><span class="tag">Product Strategy</span><span class="tag">UX Design</span><span class="tag">Consumer Media</span><span class="tag">Coded Prototype</span></div>
     <div class="meta">
@@ -113,7 +114,7 @@
     <div class="mdots"></div>
   </div>
   <section class="panel block reveal">
-    <span class="notch"><span class="nl">The problem</span></span>
+    <span class="notch">The problem</span>
     <h2>Nobody aligns the listener, the creator, and the ad</h2>
     <div class="prose">
       <p>Every major podcast app fails listeners somewhere. Apple's playback and queue are messy, Spotify buries podcasts and paywalls downloads, YouTube has no real "continue listening" and paywalls background audio. Each is optimizing for a business model, an app store, a music subscription, an ad exchange, that points away from the listener.</p>
@@ -121,7 +122,7 @@
     </div>
   </section>
   <section class="panel block reveal">
-    <span class="notch"><span class="nl">What I did</span></span>
+    <span class="notch">What I did</span>
     <h2>Decided in writing, then built it for real</h2>
     <div class="moves">
       <div class="move"><h3>Worked backwards from a press release</h3><p>I wrote an Amazon-style PR-FAQ as a real press article to force clarity on the value before designing a single screen, scoping to two in-app customers, listeners and creators, with advertiser value flowing through existing ad products rather than a new console.</p></div>
@@ -132,7 +133,7 @@
     </div>
   </section>
   <section class="panel block reveal">
-    <span class="notch"><span class="nl">Outcome</span></span>
+    <span class="notch">Outcome</span>
     <h2>A usable product, not a mockup</h2>
     <div class="prose">
       <p>OpenSignal carries the "listeners and creators on the same wavelength" thesis from end to end: from market analysis and a working-backwards PR through to a <b><a href="https://opensignal-iota.vercel.app/#app" target="_blank" rel="noopener" style="color:var(--green);text-decoration:underline;text-underline-offset:3px">deployed app you can actually use</a></b>. Every control is real and interactive. It's the single clearest proof of how I work, start from the customer outcome, make the business case unmistakable, then ship something real.</p>

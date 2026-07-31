@@ -34,8 +34,9 @@
   /* Panels + notch */
   .panel{position:relative;background:var(--panel);border-radius:var(--r);padding:72px;margin-bottom:22px}
   @media(max-width:680px){.panel{padding:52px 24px 40px}}
-  .notch{position:absolute;top:0;left:0;z-index:3;height:50px;min-width:230px;display:flex;align-items:center;padding:0 40px;background:var(--page);border-radius:var(--r) 16px 16px 16px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);transform:skewX(-12deg);transform-origin:bottom left}
-  .notch .nl{display:inline-block;transform:skewX(12deg)}
+  .notch{position:absolute;top:0;left:0;z-index:3;height:52px;min-width:252px;display:flex;align-items:center;padding:0 30px 0 36px;background:var(--page);border-radius:var(--r) 0 20px 0;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .notch::after{content:"";position:absolute;left:100%;top:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
+  .notch::before{content:"";position:absolute;top:100%;left:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
 
   /* Back link */
   .back{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:6px 20px 16px}
@@ -144,7 +145,7 @@
   <section class="panel cs-hero reveal">
     <div class="eyebrow">ICON · 3D-printed robotic homebuilding</div>
     <h1>BuildOS — a product ecosystem for 3D-printed construction</h1>
-    <p class="summary">ICON isn't just building a robot, it's trying to invent a new way to build, where design, hardware, materials, and services all have to come together at once. The software to tie those pieces into one experience didn't yet exist. Rather than patch the disconnected tools one by one, I identified a single unified ecosystem, built on a common data spine and shared product components, and owned the strategy and design to make it real: BuildOS, the digital thread that carries a customer from design through construction, adopted as the company's official product direction.</p>
+    <p class="summary">ICON isn't just building a robot, it's trying to invent a new way to build, where design, hardware, materials, and services all have to come together at once. The software to tie those pieces into one experience didn't yet exist. I identified a single unified ecosystem, built on a common data spine and shared product components, and owned the strategy and design that made it real: BuildOS, the digital thread that carries a customer from design through construction, adopted as the company's official product direction.</p>
     <div class="tags"><span class="tag">Product Strategy</span><span class="tag">Systems Design</span><span class="tag">0→1</span></div>
     <div class="meta">
       <div><div class="k">Role</div><div class="v">Director, Digital Product Experience (promoted from Principal Product Experience Designer)</div></div>
@@ -164,7 +165,7 @@
 
   <!-- PROBLEM -->
   <section class="panel block reveal">
-    <span class="notch"><span class="nl">The problem</span></span>
+    <span class="notch">The problem</span>
     <h2>Inventing a new way to build, all at once</h2>
     <div class="prose">
       <p>ICON isn't really a robotics company; it's an attempt to reinvent home construction end to end: 3D-printing hardware, new materials, architectural design, and the services around them. The hard part is that none of it works in isolation. For the full experience to exist, every piece has to come together at the same time, in a young company still writing the playbook as it went.</p>
@@ -174,7 +175,7 @@
 
   <!-- WHAT I DID -->
   <section class="panel block reveal">
-    <span class="notch"><span class="nl">What I did</span></span>
+    <span class="notch">What I did</span>
     <h2>Defined one unified ecosystem on a shared data spine</h2>
     <div class="moves">
       <div class="move">
@@ -221,7 +222,7 @@
 
   <!-- OUTCOME -->
   <section class="panel block reveal">
-    <span class="notch"><span class="nl">Outcome</span></span>
+    <span class="notch">Outcome</span>
     <h2>Adopted as the company's product direction</h2>
     <div class="prose">
       <p>The architecture was <b>adopted as ICON's official product direction</b>. <b>All five modules are now in internal use</b>, at varying stages of completeness, and the customer-facing ones are scoped to ICON's Titan external launch, targeted for Q1 2027.</p>

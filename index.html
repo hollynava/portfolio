@@ -35,8 +35,9 @@
   /* Panels + notched label */
   .panel{position:relative;background:var(--panel);border-radius:var(--r);padding:72px;margin-bottom:22px}
   @media(max-width:680px){.panel{padding:52px 24px 40px}}
-  .notch{position:absolute;top:0;left:0;z-index:3;height:50px;min-width:230px;display:flex;align-items:center;padding:0 40px;background:var(--page);border-radius:var(--r) 16px 16px 16px;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);transform:skewX(-12deg);transform-origin:bottom left}
-  .notch .nl{display:inline-block;transform:skewX(12deg)}
+  .notch{position:absolute;top:0;left:0;z-index:3;height:52px;min-width:252px;display:flex;align-items:center;padding:0 30px 0 36px;background:var(--page);border-radius:var(--r) 0 20px 0;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .notch::after{content:"";position:absolute;left:100%;top:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
+  .notch::before{content:"";position:absolute;top:100%;left:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
 
   /* Hero */
   .hero{display:grid;grid-template-columns:0.56fr 1.44fr;gap:56px;align-items:center}
@@ -175,7 +176,7 @@
 
   <!-- TESTIMONIAL -->
   <section class="panel tst reveal gated">
-    <span class="notch"><span class="nl">What people said</span></span>
+    <span class="notch">What people said</span>
     <blockquote id="q"></blockquote>
     <cite id="qc"></cite>
     <div class="dots" id="dots"></div>
@@ -188,7 +189,7 @@
 
   <!-- SELECTED WORK -->
   <section class="panel reveal gated" id="work">
-    <span class="notch"><span class="nl">Selected Projects</span></span>
+    <span class="notch">Selected Projects</span>
     <div class="work-head">
       <h2>A few things I've shaped</h2>
       <p>From a construction-robotics ecosystem to a podcast product I built from a working-backwards PR. Problem first, outcome up front.</p>
