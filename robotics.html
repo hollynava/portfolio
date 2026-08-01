@@ -75,7 +75,7 @@
   .connect h2{font-size:clamp(30px,4.4vw,48px)}
   .connect p{color:var(--muted);margin:16px auto 0;max-width:46ch;font-size:16px}
   .cbtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
-  .cbtns a{padding:13px 26px;border-radius:999px;font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;background:var(--ink);color:#fff;border:1px solid var(--ink)}
+  .cbtns a{padding:10px 20px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:var(--ink);color:#fff;border:1px solid var(--ink)}
   .cbtns a:hover{opacity:.88}
   footer{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:var(--faint);font-size:12.5px;padding:22px 20px 8px;border-top:1px solid var(--line)}
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
@@ -94,12 +94,12 @@
   <section class="panel cs-hero reveal">
     <div class="eyebrow">ICON · 3D-printed robotic homebuilding</div>
     <h1>Making a giant robot operable by anyone</h1>
-    <p class="summary">When I joined, ICON's building-scale 3D-printing robot couldn't be run without an ICON engineer on site. The operator interface couldn't keep up with fast-evolving hardware and was nearly unreadable in the field. I led the redesign of the operator experience across multiple hardware generations, turning expert-only operation into a guided, task-based system.</p>
+    <p class="summary">When I joined, ICON's building-scale 3D-printing robot couldn't be run without multiple operators and an ICON support engineer on site. The operator interface couldn't keep up with fast-evolving hardware and was nearly unreadable in the field. I led the redesign of the operator experience across multiple hardware generations, turning expert-only operation into a guided, task-based system.</p>
     <div class="tags"><span class="tag">Robotics</span><span class="tag">Automation</span><span class="tag">UX Design + Research</span></div>
     <div class="meta">
       <div><div class="k">Role</div><div class="v">Led the operator experience (Principal → Director, Digital Product Experience)</div></div>
       <div><div class="k">Timeline</div><div class="v">2022–2026</div></div>
-      <div><div class="k">Hardware</div><div class="v">Across generations: Block 3 → Block 4 → the next-gen Phoenix platform</div></div>
+      <div><div class="k">Hardware</div><div class="v">Across two generations: Block 3 → Block 4 → the next-gen Titan platform</div></div>
       <div><div class="k">Hands-on</div><div class="v">Field research and end-to-end design of the operator app</div></div>
     </div>
   </section>
@@ -114,7 +114,7 @@
     <h2>Running the machine lived in people's heads</h2>
     <div class="prose">
       <p>ICON's large-scale 3D-printing robots build homes and infrastructure, and when I joined, the operator interface couldn't keep up: clunky, hard to navigate, and nearly unreadable in real field conditions, outdoors, in glare, wearing gloves.</p>
-      <p>Developers were making UX calls without design input, and the expertise to run a print lived in people's heads and binders. In practice that meant an ICON engineer had to be on site for every build, a hard ceiling on scaling to real customers.</p>
+      <p>Developers were making UX calls without design input, and the expertise to run a print lived in people's heads and binders, requiring long onboarding times. In practice that meant multiple operators and support staff had to be on site for every build, a hard ceiling on scaling to real customers.</p>
     </div>
   </section>
   <section class="panel block reveal">
@@ -124,24 +124,23 @@
       <div class="move"><h3>Ran deep field research</h3><p>I watched operators work in real conditions to find where visibility, contrast, gloves, and cognitive load actually broke the experience, rather than designing from a comfortable desk.</p></div>
       <div class="move"><h3>Rebuilt the interface for the jobsite</h3><p>High-contrast visuals, larger hit targets, simplified navigation, and a large-format variant of the design system, built for glare and gloves instead of an office monitor.</p></div>
       <div class="move"><h3>Designed a guided, task-based operation system</h3><p>I partnered with engineering to turn an early concept, automated task-graph traversal of a building design, into a human-operable flow that walks operators step by step instead of relying on memory. An AI-to-human translation layer.</p></div>
-      <div class="move"><h3>Closed dangerous gaps</h3><p>I added automated material-refill and cleaning alerts that were easy to miss and could each halt a build for 30-plus minutes, turning silent failures into clear, timely prompts.</p></div>
-      <div class="move"><h3>Gave leaders visibility</h3><p>The first real-time view for project and construction managers into what's happening in the field, with productivity and performance metrics they'd never had before.</p></div>
-      <div class="move"><h3>Designed for what's next</h3><p>Automation and operator-as-monitor models, plus an early Fleet platform for remote configuration, monitoring, and diagnostics, the groundwork for one person running more than one machine.</p></div>
+      <div class="move"><h3>Closed costly gaps</h3><p>I developed a prompting and alert system to convert important but easy-to-miss tasks, such as cleaning steps and material-refill needs that could each cost 30-plus minutes of delay, into clear and obvious actions, reducing risk to continuous operations.</p></div>
+      <div class="move"><h3>Gave leaders visibility</h3><p>The first real-time view for project and construction managers into what's happening in the field, with productivity and performance metrics they'd never had before, reducing reliance on other tracking software and manual processes.</p></div>
+      <div class="move"><h3>Designed for what's next</h3><p>Automation and operator-as-monitor models, plus early concepts for remote access and voice operation, laying the groundwork for one person running more than one machine remotely.</p></div>
     </div>
   </section>
   <section class="panel block reveal">
     <span class="notch">Outcome</span>
-    <h2>Operable by anyone, without dumbing down the machine</h2>
+    <h2>Operable by small staff, with fast onboarding times</h2>
     <div class="prose">
-      <p>The guided system shipped roughly <b>60% of the full build sequence as guided tasks</b>, built to bring operators to independence in weeks instead of months, work that previously required an ICON engineer on site. Managers got their <b>first real-time field visibility</b>, and the system laid the foundation for multi-machine operation and external customer deployment.</p>
+      <p>During my tenure, the guided system shipped roughly <b>60% of the full build sequence as guided tasks</b>, built to bring operators to independence in weeks instead of months, and the most recent project onboarded operators within 3 weeks of deployment. Managers got their <b>first real-time field visibility</b>, and the system laid the foundation for external customer deployment.</p>
     </div>
     <div class="stats">
-      <div class="stat"><div class="big">~60% of the build</div><div class="cap">Shipped as guided, task-based operator steps</div></div>
-      <div class="stat"><div class="big">First field visibility</div><div class="cap">Real-time task status and productivity metrics for CMs and PMs</div></div>
-      <div class="stat"><div class="big">30+ min stoppages</div><div class="cap">Closed with automated refill and cleaning alerts</div></div>
-      <div class="stat"><span class="tgt">Target</span><div class="big">Weeks, not months</div><div class="cap">Operator time-to-independence, down from requiring an ICON engineer on site</div></div>
+      <div class="stat"><div class="big">Tasks covering ~60% of the build</div><div class="cap">Shipped as guided, task-based operator steps</div></div>
+      <div class="stat"><div class="big">Prompted actions</div><div class="cap">Costly gaps closed with automated refill and cleaning alerts</div></div>
+      <div class="stat"><div class="big">Months → weeks</div><div class="cap">Operator training time, a core Print goal</div></div>
+      <div class="stat"><div class="big">5 people → 1.5</div><div class="cap">Reduced labor and cost to operate with the system, from the Block 3 generation to the Titan release</div></div>
     </div>
-    <p class="honest">The ~60% and the 30-plus-minute stoppages are real. The weeks-not-months independence is the goal the guided system was built to hit as more of the sequence ships.</p>
   </section>
   <a class="nextproj reveal" href="opensignal.html">
     <div><div class="k">Next project</div><div class="t">OpenSignal — from idea to focused working app within a week</div></div>
@@ -154,7 +153,6 @@
   <div class="cbtns">
     <a href="mailto:holly.a.nava@gmail.com">Email</a>
     <a href="https://linkedin.com/in/hollynava" target="_blank" rel="noopener">LinkedIn</a>
-    <a href="HollyNava-Resume.pdf" target="_blank" rel="noopener">Résumé</a>
   </div>
 </section>
 <footer>
