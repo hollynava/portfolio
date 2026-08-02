@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Holly Nava — Director of Product</title>
+<meta name="description" content="Holly Nava — a design-rooted Director of Product. Creating clarity in complex spaces, where the physical and digital meet." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --page:#FCFAF5; --panel:#F3EFE8; --card:#FFFFFF;
+    --ink:#1C1A16; --muted:#7E786F; --faint:#9E9488; --line:#EBE4D9;
+    --green:#1C1A16; --tag:#EFE9E0;
+    --r:30px; --r2:18px; --max:1320px;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--page);color:var(--ink);font-family:"Inter",system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;padding:14px}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto}
+  .muted{color:var(--muted)}
+  h1,h2,h3{letter-spacing:-.02em;font-weight:600;line-height:1.06}
+
+  /* Nav */
+  nav{max-width:var(--max);margin:0 auto 14px;display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase}
+  .status{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);font-weight:500;letter-spacing:0;text-transform:none}
+  .status .g{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(0,0,0,.16)}
+  .navlinks{display:flex;gap:30px;font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--muted)}
+  .navlinks a:hover{color:var(--ink)}
+  @media(max-width:680px){.navlinks{gap:15px;font-size:11px}.status .txt{display:none}}
+
+  /* Panels + notched label */
+  .panel{position:relative;background:var(--panel);border-radius:var(--r);padding:72px;margin-bottom:22px}
+  @media(max-width:680px){.panel{padding:52px 24px 40px}}
+  .notch{position:absolute;top:0;left:0;z-index:3;height:52px;min-width:252px;display:flex;align-items:center;padding:0 30px 0 36px;background:var(--page);border-radius:var(--r) 0 20px 0;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .notch::after{content:"";position:absolute;left:100%;top:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
+  .notch::before{content:"";position:absolute;top:100%;left:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
+
+  /* Hero */
+  .hero{display:grid;grid-template-columns:0.45fr 1.55fr;gap:56px;align-items:center}
+  .hero .photo{width:100%;aspect-ratio:4/5;border-radius:22px;object-fit:cover;object-position:center top;display:block}
+  .hero .eyebrow{font-weight:700;font-size:clamp(15px,1.6vw,18px);letter-spacing:.08em;text-transform:uppercase}
+  .hero .eyebrow span{color:var(--muted);font-weight:600}
+  .hero h1{font-size:clamp(28px,3.6vw,45px);margin:22px 0 24px}
+  .hero p{color:var(--muted);font-size:17px}
+  .hero p + p{margin-top:16px}
+  @media(max-width:760px){.hero{grid-template-columns:1fr;gap:28px}.hero .photo{aspect-ratio:1/1;max-height:420px}}
+
+  /* Testimonial — wide + consistent height */
+  .tst{min-height:196px;padding:88px 72px 46px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;background:var(--card);border:1px solid var(--line)}
+  .tst blockquote{font-size:clamp(17px,1.9vw,23px);font-style:italic;font-weight:500;line-height:1.4;max-width:660px;letter-spacing:-.01em;min-height:150px;display:flex;align-items:center;justify-content:center}
+  @media(max-width:760px){.tst blockquote{min-height:210px}}
+  .tst blockquote b{font-style:normal;font-weight:600}
+  .tst cite{display:block;margin-top:24px;font-style:normal;font-size:13.5px;color:var(--muted);font-weight:600;letter-spacing:.02em}
+  .dots{display:flex;gap:9px;justify-content:center;margin-top:22px}
+  .dots i{width:7px;height:7px;border-radius:50%;background:#d2cdc3;cursor:pointer;transition:background .2s}
+  .dots i.on{background:var(--ink)}
+
+  /* Logos */
+  .logos{display:flex;align-items:center;justify-content:space-around;flex-wrap:wrap;gap:24px 40px;padding:38px 56px}
+  .logos img{height:54px;width:auto;max-width:230px;object-fit:contain;opacity:.9}
+
+  /* Selected work */
+  .work-head{margin-top:22px}
+  .work-head h2{font-size:clamp(30px,4vw,48px);margin-bottom:14px}
+  .work-head p{color:var(--muted);font-size:16px}
+  .cards{display:flex;flex-direction:column;gap:18px;margin-top:38px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:var(--r2);padding:28px;display:grid;grid-template-columns:0.9fr 1.1fr;gap:36px;align-items:center;transition:border-color .2s,transform .2s}
+  .card:hover{border-color:#cec7bc;transform:translateY(-2px)}
+  .card .thumb{width:100%;aspect-ratio:4/3;border-radius:12px;object-fit:cover;display:block;background:#EFE9E0;border:1px solid var(--line)}
+  .t1{background:linear-gradient(135deg,#dedcd6,#c7c4bd)}
+  .t2{background:linear-gradient(135deg,#26242b,#403e48)}
+  .t3{background:linear-gradient(135deg,#2c2442,#5b4a86 60%,#8e73b4)}
+  .t4{background:linear-gradient(135deg,#e3ece5,#cadfd2);color:#5a6b60}
+  .card .plabel{font-size:12px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--faint)}
+  .card h3{font-size:clamp(20px,2.3vw,25px);margin:10px 0 12px}
+  .card .desc{color:var(--muted);font-size:15.5px}
+  .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+  .tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#57524a;background:var(--tag);padding:8px 13px;border-radius:7px}
+  .card .note{font-size:12.5px;color:var(--faint);font-style:italic;margin-top:10px}
+  .card .cta{margin-top:16px;font-size:13px;font-weight:700;letter-spacing:.02em;color:var(--muted);transition:color .2s}
+  .card:hover .cta{color:var(--green)}
+  @media(max-width:760px){.card{grid-template-columns:1fr;gap:20px;padding:20px}}
+  .allwork{margin-top:28px;display:flex;justify-content:center}
+  .allwork a{display:inline-flex;align-items:center;gap:9px;padding:14px 30px;border-radius:999px;background:var(--ink);color:#fff;font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;transition:opacity .2s}
+  .allwork a:hover{opacity:.88}
+  .allwork a span{font-size:15px;line-height:1;transition:transform .2s}
+  .allwork a:hover span{transform:translateX(3px)}
+
+  /* About */
+  .about h2{font-size:clamp(26px,3.2vw,36px);margin-bottom:20px;max-width:20ch}
+  .about-body{max-width:64ch}
+  .about-body p{color:var(--muted);font-size:16.5px}
+  .about-body p + p{margin-top:16px}
+  .about-body b{color:var(--ink);font-weight:600}
+  .about .loc{margin-top:22px;font-size:14.5px;color:var(--faint)}
+
+  /* Writing */
+  .writing h2{font-size:clamp(26px,3.2vw,36px);margin-bottom:6px}
+  .writing .sub{color:var(--muted);margin-bottom:28px;font-size:16px}
+  .posts{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+  .post{background:var(--card);border:1px solid var(--line);border-radius:var(--r2);padding:24px}
+  .post .k{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--green)}
+  .post h4{font-size:16.5px;font-weight:600;margin:11px 0 7px;line-height:1.3}
+  .post p{font-size:14px;color:var(--muted)}
+  @media(max-width:760px){.posts{grid-template-columns:1fr}}
+
+  /* Contact footer (plain, on page bg) */
+  .connect{text-align:center;padding:96px 24px 40px}
+  .connect h2{font-size:clamp(30px,4.4vw,48px)}
+  .connect p{color:var(--muted);margin:16px auto 0;max-width:46ch;font-size:16px}
+  .cbtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+  .cbtns a{padding:10px 20px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:var(--ink);color:#fff;border:1px solid var(--ink)}
+  .cbtns a:hover{opacity:.88}
+  footer{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:var(--faint);font-size:12.5px;padding:22px 20px 8px;border-top:1px solid var(--line)}
+
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+
+  /* Password gate */
+  body.locked .gated{display:none !important}
+  .gate{display:none;max-width:var(--max);margin:0 auto 22px}
+  body.locked .gate{display:block}
+  .gatebox{background:var(--panel);border-radius:var(--r);padding:56px}
+  @media(max-width:680px){.gatebox{padding:40px 24px}}
+  .gatebox .gk{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .gatebox h2{font-size:clamp(22px,2.4vw,28px);margin:12px 0 10px;font-weight:600;letter-spacing:-.02em}
+  .gatebox p{color:var(--muted);margin-bottom:22px;font-size:16px;max-width:44ch}
+  #gateForm{display:flex;gap:10px;flex-wrap:wrap;max-width:480px}
+  #gatePw{flex:1;min-width:200px;padding:13px 16px;border:1px solid var(--line);border-radius:12px;font-size:15px;font-family:inherit;background:#fff;color:var(--ink)}
+  #gatePw:focus{outline:none;border-color:var(--green)}
+  #gateForm button{padding:13px 28px;border-radius:999px;font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;background:var(--ink);color:#fff;border:1px solid var(--ink);cursor:pointer}
+  #gateForm button:hover{opacity:.88}
+  .gateErr{color:#b23b3b;font-size:13.5px;margin-top:12px;min-height:18px}
+</style>
+</head>
+<body>
+
+<nav class="gated">
+  <div class="brand">Holly Nava
+  </div>
+  <div class="navlinks">
+    <a href="work.html">Work</a><a href="about.html">About</a><a href="#contact">Get in touch</a>
+  </div>
+</nav>
+
+<div class="wrap">
+
+  <!-- HERO -->
+  <section class="panel hero reveal">
+    <img class="photo" src="holly.jpg" alt="Holly Nava">
+    <div>
+      <div class="eyebrow">Holly Nava</div>
+      <h1>Creating Clarity in Complex Spaces</h1>
+      <p>A design-based product leader who turns fragmented, ambiguous problems into coherent product strategy and design.</p>
+      <p>I build products that work for users, the business, and the teams creating them, using AI as a force multiplier for quality execution, not a substitute for it.</p>
+    </div>
+  </section>
+
+  <!-- GATE -->
+  <section class="gate" aria-label="Password required">
+    <div class="gatebox">
+      <div class="gk">Private Portfolio</div>
+      <h2>This work is password-protected</h2>
+      <p>Enter the password to view selected projects, testimonials, and more. Reach out if you need it.</p>
+      <form id="gateForm">
+        <input id="gatePw" type="password" placeholder="Password" autocomplete="current-password" aria-label="Password" />
+        <button type="submit">Enter</button>
+      </form>
+      <div id="gateErr" class="gateErr" role="alert"></div>
+    </div>
+  </section>
+
+  <!-- TESTIMONIAL -->
+  <section class="panel tst reveal gated">
+    <span class="notch">What people said</span>
+    <blockquote id="q"></blockquote>
+    <cite id="qc"></cite>
+    <div class="dots" id="dots"></div>
+  </section>
+
+  <!-- LOGOS -->
+  <section class="panel logos reveal gated">
+    <img src="logo-icon.png" alt="ICON"><img src="logo-dust.png" alt="DUST Identity"><img src="logo-robotspencils.png" alt="Robots &amp; Pencils"><img src="logo-atkins.png" alt="AtkinsRéalis">
+  </section>
+
+  <!-- SELECTED WORK -->
+  <section class="panel reveal gated" id="work">
+    <span class="notch">Selected Projects</span>
+    <div class="cards">
+      <a class="card" href="buildos.html">
+        <img class="thumb" src="work-buildos.jpg" alt="BuildOS — 3D-printed home render" style="object-fit:contain;background:#fff;border:none;padding:10px">
+        <div>
+          <div class="plabel">ICON · 3D-printed robotic homebuilding</div>
+          <h3>BuildOS — a product ecosystem for 3D-printed construction</h3>
+          <div class="desc">Crafted a unified ecosystem of products aligned to users, built on a common data spine and shared product components spanning design, planning, and robotic print execution. Adopted as ICON's official product direction and now in internal use and active build for external users.</div>
+          <div class="tags"><span class="tag">Product Strategy</span><span class="tag">Systems Design</span><span class="tag">0→1</span></div>
+          <div class="cta">Read the case study ›</div>
+        </div>
+      </a>
+      <a class="card" href="opensignal.html">
+        <img class="thumb" src="work-opensignal.jpg" alt="OpenSignal">
+        <div>
+          <div class="plabel">Self-initiated concept</div>
+          <h3>OpenSignal — from idea to focused working app within a week</h3>
+          <div class="desc">From an Amazon-style press release to a deployed app in about a week, using Claude. OpenSignal is a podcast player that puts listeners and creators on the same wavelength, with listener-controlled discovery, in-player creator metrics, and shoppable moments that turn a listen into creator revenue.</div>
+          <div class="tags"><span class="tag">Product Strategy</span><span class="tag">UX Design</span><span class="tag">Consumer Media</span><span class="tag">Coded Prototype</span></div>
+          <div class="note">Self-initiated concept; not affiliated with any company.</div>
+          <div class="cta">Read the case study ›</div>
+        </div>
+      </a>
+      <a class="card" href="walmart.html">
+        <div class="thumb t1" style="display:flex;align-items:center;justify-content:center"><span style="font-weight:700;font-size:clamp(30px,3.4vw,44px);color:#7d7a72;letter-spacing:-.03em">$10M</span></div>
+        <div>
+          <div class="plabel">Robots &amp; Pencils · enterprise retail</div>
+          <h3>A negotiation tool that unlocked $10M</h3>
+          <div class="desc">For one of the world's largest retailers, I turned a bloated and painfully slow 30-plus-tab data platform into a scannable decision tool. In its first trial negotiation, a buyer used it to unlock $10M in savings from a supplier they had previously failed to move.</div>
+          <div class="tags"><span class="tag">Retail</span><span class="tag">Data Product</span><span class="tag">Research</span><span class="tag">UX Design</span></div>
+          <div class="cta">Read the case study ›</div>
+        </div>
+      </a>
+    </div>
+    <div class="allwork"><a href="work.html">View all work <span>→</span></a></div>
+  </section>
+
+
+</div>
+
+<!-- CONNECT (plain footer, page background) -->
+<section class="connect gated" id="contact">
+  <h2>Let's Connect</h2>
+  <p>Whether you're building something complex, or just need clarity on where to start.</p>
+  <div class="cbtns">
+    <a href="mailto:holly.a.nava@gmail.com">Email</a>
+    <a href="https://linkedin.com/in/hollynava" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</section>
+<footer class="gated">
+  <span>© 2026 Holly Nava</span>
+  <span>Director of Product · Clarity in complex spaces</span>
+</footer>
+
+<script>
+  const quotes=[
+    {t:'"It\'s the extent to which she models and clarifies the domain of each problem she tackles – everyone involved ends up not just with a solution, but with a clearer understanding of the problem itself."', c:'Technical Manager at ICON'},
+    {t:'"I\'ve seen a lot of enterprise solutions throughout my career, and the solution design is exceptional. I\'d go as far as to say this sets the benchmark within the category."', c:'Apple Technical Partner'},
+    {t:'"Ridiculously thoughtful is the phrase that comes to mind when I think about Holly. I was particularly impressed by her ability to handle even the toughest clients—effortlessly."', c:'Design Director at Monigle'},
+    {t:'"Holly dives deep into the complexities of each project and somehow emerges with designs so beautiful and intuitive, they seem to anticipate user needs before they even articulate them."', c:'Sr. Software Engineer at ICON'}
+  ];
+  const q=document.getElementById('q'), qc=document.getElementById('qc'), dots=document.getElementById('dots');
+  let i=0;
+  quotes.forEach((_,n)=>{const d=document.createElement('i');d.onclick=()=>{i=n;render()};dots.appendChild(d)});
+  function render(){q.innerHTML=quotes[i].t;qc.textContent='— '+quotes[i].c;[...dots.children].forEach((d,n)=>d.classList.toggle('on',n===i))}
+  render();
+  setInterval(()=>{i=(i+1)%quotes.length;render()},6500);
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Password gate (soft gate — deters casual viewing; real protection added at deploy)
+  (function(){
+    const KEY='hnUnlock', PW='5280Vision';
+    const has=()=>{try{return sessionStorage.getItem(KEY)==='1'}catch(e){return false}};
+    const set=()=>{try{sessionStorage.setItem(KEY,'1')}catch(e){}};
+    if(!has()) document.body.classList.add('locked');
+    const f=document.getElementById('gateForm');
+    if(f) f.addEventListener('submit',function(e){
+      e.preventDefault();
+      const v=(document.getElementById('gatePw').value||'').trim();
+      if(v===PW){
+        set();
+        document.body.classList.remove('locked');
+        document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
+        window.scrollTo(0,0);
+      } else {
+        document.getElementById('gateErr').textContent='Incorrect password. Please try again.';
+      }
+    });
+  })();
+</script>
+</body>
+</html>

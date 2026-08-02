@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Making a giant robot operable by anyone · Holly Nava</title>
+<meta name="description" content="Redesigning the operator experience for ICON's building-scale 3D-printing robots, turning expert-only operation into a guided, task-based system." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{--page:#FCFAF5;--panel:#F3EFE8;--card:#FFFFFF;--ink:#1C1A16;--muted:#7E786F;--faint:#9E9488;--line:#EBE4D9;--green:#1C1A16;--tag:#EFE9E0;--r:30px;--r2:18px;--max:1320px;}
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{background:var(--page);color:var(--ink);font-family:"Inter",system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;padding:14px}
+  a{color:inherit;text-decoration:none}
+  .wrap{max-width:var(--max);margin:0 auto}
+  h1,h2,h3{letter-spacing:-.02em;font-weight:600;line-height:1.06}
+  nav{max-width:var(--max);margin:0 auto 14px;display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
+  .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase}
+  .status{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);font-weight:500}
+  .status .g{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(0,0,0,.16)}
+  .navlinks{display:flex;gap:30px;font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--muted)}
+  .navlinks a:hover{color:var(--ink)}
+  @media(max-width:680px){.navlinks{gap:15px;font-size:11px}.status .txt{display:none}}
+  .panel{position:relative;background:var(--panel);border-radius:var(--r);padding:72px;margin-bottom:22px}
+  @media(max-width:680px){.panel{padding:52px 24px 40px}}
+  .notch{position:absolute;top:0;left:0;z-index:3;height:52px;min-width:252px;display:flex;align-items:center;padding:0 30px 0 36px;background:var(--page);border-radius:var(--r) 0 20px 0;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+  .notch::after{content:"";position:absolute;left:100%;top:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
+  .notch::before{content:"";position:absolute;top:100%;left:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
+  .back{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:6px 20px 16px}
+  .back:hover{color:var(--ink)}
+  .cs-hero .eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
+  .cs-hero h1{font-size:clamp(26px,3.8vw,47px);margin:14px 0 22px;max-width:none}
+  .cs-hero .summary{color:var(--muted);font-size:clamp(17px,1.7vw,19px);max-width:none}
+  .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+  .tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#57524a;background:var(--tag);padding:8px 13px;border-radius:7px}
+  .meta{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 44px;margin-top:36px;max-width:760px}
+  .meta .k{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
+  .meta .v{font-size:15px;color:var(--ink)}
+  @media(max-width:680px){.meta{grid-template-columns:1fr;gap:18px}}
+  .media{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:34px;margin-bottom:22px;overflow:hidden}
+  .media .mtrack{display:flex;transition:transform .5s ease}
+  .media .mslide{min-width:100%;display:flex;justify-content:center;align-items:center}
+  .media .mslide img,.media .mslide video{width:100%;max-width:940px;height:auto;display:block;border-radius:8px}
+  .media .mdots{display:flex;gap:8px;justify-content:center;margin-top:22px}
+  .media .mdots:empty{display:none}
+  .media .mdots i{width:7px;height:7px;border-radius:50%;background:#d2cdc3;cursor:pointer;transition:background .2s}
+  .media .mdots i.on{background:var(--ink)}
+  .block{padding-top:88px}
+  .block h2{font-size:clamp(26px,3.3vw,40px);margin-bottom:24px;max-width:none}
+  .prose{max-width:none}
+  .prose p{color:var(--muted);font-size:18px;line-height:1.6}
+  .prose p + p{margin-top:16px}
+  .prose b{color:var(--ink);font-weight:600}
+  .moves{margin-top:6px;max-width:none}
+  .move{padding:22px 0;border-top:1px solid var(--line)}
+  .move:first-child{border-top:none;padding-top:2px}
+  .move h3{font-size:17px;font-weight:600;margin-bottom:7px;color:var(--ink)}
+  .move p{color:var(--muted);font-size:15.5px}
+  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:30px;max-width:820px}
+  .stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r2);padding:22px 24px;position:relative}
+  .stat .big{font-size:clamp(20px,2.2vw,26px);font-weight:700;letter-spacing:-.02em;color:var(--ink)}
+  .stat:has(.tgt) .big{padding-right:88px}
+  .stat .cap{font-size:13.5px;color:var(--muted);margin-top:5px}
+  .stat .tgt{position:absolute;top:16px;right:16px;font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9a7b1f;background:#faf1d6;border:1px solid #efdca0;border-radius:5px;padding:3px 7px}
+  @media(max-width:680px){.stats{grid-template-columns:1fr}}
+  .honest{font-size:13.5px;color:var(--faint);font-style:italic;margin-top:16px;max-width:66ch}
+  .nextproj{display:flex;align-items:center;justify-content:space-between;gap:20px;background:var(--card);border:1px solid var(--line);border-radius:var(--r2);padding:28px 32px;margin-bottom:22px;transition:border-color .2s,transform .2s}
+  .nextproj:hover{border-color:#cec7bc;transform:translateY(-2px)}
+  .nextproj .k{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+  .nextproj .t{font-size:clamp(18px,2vw,22px);font-weight:600;margin-top:6px}
+  .nextproj .arrow{font-size:26px;color:var(--muted)}
+  .connect{text-align:center;padding:96px 24px 40px}
+  .connect h2{font-size:clamp(30px,4.4vw,48px)}
+  .connect p{color:var(--muted);margin:16px auto 0;max-width:46ch;font-size:16px}
+  .cbtns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:32px}
+  .cbtns a{padding:10px 20px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:var(--ink);color:#fff;border:1px solid var(--ink)}
+  .cbtns a:hover{opacity:.88}
+  footer{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:var(--faint);font-size:12.5px;padding:22px 20px 8px;border-top:1px solid var(--line)}
+  .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
+  .reveal.in{opacity:1;transform:none}
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="brand">Holly Nava
+  </a>
+  <div class="navlinks">
+    <a href="work.html">Work</a><a href="about.html">About</a><a href="index.html#contact">Get in touch</a>
+  </div>
+</nav>
+<div class="wrap">
+  <section class="panel cs-hero reveal">
+    <div class="eyebrow">ICON · 3D-printed robotic homebuilding</div>
+    <h1>Making a giant robot operable by anyone</h1>
+    <p class="summary">When I joined, ICON's building-scale 3D-printing robot couldn't be run without multiple operators and an ICON support engineer on site. The operator interface couldn't keep up with fast-evolving hardware and was nearly unreadable in the field. I led the redesign of the operator experience across multiple hardware generations, turning expert-only operation into a guided, task-based system.</p>
+    <div class="tags"><span class="tag">Robotics</span><span class="tag">Automation</span><span class="tag">UX Design + Research</span></div>
+    <div class="meta">
+      <div><div class="k">Role</div><div class="v">Led the operator experience (Principal → Director, Digital Product Experience)</div></div>
+      <div><div class="k">Timeline</div><div class="v">2022–2026</div></div>
+      <div><div class="k">Hardware</div><div class="v">Across two generations: Block 3 → Block 4 → the next-gen Titan platform</div></div>
+      <div><div class="k">Hands-on</div><div class="v">Field research and end-to-end design of the operator app</div></div>
+    </div>
+  </section>
+  <div class="media reveal">
+    <div class="mtrack">
+      <div class="mslide"><img src="work-robotics.jpg" alt="ICON construction robot on site"></div>
+    </div>
+    <div class="mdots"></div>
+  </div>
+  <section class="panel block reveal">
+    <span class="notch">The problem</span>
+    <h2>Running the machine lived in people's heads</h2>
+    <div class="prose">
+      <p>ICON's large-scale 3D-printing robots build homes and infrastructure, and when I joined, the operator interface couldn't keep up: clunky, hard to navigate, and nearly unreadable in real field conditions, outdoors, in glare, wearing gloves.</p>
+      <p>Developers were making UX calls without design input, and the expertise to run a print lived in people's heads and binders, requiring long onboarding times. In practice that meant multiple operators and support staff had to be on site for every build, a hard ceiling on scaling to real customers.</p>
+    </div>
+  </section>
+  <section class="panel block reveal">
+    <span class="notch">What I did</span>
+    <h2>Turned expert-only operation into a guided flow</h2>
+    <div class="moves">
+      <div class="move"><h3>Ran deep field research</h3><p>I watched operators work in real conditions to find where visibility, contrast, gloves, and cognitive load actually broke the experience, rather than designing from a comfortable desk.</p></div>
+      <div class="move"><h3>Rebuilt the interface for the jobsite</h3><p>High-contrast visuals, larger hit targets, simplified navigation, and a large-format variant of the design system, built for glare and gloves instead of an office monitor.</p></div>
+      <div class="move"><h3>Designed a guided, task-based operation system</h3><p>I partnered with engineering to turn an early concept, automated task-graph traversal of a building design, into a human-operable flow that walks operators step by step instead of relying on memory. An AI-to-human translation layer.</p></div>
+      <div class="move"><h3>Closed costly gaps</h3><p>I developed a prompting and alert system to convert important but easy-to-miss tasks, such as cleaning steps and material-refill needs that could each cost 30-plus minutes of delay, into clear and obvious actions, reducing risk to continuous operations.</p></div>
+      <div class="move"><h3>Gave leaders visibility</h3><p>The first real-time view for project and construction managers into what's happening in the field, with productivity and performance metrics they'd never had before, reducing reliance on other tracking software and manual processes.</p></div>
+      <div class="move"><h3>Designed for what's next</h3><p>Automation and operator-as-monitor models, plus early concepts for remote access and voice operation, laying the groundwork for one person running more than one machine remotely.</p></div>
+    </div>
+  </section>
+  <section class="panel block reveal">
+    <span class="notch">Outcome</span>
+    <h2>Operable by small staff, with fast onboarding times</h2>
+    <div class="prose">
+      <p>During my tenure, the guided system shipped roughly <b>60% of the full build sequence as guided tasks</b>, built to bring operators to independence in weeks instead of months, and the most recent project onboarded operators within 3 weeks of deployment. Managers got their <b>first real-time field visibility</b>, and the system laid the foundation for external customer deployment.</p>
+    </div>
+    <div class="stats">
+      <div class="stat"><div class="big">Tasks covering ~60% of the build</div><div class="cap">Shipped as guided, task-based operator steps</div></div>
+      <div class="stat"><div class="big">Prompted actions</div><div class="cap">Costly gaps closed with automated refill and cleaning alerts</div></div>
+      <div class="stat"><div class="big">Months → weeks</div><div class="cap">Operator training time, a core Print goal</div></div>
+      <div class="stat"><div class="big">5 people → 1.5</div><div class="cap">Reduced labor and cost to operate with the system, from the Block 3 generation to the Titan release</div></div>
+    </div>
+  </section>
+  <a class="nextproj reveal" href="opensignal.html">
+    <div><div class="k">Next project</div><div class="t">OpenSignal — from idea to focused working app within a week</div></div>
+    <div class="arrow">›</div>
+  </a>
+</div>
+<section class="connect" id="contact">
+  <h2>Let's Connect</h2>
+  <p>Whether you're building something complex, or just need clarity on where to start.</p>
+  <div class="cbtns">
+    <a href="mailto:holly.a.nava@gmail.com">Email</a>
+    <a href="https://linkedin.com/in/hollynava" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</section>
+<footer>
+  <span>© 2026 Holly Nava</span>
+  <span>Director of Product · Clarity in complex spaces</span>
+</footer>
+<script>
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
+  document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+  document.querySelectorAll('.media').forEach(function(m){
+    const track=m.querySelector('.mtrack'), slides=m.querySelectorAll('.mslide'), dots=m.querySelector('.mdots');
+    if(slides.length<2) return;
+    let i=0;
+    slides.forEach(function(_,n){const d=document.createElement('i');d.onclick=function(){go(n)};dots.appendChild(d)});
+    function go(n){i=n;track.style.transform='translateX(-'+(i*100)+'%)';[].forEach.call(dots.children,function(d,k){d.classList.toggle('on',k===i)})}
+    go(0);
+    setInterval(function(){go((i+1)%slides.length)},5000);
+  });
+</script>
+</body>
+</html>
