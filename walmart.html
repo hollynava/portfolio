@@ -3,8 +3,9 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>$10M Negotiation Tool · Holly Nava</title>
-<meta name="description" content="A supplier-negotiation tool for one of the world's largest retailers that unlocked $10M in savings in its first trial negotiation." />
+<title>A negotiation tool that unlocked $10M in savings · Holly Nava</title>
+<meta name="description" content="Turning a nearly unusable 30-tab data platform into a scannable negotiation tool for one of the world's largest retailers — $10M saved before launch." />
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -24,61 +25,99 @@
 
   nav{max-width:var(--max);margin:0 auto 14px;display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
   .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase}
-  .status{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);font-weight:500;letter-spacing:0;text-transform:none}
-  .status .g{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(0,0,0,.16)}
   .navlinks{display:flex;gap:30px;font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--muted)}
   .navlinks a:hover{color:var(--ink)}
-  @media(max-width:680px){.navlinks{gap:15px;font-size:11px}.status .txt{display:none}}
+  @media(max-width:680px){.navlinks{gap:15px;font-size:11px}}
 
-  .panel{position:relative;background:var(--panel);border-radius:var(--r);padding:72px;margin-bottom:22px}
-  @media(max-width:680px){.panel{padding:52px 24px 40px}}
-  .notch{position:absolute;top:0;left:0;z-index:3;height:52px;min-width:252px;display:flex;align-items:center;padding:0 30px 0 36px;background:var(--page);border-radius:var(--r) 0 20px 0;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-  .notch::after{content:"";position:absolute;left:100%;top:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
-  .notch::before{content:"";position:absolute;top:100%;left:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
-
-  .back{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:6px 20px 16px}
-  .back:hover{color:var(--ink)}
+  .panel{position:relative;background:var(--panel);border-radius:var(--r);padding:56px 60px;margin-bottom:22px}
+  @media(max-width:680px){.panel{padding:40px 24px}}
 
   .cs-hero .eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
-  .cs-hero h1{font-size:clamp(26px,3.8vw,47px);margin:14px 0 22px;max-width:none}
-  .cs-hero .summary{color:var(--muted);font-size:clamp(17px,1.7vw,19px);max-width:none}
-  .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+  .cs-hero h1{font-size:clamp(26px,3.8vw,44px);margin:12px 0 20px;max-width:none}
+  .tags{display:flex;gap:8px;flex-wrap:wrap}
   .tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#57524a;background:var(--tag);padding:8px 13px;border-radius:7px}
-  .meta{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 44px;margin-top:36px;max-width:760px}
-  .meta .k{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
-  .meta .v{font-size:15px;color:var(--ink)}
-  @media(max-width:680px){.meta{grid-template-columns:1fr;gap:18px}}
 
-  /* Feature stat band */
-  .feature{background:var(--ink);color:#fff;border-radius:var(--r);padding:56px;margin-bottom:22px;text-align:center}
-  .feature .big{font-size:clamp(52px,8vw,104px);font-weight:700;letter-spacing:-.03em;line-height:1}
-  .feature .cap{color:#c9c6bf;font-size:clamp(15px,1.6vw,18px);margin-top:14px;max-width:52ch;margin-left:auto;margin-right:auto}
-  .feature .real{display:inline-block;margin-top:18px;font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:#8fe0bb;border:1px solid rgba(143,224,187,.4);border-radius:6px;padding:5px 11px}
+  /* ---- Tabbed case-study body ---- */
+  .csx{display:block}
 
-  .block{padding-top:88px}
-  .block h2{font-size:clamp(26px,3.3vw,40px);margin-bottom:24px;max-width:none}
-  .prose{max-width:none}
-  .prose p{color:var(--muted);font-size:18px;line-height:1.6}
-  .prose p + p{margin-top:16px}
-  .prose b{color:var(--ink);font-weight:600}
+  /* Tabs across the top, left-aligned */
+  .csx-tabs{display:flex;gap:2px;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:30px}
+  .csx-tab{appearance:none;background:none;border:0;font-family:inherit;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);padding:11px 18px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s}
+  .csx-tab:first-child{padding-left:0}
+  .csx-tab:hover{color:var(--muted)}
+  .csx-tab.on{color:var(--ink);border-bottom-color:var(--ink)}
 
-  .moves{margin-top:6px;max-width:none}
-  .move{padding:22px 0;border-top:1px solid var(--line)}
-  .move:first-child{border-top:none;padding-top:2px}
-  .move h3{font-size:17px;font-weight:600;margin-bottom:7px;color:var(--ink)}
-  .move p{color:var(--muted);font-size:15.5px}
+  /* Panel = text (left) + media (right) */
+  .csx-panel{display:none}
+  .csx-panel.on{display:block;animation:csxf .35s ease}
+  @keyframes csxf{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .csx-split{display:grid;grid-template-columns:1.18fr 0.92fr;gap:40px;align-items:start}
+  @media(max-width:880px){.csx-split{grid-template-columns:1fr;gap:24px}}
 
-  /* Before / after */
-  .ba{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:18px;margin-top:40px}
-  .ba .box{background:var(--card);border:1px solid var(--line);border-radius:var(--r2);padding:24px;min-height:120px;display:flex;flex-direction:column;justify-content:center}
-  .ba .k{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
-  .ba .box.before .v{color:var(--muted);font-size:16px}
-  .ba .box.after{border-color:rgba(0,0,0,.45)}
-  .ba .box.after .v{color:var(--ink);font-weight:600;font-size:17px}
-  .ba .arrow{font-size:30px;color:var(--faint)}
-  @media(max-width:680px){.ba{grid-template-columns:1fr}.ba .arrow{transform:rotate(90deg);justify-self:center}}
+  .csx-media{position:relative}
+  .csx-media img,.csx-media video{width:100%;display:block;border-radius:10px}
+  .csx-media video{aspect-ratio:16/9;object-fit:cover;background:#1c1a16}
+  .csx-media > * + *{margin-top:18px}
 
-  .bigquote{max-width:var(--max);margin:8px auto 26px;padding:6px 24px;border-left:3px solid var(--green);font-size:clamp(19px,2.3vw,27px);font-style:italic;font-weight:500;color:var(--ink);line-height:1.36;letter-spacing:-.01em}
+  .csx-text h3.ph{font-size:clamp(19px,2.4vw,26px);margin-bottom:14px;letter-spacing:-.02em}
+  .csx-text p{color:var(--muted);font-size:15.5px;line-height:1.62}
+  .csx-text p + p{margin-top:12px}
+  .csx-text b{color:var(--ink);font-weight:600}
+  .csx-mg{display:grid;grid-template-columns:1fr 1fr;gap:16px 26px;margin-top:24px;padding-top:22px;border-top:1px solid var(--line)}
+  .csx-mg.full{grid-template-columns:repeat(4,1fr);margin-top:34px}
+  .csx-mg .k{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:4px}
+  .csx-mg .v{font-size:13.5px;color:var(--ink);line-height:1.4}
+  @media(max-width:880px){.csx-mg.full{grid-template-columns:1fr 1fr}}
+
+  /* Problem — single column, tools graphic full-width card below */
+  .csx-lead{max-width:74ch}
+  .csx-lead h3.ph{font-size:clamp(19px,2.4vw,26px);margin-bottom:14px;letter-spacing:-.02em}
+  .csx-lead p{color:var(--muted);font-size:15.5px;line-height:1.62}
+  .csx-lead p + p{margin-top:12px}
+  .csx-figure{margin-top:30px;background:#fff;border:1px solid var(--line);border-radius:var(--r2);padding:24px}
+  .csx-figure img{width:100%;display:block;border-radius:8px}
+
+  /* What I did — images embedded with each move */
+  .csx-did h3.ph{margin-bottom:26px}
+  .csx-move{display:grid;grid-template-columns:1.2fr 0.9fr;gap:34px;align-items:center;padding:26px 0;border-top:1px solid var(--line)}
+  .csx-move:first-of-type{border-top:none;padding-top:0}
+  .csx-move.solo{display:block}
+  .csx-move h4{font-size:17px;font-weight:600;margin-bottom:8px;color:var(--ink);letter-spacing:-.01em}
+  .csx-move p{color:var(--muted);font-size:15px;line-height:1.6}
+  .csx-move img{width:100%;display:block;border-radius:10px}
+  .csx-move img.onwhite{background:#fff;border:1px solid var(--line);padding:16px}
+  @media(max-width:880px){.csx-move{grid-template-columns:1fr;gap:16px}}
+
+  /* Rotating gif (2+ images cross-fading) */
+  .csx-gif{position:relative;aspect-ratio:16/10;border-radius:10px;overflow:hidden}
+  .csx-gif img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:var(--panel);opacity:0;transition:opacity .6s ease;margin:0;border-radius:0}
+  .csx-gif img.on{opacity:1}
+
+  /* Module ecosystem chart (last move) */
+  .csx-modchart{margin-top:26px;background:#fff;border:1px solid var(--line);border-radius:var(--r2);padding:34px 34px 38px}
+  .mc-title{text-align:center;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:22px}
+  .mc-top{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .mc-card{border-radius:14px;padding:20px 18px;text-align:center}
+  .mc-top .mc-card{background:#fff;border:1.5px solid var(--ink)}
+  .mc-card b{display:block;font-size:17px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+  .mc-card b span{font-weight:500;color:var(--muted)}
+  .mc-card small{display:block;font-size:13px;color:var(--muted);margin-top:6px;line-height:1.4}
+  .mc-spine{margin:18px 0;background:#E5E0D7;border-radius:999px;padding:15px 20px;text-align:center;font-size:14px;font-weight:600;color:var(--ink)}
+  .mc-bottom{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:70%;margin:0 auto}
+  .mc-bottom .mc-card{background:var(--panel)}
+  @media(max-width:880px){.mc-top{grid-template-columns:1fr 1fr}.mc-bottom{max-width:100%}}
+  @media(max-width:520px){.mc-top,.mc-bottom{grid-template-columns:1fr}}
+
+  /* Outcome — product modules stacked, each with a description */
+  .csx-prods{display:flex;flex-direction:column;gap:26px}
+  .csx-prod video{width:100%;display:block;border-radius:10px;aspect-ratio:16/9;object-fit:cover;background:#0f0e0c}
+  .csx-prod .ph{font-size:15px;font-weight:700;color:var(--ink);margin-top:12px;letter-spacing:.01em}
+  .csx-prod .pd{font-size:13.5px;color:var(--muted);margin-top:3px;line-height:1.5}
+  .csx-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+  .csx-stats .s{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px 17px}
+  .csx-stats .s .b{font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+  .csx-stats .s .c{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4}
+  @media(max-width:880px){.csx-mg,.csx-stats{grid-template-columns:1fr}}
 
   .nextproj{display:flex;align-items:center;justify-content:space-between;gap:20px;background:var(--card);border:1px solid var(--line);border-radius:var(--r2);padding:28px 32px;margin-bottom:22px;transition:border-color .2s,transform .2s}
   .nextproj:hover{border-color:#cec7bc;transform:translateY(-2px)}
@@ -93,97 +132,114 @@
   .cbtns a{padding:10px 20px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;background:var(--ink);color:#fff;border:1px solid var(--ink)}
   .cbtns a:hover{opacity:.88}
   footer{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:var(--faint);font-size:12.5px;padding:22px 20px 8px;border-top:1px solid var(--line)}
-
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in{opacity:1;transform:none}
 </style>
 </head>
 <body>
-
 <nav>
-  <a href="index.html" class="brand">Holly Nava
-  </a>
+  <a href="index.html" class="brand">Holly Nava</a>
   <div class="navlinks">
     <a href="work.html">Work</a><a href="about.html">About</a><a href="index.html#contact">Get in touch</a>
   </div>
 </nav>
 
 <div class="wrap">
-
-
   <!-- HERO -->
   <section class="panel cs-hero reveal">
     <div class="eyebrow">Robots &amp; Pencils · product consultancy</div>
     <h1>A negotiation tool that unlocked $10M in savings</h1>
-    <p class="summary">One of the world's largest retailers negotiated supplier costs through a manual, inconsistent process. I led the UX strategy and design that turned a nearly unusable data platform into a tool buyers could actually read and adjust their leverage from, and it paid off before it even launched.</p>
     <div class="tags"><span class="tag">Retail</span><span class="tag">Data Product</span><span class="tag">Research</span><span class="tag">UX Design</span></div>
-    <div class="meta">
-      <div><div class="k">Role</div><div class="v">UX Strategy &amp; Design Lead</div></div>
-      <div><div class="k">Team</div><div class="v">With an in-house strategy lead, program manager, and ~5 developers</div></div>
-      <div><div class="k">Client</div><div class="v">One of the world's largest retailers (via Robots &amp; Pencils)</div></div>
-      <div><div class="k">Timeline</div><div class="v">2019–2021</div></div>
-    </div>
   </section>
 
-  <!-- FEATURE STAT -->
-  <div class="feature reveal">
-    <div class="big">$10M</div>
-    <div class="cap">saved in the tool's first trial negotiation, from a supplier the buyer had previously failed to move</div>
-    <span class="real">Real result · pre-launch</span>
-  </div>
-
-  <!-- PROBLEM -->
-  <section class="panel block reveal">
-    <span class="notch">The problem</span>
-    <h2>Weeks of prep, binders of data, and a tool no one could use</h2>
-    <div class="prose">
-      <p>Buyers negotiated supplier costs through a manual, inconsistent process: weeks of preparation, binders of performance data, and a scatter of disconnected tools. A proof-of-concept built in Tableau was meant to help, but it had ballooned to more than thirty data tabs and was nearly unusable, taking several minutes to load each view, with complex visualizations that still needed interpretation.</p>
-      <p>The data existed, but what was missing was a way to turn it into leverage a buyer could actually see and act on, fast, in the room.</p>
-    </div>
-  </section>
-
-  <!-- WHAT I DID -->
-  <section class="panel block reveal">
-    <span class="notch">What I did</span>
-    <h2>Turned tangled data into a decision buyers could read fast</h2>
-    <div class="moves">
-      <div class="move">
-        <h3>Audited the buyer-tool ecosystem</h3>
-        <p>I mapped the full set of tools and data buyers relied on, and built a clean information architecture out of what had become a thirty-tab tangle.</p>
+  <!-- TABBED BODY: tabs on top, each tab = media (left) + content (right) -->
+  <section class="panel reveal">
+    <div class="csx">
+      <div class="csx-tabs">
+        <button class="csx-tab on" data-t="overview">Overview</button>
+        <button class="csx-tab" data-t="problem">Problem</button>
+        <button class="csx-tab" data-t="did">What I did</button>
+        <button class="csx-tab" data-t="outcome">Outcome</button>
       </div>
-      <div class="move">
-        <h3>Tested the proof-of-concept with real buyers</h3>
-        <p>I ran usability sessions across buyer types to find what actually drove a negotiation, and separated the signal that mattered from the noise that didn't.</p>
-      </div>
-      <div class="move">
-        <h3>Designed for leverage at a glance</h3>
-        <p>I designed a scannable interface that let a buyer read their position and leverage quickly, instead of hunting across tabs mid-negotiation. It gave a clear process for evaluating the relationship and making requests, with levers a buyer could pull to reach a deal that worked for both sides.</p>
-      </div>
-      <div class="move">
-        <h3>Aligned the team on scope</h3>
-        <p>I co-facilitated a full-team story-mapping workshop, across three related products, to define the MVP and get development and strategy pointed at the same outcome, then ran a post-launch Kano study to shape the roadmap beyond the initial deployment.</p>
-      </div>
-    </div>
 
-    <div class="ba">
-      <div class="box before"><div class="k">Before</div><div class="v">A 30-plus-tab Tableau proof-of-concept, nearly unusable in a live negotiation.</div></div>
-      <div class="arrow">›</div>
-      <div class="box after"><div class="k">After</div><div class="v">One scannable tool where a buyer could read their leverage, and actively dial it up and adjust it, not just see it.</div></div>
-    </div>
-  </section>
+      <!-- OVERVIEW -->
+      <div class="csx-panel on" data-p="overview">
+        <div class="csx-split">
+          <div class="csx-text">
+            <p>One of the world's largest retailers negotiated supplier costs through a manual, inconsistent process. I led the UX strategy and design that turned a nearly unusable data platform into a tool buyers could actually read and adjust their leverage from, and it paid off before it even launched.</p>
+          </div>
+          <div class="csx-media">
+            <div style="background:#fff;border:1px solid var(--line);border-radius:12px;padding:52px 24px;text-align:center">
+              <div style="font-weight:700;font-size:clamp(46px,6.5vw,76px);letter-spacing:-.03em;color:var(--ink);line-height:1">$10M</div>
+              <div style="font-size:14px;color:var(--muted);margin:12px auto 0;max-width:34ch;line-height:1.5">saved in the tool's first trial negotiation, from a supplier the buyer had previously failed to move</div>
+              <div style="font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9a7b1f;background:#faf1d6;border:1px solid #efdca0;border-radius:5px;padding:4px 10px;display:inline-block;margin-top:18px">Real result · pre-launch</div>
+            </div>
+          </div>
+        </div>
+        <div class="csx-mg full">
+          <div><div class="k">Role</div><div class="v">UX Strategy &amp; Design Lead</div></div>
+          <div><div class="k">Team</div><div class="v">With an in-house strategy lead, program manager, and ~5 developers</div></div>
+          <div><div class="k">Client</div><div class="v">One of the world's largest retailers (via Robots &amp; Pencils)</div></div>
+          <div><div class="k">Timeline</div><div class="v">2019–2021</div></div>
+        </div>
+      </div>
 
-  <!-- OUTCOME -->
-  <section class="panel block reveal">
-    <span class="notch">Outcome</span>
-    <h2>$10M unlocked before the tool officially launched</h2>
-    <div class="prose">
-      <p>Before the official launch, a buyer used the tool in a trial negotiation and achieved <b>$10M in savings</b>, from a supplier they had previously failed to move. It replaced guesswork with a repeatable, data-grounded negotiation process the team could run again and again. Buyers reported a repeatable process grounded in strategy, new confidence going into critical negotiations, and stronger alignment across functional teams.</p>
-    </div>
-    <div class="qgrid" style="margin-top:34px;display:grid;gap:14px;max-width:none">
-      <blockquote style="margin:0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px;font-style:italic;color:var(--ink);font-size:16px;line-height:1.5">"On the negotiation side, we're coming up with new products that enable our team to prepare for negotiations faster and have the capabilities and the data they need. I'm very excited about that; it's going to be a big deal for us."<span style="display:block;margin-top:12px;font-style:normal;font-size:12.5px;color:var(--muted);font-weight:600;letter-spacing:.02em">— CEO, one of the world's largest retailers</span></blockquote>
-      <blockquote style="margin:0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px;font-style:italic;color:var(--ink);font-size:16px;line-height:1.5">"A buyer just landed a $10M negotiation on a price-gap issue with a supplier. All of the savings will go to lowering price. Even with years of negotiation experience, he saved a ton of time with these capabilities."<span style="display:block;margin-top:12px;font-style:normal;font-size:12.5px;color:var(--muted);font-weight:600;letter-spacing:.02em">— Program note from the client team</span></blockquote>
-      <blockquote style="margin:0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px;font-style:italic;color:var(--ink);font-size:16px;line-height:1.5">"I created nine scenarios in less than an hour in preparation for a line review yesterday."<span style="display:block;margin-top:12px;font-style:normal;font-size:12.5px;color:var(--muted);font-weight:600;letter-spacing:.02em">— Buyer using the tool</span></blockquote>
-      <blockquote style="margin:0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px;font-style:italic;color:var(--ink);font-size:16px;line-height:1.5">"The results are in from our first NPS survey (40). You should be very proud. Your target users are giving you the thumbs up, great job hitting the mark."<span style="display:block;margin-top:12px;font-style:normal;font-size:12.5px;color:var(--muted);font-weight:600;letter-spacing:.02em">— Program lead</span></blockquote>
+      <!-- PROBLEM -->
+      <div class="csx-panel" data-p="problem">
+        <div class="csx-lead">
+          <h3 class="ph">Weeks of prep, binders of data, and a tool no one could use</h3>
+          <p>Buyers negotiated supplier costs through a manual, inconsistent process: weeks of preparation, binders of performance data, and a scatter of disconnected tools. A proof-of-concept built in Tableau was meant to help, but it had ballooned to more than thirty data tabs and was nearly unusable, taking several minutes to load each view, with complex visualizations that still needed interpretation.</p>
+          <p>The data existed, but what was missing was a way to turn it into leverage a buyer could actually see and act on, fast, in the room.</p>
+        </div>
+      </div>
+
+      <!-- WHAT I DID -->
+      <div class="csx-panel" data-p="did">
+        <div class="csx-did">
+          <h3 class="ph">Turned tangled data into a decision buyers could read fast</h3>
+
+          <div class="csx-move solo">
+            <h4>Audited the buyer-tool ecosystem</h4>
+            <p>I mapped the full set of tools and data buyers relied on, and built a clean information architecture out of what had become a thirty-tab tangle.</p>
+          </div>
+
+          <div class="csx-move solo">
+            <h4>Tested the proof-of-concept with real buyers</h4>
+            <p>I ran usability sessions across buyer types to find what actually drove a negotiation, and separated the signal that mattered from the noise that didn't.</p>
+          </div>
+
+          <div class="csx-move solo">
+            <h4>Designed for leverage at a glance</h4>
+            <p>I designed a scannable interface that let a buyer read their position and leverage quickly, instead of hunting across tabs mid-negotiation. It gave a clear process for evaluating the relationship and making requests, with levers a buyer could pull to reach a deal that worked for both sides.</p>
+          </div>
+
+          <div class="csx-move solo">
+            <h4>Aligned the team on scope</h4>
+            <p>I co-facilitated a full-team story-mapping workshop, across three related products, to define the MVP and get development and strategy pointed at the same outcome, then ran a post-launch Kano study to shape the roadmap beyond the initial deployment.</p>
+          </div>
+
+          <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:center;margin-top:14px">
+            <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px"><div style="font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:6px">Before</div><div style="font-size:14px;color:var(--muted);line-height:1.5">A 30-plus-tab Tableau proof-of-concept, nearly unusable in a live negotiation.</div></div>
+            <div style="font-size:24px;color:var(--muted)">›</div>
+            <div style="background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px"><div style="font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:6px">After</div><div style="font-size:14px;color:var(--ink);line-height:1.5">One scannable tool where a buyer could read their leverage, and actively dial it up and adjust it, not just see it.</div></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- OUTCOME -->
+      <div class="csx-panel" data-p="outcome">
+        <div class="csx-lead">
+          <h3 class="ph">$10M unlocked before the tool officially launched</h3>
+          <p>Before the official launch, a buyer used the tool in a trial negotiation and achieved <b>$10M in savings</b>, from a supplier they had previously failed to move. It replaced guesswork with a repeatable, data-grounded negotiation process the team could run again and again. Buyers reported a repeatable process grounded in strategy, new confidence going into critical negotiations, and stronger alignment across functional teams.</p>
+        </div>
+        <div style="margin-top:30px;display:grid;gap:14px">
+          <blockquote style="margin:0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px;font-style:italic;color:var(--ink);font-size:16px;line-height:1.5">"On the negotiation side, we're coming up with new products that enable our team to prepare for negotiations faster and have the capabilities and the data they need. I'm very excited about that; it's going to be a big deal for us."<span style="display:block;margin-top:12px;font-style:normal;font-size:12.5px;color:var(--muted);font-weight:600;letter-spacing:.02em">— CEO, one of the world's largest retailers</span></blockquote>
+          <blockquote style="margin:0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px;font-style:italic;color:var(--ink);font-size:16px;line-height:1.5">"A buyer just landed a $10M negotiation on a price-gap issue with a supplier. All of the savings will go to lowering price. Even with years of negotiation experience, he saved a ton of time with these capabilities."<span style="display:block;margin-top:12px;font-style:normal;font-size:12.5px;color:var(--muted);font-weight:600;letter-spacing:.02em">— Program note from the client team</span></blockquote>
+          <blockquote style="margin:0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px;font-style:italic;color:var(--ink);font-size:16px;line-height:1.5">"I created nine scenarios in less than an hour in preparation for a line review yesterday."<span style="display:block;margin-top:12px;font-style:normal;font-size:12.5px;color:var(--muted);font-weight:600;letter-spacing:.02em">— Buyer using the tool</span></blockquote>
+          <blockquote style="margin:0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px;font-style:italic;color:var(--ink);font-size:16px;line-height:1.5">"The results are in from our first NPS survey (40). You should be very proud. Your target users are giving you the thumbs up, great job hitting the mark."<span style="display:block;margin-top:12px;font-style:normal;font-size:12.5px;color:var(--muted);font-weight:600;letter-spacing:.02em">— Program lead</span></blockquote>
+        </div>
+      </div>
+
     </div>
   </section>
 
@@ -191,10 +247,8 @@
     <div><div class="k">Next project</div><div class="t">BuildOS — a product ecosystem for 3D-printed construction</div></div>
     <div class="arrow">›</div>
   </a>
-
 </div>
 
-<!-- CONNECT -->
 <section class="connect" id="contact">
   <h2>Let's Connect</h2>
   <p>Whether you're building something complex, or just need clarity on where to start.</p>
@@ -211,6 +265,36 @@
 <script>
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+
+  // Tabs
+  const tabs=[...document.querySelectorAll('.csx-tab')];
+  const panels=[...document.querySelectorAll('.csx-panel')];
+  function activate(t){
+    tabs.forEach(x=>x.classList.toggle('on',x===t));
+    panels.forEach(p=>p.classList.toggle('on',p.dataset.p===t.dataset.t));
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>activate(t)));
+  activate(tabs[0]);
+
+  // Cross-fading gif (2+ stacked images)
+  document.querySelectorAll('.csx-gif').forEach(g=>{
+    const imgs=[...g.querySelectorAll('img')];
+    if(imgs.length<2) return;
+    let i=0;
+    setInterval(()=>{
+      imgs[i].classList.remove('on');
+      i=(i+1)%imgs.length;
+      imgs[i].classList.add('on');
+    },2400);
+  });
+
+  // Play videos only while visible (hidden tabs report not-intersecting -> paused)
+  const vio=new IntersectionObserver(es=>es.forEach(e=>{
+    const v=e.target;
+    if(e.isIntersecting){ const pr=v.play(); if(pr&&pr.catch)pr.catch(()=>{}); }
+    else v.pause();
+  }),{threshold:.35});
+  document.querySelectorAll('.csx-panel video').forEach(v=>{v.muted=true;vio.observe(v);});
 </script>
 </body>
 </html>

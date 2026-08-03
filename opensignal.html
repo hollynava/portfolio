@@ -4,76 +4,127 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>OpenSignal — from idea to focused working app within a week · Holly Nava</title>
-<meta name="description" content="A self-initiated podcast product taken from an Amazon-style press release through market strategy to a working, deployed app." />
+<meta name="description" content="A self-initiated podcast player that puts listeners, creators, and advertisers on the same side — from PR-FAQ to a deployed app, built in a week." />
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  :root{--page:#FCFAF5;--panel:#F3EFE8;--card:#FFFFFF;--ink:#1C1A16;--muted:#7E786F;--faint:#9E9488;--line:#EBE4D9;--green:#1C1A16;--tag:#EFE9E0;--r:30px;--r2:18px;--max:1320px;}
+  :root{
+    --page:#FCFAF5; --panel:#F3EFE8; --card:#FFFFFF;
+    --ink:#1C1A16; --muted:#7E786F; --faint:#9E9488; --line:#EBE4D9;
+    --green:#1C1A16; --tag:#EFE9E0;
+    --r:30px; --r2:18px; --max:1320px;
+  }
   *{box-sizing:border-box;margin:0;padding:0}
   html{scroll-behavior:smooth}
   body{background:var(--page);color:var(--ink);font-family:"Inter",system-ui,sans-serif;line-height:1.55;-webkit-font-smoothing:antialiased;padding:14px}
   a{color:inherit;text-decoration:none}
   .wrap{max-width:var(--max);margin:0 auto}
   h1,h2,h3{letter-spacing:-.02em;font-weight:600;line-height:1.06}
+
   nav{max-width:var(--max);margin:0 auto 14px;display:flex;align-items:center;justify-content:space-between;padding:12px 20px}
   .brand{display:flex;align-items:center;gap:12px;font-weight:700;font-size:15px;letter-spacing:.08em;text-transform:uppercase}
-  .status{display:inline-flex;align-items:center;gap:7px;font-size:12.5px;color:var(--muted);font-weight:500}
-  .status .g{width:8px;height:8px;border-radius:50%;background:var(--green);box-shadow:0 0 0 3px rgba(0,0,0,.16)}
   .navlinks{display:flex;gap:30px;font-size:13px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;color:var(--muted)}
   .navlinks a:hover{color:var(--ink)}
-  @media(max-width:680px){.navlinks{gap:15px;font-size:11px}.status .txt{display:none}}
-  .panel{position:relative;background:var(--panel);border-radius:var(--r);padding:72px;margin-bottom:22px}
-  @media(max-width:680px){.panel{padding:52px 24px 40px}}
-  .notch{position:absolute;top:0;left:0;z-index:3;height:52px;min-width:252px;display:flex;align-items:center;padding:0 30px 0 36px;background:var(--page);border-radius:var(--r) 0 20px 0;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-  .notch::after{content:"";position:absolute;left:100%;top:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
-  .notch::before{content:"";position:absolute;top:100%;left:0;width:22px;height:22px;background:var(--page);-webkit-mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px);mask:radial-gradient(circle at bottom right,transparent 22px,#000 22.5px)}
-  .back{display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding:6px 20px 16px}
-  .back:hover{color:var(--ink)}
+  @media(max-width:680px){.navlinks{gap:15px;font-size:11px}}
+
+  .panel{position:relative;background:var(--panel);border-radius:var(--r);padding:56px 60px;margin-bottom:22px}
+  @media(max-width:680px){.panel{padding:40px 24px}}
+
   .cs-hero .eyebrow{font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint)}
-  .cs-hero h1{font-size:clamp(26px,3.8vw,47px);margin:14px 0 22px;max-width:none}
-  .cs-hero .summary{color:var(--muted);font-size:clamp(17px,1.7vw,19px);max-width:none}
-  .tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:24px}
+  .cs-hero h1{font-size:clamp(26px,3.8vw,44px);margin:12px 0 20px;max-width:none}
+  .tags{display:flex;gap:8px;flex-wrap:wrap}
   .tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#57524a;background:var(--tag);padding:8px 13px;border-radius:7px}
-  .livecta{display:inline-flex;align-items:center;gap:9px;margin-top:30px;padding:14px 26px;border-radius:999px;background:var(--green);color:#fff;font-weight:600;font-size:13px;letter-spacing:.05em;text-transform:uppercase;border:1px solid var(--green);transition:opacity .2s}
-  .livecta:hover{opacity:.9}
-  .livecta .ico{font-size:15px;line-height:1}
-  .meta{display:grid;grid-template-columns:repeat(2,1fr);gap:22px 44px;margin-top:36px;max-width:760px}
-  .meta .k{font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:6px}
-  .meta .v{font-size:15px;color:var(--ink)}
-  @media(max-width:680px){.meta{grid-template-columns:1fr;gap:18px}}
-  .media{position:relative;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:34px;margin-bottom:22px;overflow:hidden}
-  .media .mtrack{display:flex;transition:transform .5s ease}
-  .media .mslide{min-width:100%;display:flex;justify-content:center;align-items:center}
-  .media .mslide img,.media .mslide video{width:100%;max-width:940px;height:auto;display:block;border-radius:8px}
-  .media .mdots{display:flex;gap:8px;justify-content:center;margin-top:22px}
-  .media .mdots:empty{display:none}
-  .media .mdots i{width:7px;height:7px;border-radius:50%;background:#d2cdc3;cursor:pointer;transition:background .2s}
-  .media .mdots i.on{background:var(--ink)}
-  .block{padding-top:88px}
-  .block h2{font-size:clamp(26px,3.3vw,40px);margin-bottom:24px;max-width:none}
-  .prose{max-width:none}
-  .prose p{color:var(--muted);font-size:18px;line-height:1.6}
-  .prose p + p{margin-top:16px}
-  .prose b{color:var(--ink);font-weight:600}
-  .moves{margin-top:6px;max-width:none}
-  .move{padding:22px 0;border-top:1px solid var(--line)}
-  .move:first-child{border-top:none;padding-top:2px}
-  .move h3{font-size:17px;font-weight:600;margin-bottom:7px;color:var(--ink)}
-  .move p{color:var(--muted);font-size:15.5px}
-  .stats{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:30px;max-width:820px}
-  .stat{background:var(--card);border:1px solid var(--line);border-radius:var(--r2);padding:22px 24px;position:relative}
-  .stat .big{font-size:clamp(20px,2.2vw,26px);font-weight:700;letter-spacing:-.02em;color:var(--ink)}
-  .stat:has(.tgt) .big{padding-right:88px}
-  .stat .cap{font-size:13.5px;color:var(--muted);margin-top:5px}
-  .stat .tgt{position:absolute;top:16px;right:16px;font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9a7b1f;background:#faf1d6;border:1px solid #efdca0;border-radius:5px;padding:3px 7px}
-  @media(max-width:680px){.stats{grid-template-columns:1fr}}
-  .honest{font-size:13.5px;color:var(--faint);font-style:italic;margin-top:16px;max-width:66ch}
+
+  /* ---- Tabbed case-study body ---- */
+  .csx{display:block}
+
+  /* Tabs across the top, left-aligned */
+  .csx-tabs{display:flex;gap:2px;flex-wrap:wrap;border-bottom:1px solid var(--line);margin-bottom:30px}
+  .csx-tab{appearance:none;background:none;border:0;font-family:inherit;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);padding:11px 18px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;transition:color .2s,border-color .2s}
+  .csx-tab:first-child{padding-left:0}
+  .csx-tab:hover{color:var(--muted)}
+  .csx-tab.on{color:var(--ink);border-bottom-color:var(--ink)}
+
+  /* Panel = text (left) + media (right) */
+  .csx-panel{display:none}
+  .csx-panel.on{display:block;animation:csxf .35s ease}
+  @keyframes csxf{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:none}}
+  .csx-split{display:grid;grid-template-columns:1.18fr 0.92fr;gap:40px;align-items:start}
+  @media(max-width:880px){.csx-split{grid-template-columns:1fr;gap:24px}}
+
+  .csx-media{position:relative}
+  .csx-media img,.csx-media video{width:100%;display:block;border-radius:10px}
+  .csx-media video{aspect-ratio:16/9;object-fit:cover;background:#1c1a16}
+  .csx-media > * + *{margin-top:18px}
+
+  .csx-text h3.ph{font-size:clamp(19px,2.4vw,26px);margin-bottom:14px;letter-spacing:-.02em}
+  .csx-text p{color:var(--muted);font-size:15.5px;line-height:1.62}
+  .csx-text p + p{margin-top:12px}
+  .csx-text b{color:var(--ink);font-weight:600}
+  .csx-mg{display:grid;grid-template-columns:1fr 1fr;gap:16px 26px;margin-top:24px;padding-top:22px;border-top:1px solid var(--line)}
+  .csx-mg.full{grid-template-columns:repeat(4,1fr);margin-top:34px}
+  .csx-mg .k{font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:4px}
+  .csx-mg .v{font-size:13.5px;color:var(--ink);line-height:1.4}
+  @media(max-width:880px){.csx-mg.full{grid-template-columns:1fr 1fr}}
+
+  /* Problem — single column, tools graphic full-width card below */
+  .csx-lead{max-width:74ch}
+  .csx-lead h3.ph{font-size:clamp(19px,2.4vw,26px);margin-bottom:14px;letter-spacing:-.02em}
+  .csx-lead p{color:var(--muted);font-size:15.5px;line-height:1.62}
+  .csx-lead p + p{margin-top:12px}
+  .csx-figure{margin-top:30px;background:#fff;border:1px solid var(--line);border-radius:var(--r2);padding:24px}
+  .csx-figure img{width:100%;display:block;border-radius:8px}
+
+  /* What I did — images embedded with each move */
+  .csx-did h3.ph{margin-bottom:26px}
+  .csx-move{display:grid;grid-template-columns:1.2fr 0.9fr;gap:34px;align-items:center;padding:26px 0;border-top:1px solid var(--line)}
+  .csx-move:first-of-type{border-top:none;padding-top:0}
+  .csx-move.solo{display:block}
+  .csx-move h4{font-size:17px;font-weight:600;margin-bottom:8px;color:var(--ink);letter-spacing:-.01em}
+  .csx-move p{color:var(--muted);font-size:15px;line-height:1.6}
+  .csx-move img{width:100%;display:block;border-radius:10px}
+  .csx-move img.onwhite{background:#fff;border:1px solid var(--line);padding:16px}
+  @media(max-width:880px){.csx-move{grid-template-columns:1fr;gap:16px}}
+
+  /* Rotating gif (2+ images cross-fading) */
+  .csx-gif{position:relative;aspect-ratio:16/10;border-radius:10px;overflow:hidden}
+  .csx-gif img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:var(--panel);opacity:0;transition:opacity .6s ease;margin:0;border-radius:0}
+  .csx-gif img.on{opacity:1}
+
+  /* Module ecosystem chart (last move) */
+  .csx-modchart{margin-top:26px;background:#fff;border:1px solid var(--line);border-radius:var(--r2);padding:34px 34px 38px}
+  .mc-title{text-align:center;font-size:12px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:22px}
+  .mc-top{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .mc-card{border-radius:14px;padding:20px 18px;text-align:center}
+  .mc-top .mc-card{background:#fff;border:1.5px solid var(--ink)}
+  .mc-card b{display:block;font-size:17px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+  .mc-card b span{font-weight:500;color:var(--muted)}
+  .mc-card small{display:block;font-size:13px;color:var(--muted);margin-top:6px;line-height:1.4}
+  .mc-spine{margin:18px 0;background:#E5E0D7;border-radius:999px;padding:15px 20px;text-align:center;font-size:14px;font-weight:600;color:var(--ink)}
+  .mc-bottom{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:70%;margin:0 auto}
+  .mc-bottom .mc-card{background:var(--panel)}
+  @media(max-width:880px){.mc-top{grid-template-columns:1fr 1fr}.mc-bottom{max-width:100%}}
+  @media(max-width:520px){.mc-top,.mc-bottom{grid-template-columns:1fr}}
+
+  /* Outcome — product modules stacked, each with a description */
+  .csx-prods{display:flex;flex-direction:column;gap:26px}
+  .csx-prod video{width:100%;display:block;border-radius:10px;aspect-ratio:16/9;object-fit:cover;background:#0f0e0c}
+  .csx-prod .ph{font-size:15px;font-weight:700;color:var(--ink);margin-top:12px;letter-spacing:.01em}
+  .csx-prod .pd{font-size:13.5px;color:var(--muted);margin-top:3px;line-height:1.5}
+  .csx-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-top:20px}
+  .csx-stats .s{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:15px 17px}
+  .csx-stats .s .b{font-size:15px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
+  .csx-stats .s .c{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.4}
+  @media(max-width:880px){.csx-mg,.csx-stats{grid-template-columns:1fr}}
+
   .nextproj{display:flex;align-items:center;justify-content:space-between;gap:20px;background:var(--card);border:1px solid var(--line);border-radius:var(--r2);padding:28px 32px;margin-bottom:22px;transition:border-color .2s,transform .2s}
   .nextproj:hover{border-color:#cec7bc;transform:translateY(-2px)}
   .nextproj .k{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
   .nextproj .t{font-size:clamp(18px,2vw,22px);font-weight:600;margin-top:6px}
   .nextproj .arrow{font-size:26px;color:var(--muted)}
+
   .connect{text-align:center;padding:96px 24px 40px}
   .connect h2{font-size:clamp(30px,4.4vw,48px)}
   .connect p{color:var(--muted);margin:16px auto 0;max-width:46ch;font-size:16px}
@@ -87,69 +138,109 @@
 </head>
 <body>
 <nav>
-  <a href="index.html" class="brand">Holly Nava
-  </a>
+  <a href="index.html" class="brand">Holly Nava</a>
   <div class="navlinks">
     <a href="work.html">Work</a><a href="about.html">About</a><a href="index.html#contact">Get in touch</a>
   </div>
 </nav>
+
 <div class="wrap">
+  <!-- HERO -->
   <section class="panel cs-hero reveal">
     <div class="eyebrow">Self-initiated concept · Consumer / media product</div>
     <h1>OpenSignal — from idea to focused working app within a week</h1>
-    <p class="summary">In a catch-up with a friend who works at a podcast advertising and distribution platform, I got intrigued by a discussion about their current challenges and a potential opportunity for growth: building their own podcast player. I set out to design the product that puts listeners, creators, and advertisers on the same side, then took it the whole distance myself: from an Amazon-style press release and product, through market and business strategy, to a working, deployed app. I built the entire thing within one week, using Claude as a force multiplier, as a sample of how I work.</p>
     <div class="tags"><span class="tag">Product Strategy</span><span class="tag">UX Design</span><span class="tag">Consumer Media</span><span class="tag">Coded Prototype</span></div>
-    <div class="meta">
-      <div><div class="k">Role</div><div class="v">Solo — market research, product strategy, design, and build</div></div>
-      <div><div class="k">Type</div><div class="v">Self-initiated concept; not affiliated with any company</div></div>
-      <div><div class="k">Output</div><div class="v">Product strategy and a live progressive web app</div></div>
-      <div><div class="k">Timeframe</div><div class="v">Built in one week, using Claude as a force multiplier</div></div>
-    </div>
-    <a class="livecta" href="https://opensignal-iota.vercel.app/#app" target="_blank" rel="noopener">View the live app <span class="ico">↗</span></a>
   </section>
-  <div class="media reveal">
-    <div class="mtrack">
-      <div class="mslide"><img src="work-opensignal.jpg" alt="OpenSignal podcast player interface"></div>
-    </div>
-    <div class="mdots"></div>
-  </div>
-  <section class="panel block reveal">
-    <span class="notch">The problem</span>
-    <h2>Nobody aligns the listener, the creator, and the ad</h2>
-    <div class="prose">
-      <p>Every major podcast app fails listeners somewhere. Apple's playback and queue are messy, Spotify buries podcasts and paywalls downloads, YouTube has no real "continue listening" and paywalls background audio. Each is optimizing for a business model, an app store, a music subscription, an ad exchange, that points away from the listener.</p>
-      <p>Underneath that, the economics are misaligned. Host-read ads are the format listeners tolerate and creators depend on, but they have always been hard to measure, so the money keeps drifting toward formats that serve the platform instead of the show. I wanted to design the product where what delights a listener and what grows a creator's business finally point the same direction, as well as tailoring to the company's business needs.</p>
+
+  <!-- TABBED BODY: tabs on top, each tab = media (left) + content (right) -->
+  <section class="panel reveal">
+    <div class="csx">
+      <div class="csx-tabs">
+        <button class="csx-tab on" data-t="overview">Overview</button>
+        <button class="csx-tab" data-t="problem">Problem</button>
+        <button class="csx-tab" data-t="did">What I did</button>
+        <button class="csx-tab" data-t="outcome">Outcome</button>
+      </div>
+
+      <!-- OVERVIEW -->
+      <div class="csx-panel on" data-p="overview">
+        <div class="csx-split">
+          <div class="csx-text">
+            <p>In a catch-up with a friend who works at a podcast advertising and distribution platform, I got intrigued by a discussion about their current challenges and a potential opportunity for growth: building their own podcast player. I set out to design the product that puts listeners, creators, and advertisers on the same side, then took it the whole distance myself: from an Amazon-style press release and product, through market and business strategy, to a working, deployed app. I built the entire thing within one week, using Claude as a force multiplier, as a sample of how I work.</p>
+            <a href="https://opensignal-iota.vercel.app/#app" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;margin-top:20px;padding:11px 20px;border-radius:999px;background:var(--ink);color:#fff;font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase">View the live app ↗</a>
+          </div>
+          <div class="csx-media">
+            <img src="work-opensignal.jpg" alt="OpenSignal podcast player interface">
+          </div>
+        </div>
+        <div class="csx-mg full">
+          <div><div class="k">Role</div><div class="v">Solo — market research, product strategy, design, and build</div></div>
+          <div><div class="k">Type</div><div class="v">Self-initiated concept; not affiliated with any company</div></div>
+          <div><div class="k">Output</div><div class="v">Product strategy and a live progressive web app</div></div>
+          <div><div class="k">Timeframe</div><div class="v">Built in one week, using Claude as a force multiplier</div></div>
+        </div>
+      </div>
+
+      <!-- PROBLEM -->
+      <div class="csx-panel" data-p="problem">
+        <div class="csx-lead">
+          <h3 class="ph">Nobody aligns the listener, the creator, and the ad</h3>
+          <p>Every major podcast app fails listeners somewhere. Apple's playback and queue are messy, Spotify buries podcasts and paywalls downloads, YouTube has no real "continue listening" and paywalls background audio. Each is optimizing for a business model, an app store, a music subscription, an ad exchange, that points away from the listener.</p>
+          <p>Underneath that, the economics are misaligned. Host-read ads are the format listeners tolerate and creators depend on, but they have always been hard to measure, so the money keeps drifting toward formats that serve the platform instead of the show. I wanted to design the product where what delights a listener and what grows a creator's business finally point the same direction, as well as tailoring to the company's business needs.</p>
+        </div>
+      </div>
+
+      <!-- WHAT I DID -->
+      <div class="csx-panel" data-p="did">
+        <div class="csx-did">
+          <h3 class="ph">Decided in writing, then built it for real</h3>
+
+          <div class="csx-move solo">
+            <h4>Researched existing products</h4>
+            <p>Analyzed popular podcast apps, digging into customer reviews and comparing feature sets and gaps. I also studied a major podcast hosting and advertising platform's business case and reviews for core needs and current gaps. (Based only on publicly available information, with no affiliation.)</p>
+          </div>
+
+          <div class="csx-move solo">
+            <h4>Crafted the product vision</h4>
+            <p>I wrote an Amazon-style PR-FAQ as a real press article to force clarity on the value before designing a single screen, scoping to two in-app customers, listeners and creators, with advertiser value flowing through existing ad products rather than a new console. I also created a basic PRD and feature descriptions.</p>
+          </div>
+
+          <div class="csx-move solo">
+            <h4>Designed the signature moves</h4>
+            <p>A simple design system, components, and brand look and feel, then the primary screens: integrated creator views, listener-adjustable and transparent recommendation controls, clear resume-episode and playlist management, and persistent access to offers.</p>
+          </div>
+
+          <div class="csx-move solo">
+            <h4>Built it for real</h4>
+            <p>A working progressive web app pulling live RSS feeds: real playback, queue, continue-listening, offline and installable, and a Shorts clip feed, plus simulated offer cards and creator views.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- OUTCOME -->
+      <div class="csx-panel" data-p="outcome">
+        <div class="csx-lead">
+          <h3 class="ph">A usable product, not a mockup</h3>
+          <p>OpenSignal carries the "listeners and creators on the same wavelength" thesis from end to end: from market analysis and PR through to a <b><a href="https://opensignal-iota.vercel.app/#app" target="_blank" rel="noopener" style="color:var(--ink);text-decoration:underline;text-underline-offset:3px">deployed app you can actually use</a></b>. Every control is real and interactive. It's the single clearest proof of how I work, start from the customer outcome, make the business case unmistakable, then ship something real that can be validated.</p>
+        </div>
+        <div class="csx-stats" style="margin-top:26px">
+          <div class="s"><div class="b">Deployed PWA</div><div class="c">Live RSS playback, queue, continue-listening, offline and installable</div></div>
+          <div class="s"><div class="b">PR-FAQ → app</div><div class="c">A written product decision carried all the way to a running build</div></div>
+          <div class="s"><div class="b">Offer card</div><div class="c">Makes a host-read ad persistent and measurable, without interrupting the program</div></div>
+          <div class="s"><div class="b">"Your Algorithm"</div><div class="c">Listener-controlled, glass-box discovery in a black-box category</div></div>
+        </div>
+        <p style="font-size:13.5px;color:var(--faint);font-style:italic;margin-top:18px;max-width:66ch">Built in about a week as a sample project, using Claude as a force multiplier. Every control in the app is real and interactive; audience analytics are clearly labeled illustrative, since there's no live audience to measure. This is a self-initiated concept and is not affiliated with any company.</p>
+      </div>
+
     </div>
   </section>
-  <section class="panel block reveal">
-    <span class="notch">What I did</span>
-    <h2>Decided in writing, then built it for real</h2>
-    <div class="moves">
-      <div class="move"><h3>Researched existing products</h3><p>Analyzed popular podcast apps, digging into customer reviews and comparing feature sets and gaps. I also studied a major podcast hosting and advertising platform's business case and reviews for core needs and current gaps. (Based only on publicly available information, with no affiliation.)</p></div>
-      <div class="move"><h3>Crafted the product vision</h3><p>I wrote an Amazon-style PR-FAQ as a real press article to force clarity on the value before designing a single screen, scoping to two in-app customers, listeners and creators, with advertiser value flowing through existing ad products rather than a new console. I also created a basic PRD and feature descriptions.</p></div>
-      <div class="move"><h3>Designed the signature moves</h3><p>A simple design system, components, and brand look and feel, then the primary screens: integrated creator views, listener-adjustable and transparent recommendation controls, clear resume-episode and playlist management, and persistent access to offers.</p></div>
-      <div class="move"><h3>Built it for real</h3><p>A working progressive web app pulling live RSS feeds: real playback, queue, continue-listening, offline and installable, and a Shorts clip feed, plus simulated offer cards and creator views.</p></div>
-    </div>
-  </section>
-  <section class="panel block reveal">
-    <span class="notch">Outcome</span>
-    <h2>A usable product, not a mockup</h2>
-    <div class="prose">
-      <p>OpenSignal carries the "listeners and creators on the same wavelength" thesis from end to end: from market analysis and PR through to a <b><a href="https://opensignal-iota.vercel.app/#app" target="_blank" rel="noopener" style="color:var(--green);text-decoration:underline;text-underline-offset:3px">deployed app you can actually use</a></b>. Every control is real and interactive. It's the single clearest proof of how I work, start from the customer outcome, make the business case unmistakable, then ship something real that can be validated.</p>
-    </div>
-    <div class="stats">
-      <div class="stat"><div class="big">Deployed PWA</div><div class="cap">Live RSS playback, queue, continue-listening, offline and installable</div></div>
-      <div class="stat"><div class="big">PR-FAQ → app</div><div class="cap">A written product decision carried all the way to a running build</div></div>
-      <div class="stat"><div class="big">Offer card</div><div class="cap">Makes a host-read ad persistent and measurable, without interrupting the program</div></div>
-      <div class="stat"><div class="big">"Your Algorithm"</div><div class="cap">Listener-controlled, glass-box discovery in a black-box category</div></div>
-    </div>
-    <p class="honest">Built in about a week as a sample project, using Claude as a force multiplier. Every control in the app is real and interactive; audience analytics are clearly labeled illustrative, since there's no live audience to measure. This is a self-initiated concept and is not affiliated with any company.</p>
-  </section>
+
   <a class="nextproj reveal" href="vitruvius.html">
     <div><div class="k">Next project</div><div class="t">Vitruvius — making an AI architect usable</div></div>
     <div class="arrow">›</div>
   </a>
 </div>
+
 <section class="connect" id="contact">
   <h2>Let's Connect</h2>
   <p>Whether you're building something complex, or just need clarity on where to start.</p>
@@ -162,18 +253,40 @@
   <span>© 2026 Holly Nava</span>
   <span>Director of Product · Clarity in complex spaces</span>
 </footer>
+
 <script>
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-  document.querySelectorAll('.media').forEach(function(m){
-    const track=m.querySelector('.mtrack'), slides=m.querySelectorAll('.mslide'), dots=m.querySelector('.mdots');
-    if(slides.length<2) return;
+
+  // Tabs
+  const tabs=[...document.querySelectorAll('.csx-tab')];
+  const panels=[...document.querySelectorAll('.csx-panel')];
+  function activate(t){
+    tabs.forEach(x=>x.classList.toggle('on',x===t));
+    panels.forEach(p=>p.classList.toggle('on',p.dataset.p===t.dataset.t));
+  }
+  tabs.forEach(t=>t.addEventListener('click',()=>activate(t)));
+  activate(tabs[0]);
+
+  // Cross-fading gif (2+ stacked images)
+  document.querySelectorAll('.csx-gif').forEach(g=>{
+    const imgs=[...g.querySelectorAll('img')];
+    if(imgs.length<2) return;
     let i=0;
-    slides.forEach(function(_,n){const d=document.createElement('i');d.onclick=function(){go(n)};dots.appendChild(d)});
-    function go(n){i=n;track.style.transform='translateX(-'+(i*100)+'%)';[].forEach.call(dots.children,function(d,k){d.classList.toggle('on',k===i)})}
-    go(0);
-    setInterval(function(){go((i+1)%slides.length)},5000);
+    setInterval(()=>{
+      imgs[i].classList.remove('on');
+      i=(i+1)%imgs.length;
+      imgs[i].classList.add('on');
+    },2400);
   });
+
+  // Play videos only while visible (hidden tabs report not-intersecting -> paused)
+  const vio=new IntersectionObserver(es=>es.forEach(e=>{
+    const v=e.target;
+    if(e.isIntersecting){ const pr=v.play(); if(pr&&pr.catch)pr.catch(()=>{}); }
+    else v.pause();
+  }),{threshold:.35});
+  document.querySelectorAll('.csx-panel video').forEach(v=>{v.muted=true;vio.observe(v);});
 </script>
 </body>
 </html>
