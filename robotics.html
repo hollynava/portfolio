@@ -86,6 +86,12 @@
   .csx-move p{color:var(--muted);font-size:15px;line-height:1.6}
   .csx-move img{width:100%;display:block;border-radius:10px}
   .csx-move img.onwhite{background:#fff;border:1px solid var(--line);padding:16px}
+  .mv-media{text-align:center}
+  .mv-media img{width:100%;display:block;border-radius:10px;margin:0}
+  .mv-media img.tall{max-width:330px;margin:0 auto}
+  .mv-media .capt{display:block;font-size:11px;color:var(--faint);margin-top:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+  .rob-out{display:grid;grid-template-columns:1.5fr 1fr;gap:26px;align-items:center;margin-top:26px}
+  @media(max-width:880px){.rob-out{grid-template-columns:1fr;gap:20px}}
   @media(max-width:880px){.csx-move{grid-template-columns:1fr;gap:16px}}
 
   /* Rotating gif (2+ images cross-fading) */
@@ -182,10 +188,16 @@
 
       <!-- PROBLEM -->
       <div class="csx-panel" data-p="problem">
-        <div class="csx-lead">
-          <h3 class="ph">Running the machine lived in people's heads</h3>
-          <p>ICON's large-scale 3D-printing robots build homes and infrastructure, and when I joined, the operator interface couldn't keep up: clunky, hard to navigate, and nearly unreadable in real field conditions, outdoors, in glare, wearing gloves.</p>
-          <p>Developers were making UX calls without design input, and the expertise to run a print lived in people's heads and binders, requiring long onboarding times. In practice that meant multiple operators and support staff had to be on site for every build, a hard ceiling on scaling to real customers.</p>
+        <div class="csx-split">
+          <div class="csx-text">
+            <h3 class="ph">Running the machine lived in people's heads</h3>
+            <p>ICON's large-scale 3D-printing robots build homes and infrastructure, and when I joined, the operator interface couldn't keep up: clunky, hard to navigate, and nearly unreadable in real field conditions, outdoors, in glare, wearing gloves.</p>
+            <p>Developers were making UX calls without design input, and the expertise to run a print lived in people's heads and binders, requiring long onboarding times. In practice that meant multiple operators and support staff had to be on site for every build, a hard ceiling on scaling to real customers.</p>
+          </div>
+          <div class="mv-media">
+            <img class="tall" src="rob-block2.webp" alt="The original operator app on the Block 2 machine">
+            <span class="capt">Original Operator App</span>
+          </div>
         </div>
       </div>
 
@@ -204,7 +216,10 @@
               <h4>Rebuilt the interface for the jobsite</h4>
               <p>High-contrast visuals, larger hit targets, simplified navigation, and a large-format variant of the design system, built for glare and gloves instead of an office monitor.</p>
             </div>
-            <img src="rob-interface.webp" alt="Redesigned operator control interface for the print robot">
+            <div class="mv-media">
+              <img class="tall" src="rob-block4.webp" alt="Block 4 operator app mockup on a rugged tablet">
+              <span class="capt">Block 4 Generation</span>
+            </div>
           </div>
 
           <div class="csx-move">
@@ -212,12 +227,21 @@
               <h4>Designed a guided, task-based operation system</h4>
               <p>I partnered with engineering to turn an early concept, automated task-graph traversal of a building design, into a human-operable flow that walks operators step by step instead of relying on memory. An AI-to-human translation layer.</p>
             </div>
-            <img src="rob-guided.webp" alt="Guided, task-based operator flow for running a print">
+            <div class="mv-media">
+              <img src="rob-titan.webp" alt="Titan-generation task-based operator flow with a guided task list">
+              <span class="capt">Titan Generation</span>
+            </div>
           </div>
 
-          <div class="csx-move solo">
-            <h4>Closed costly gaps</h4>
-            <p>I developed a prompting and alert system to convert important but easy-to-miss tasks, such as cleaning steps and material-refill needs that could each cost 30-plus minutes of delay, into clear and obvious actions, reducing risk to continuous operations.</p>
+          <div class="csx-move">
+            <div>
+              <h4>Closed costly gaps</h4>
+              <p>I developed a prompting and alert system to convert important but easy-to-miss tasks, such as cleaning steps and material-refill needs that could each cost 30-plus minutes of delay, into clear and obvious actions, reducing risk to continuous operations.</p>
+            </div>
+            <div class="mv-media">
+              <img src="rob-prompt.webp" alt="Prompting and alert system flagging refill and blade-change tasks">
+              <span class="capt">Prompts &amp; alerts</span>
+            </div>
           </div>
 
           <div class="csx-move">
@@ -225,7 +249,10 @@
               <h4>Gave leaders visibility</h4>
               <p>The first real-time view for project and construction managers into what's happening in the field, with productivity and performance metrics they'd never had before, reducing reliance on other tracking software and manual processes.</p>
             </div>
-            <img src="rob-fleet.webp" alt="ICON Fleet dashboard giving managers real-time field visibility">
+            <div class="mv-media">
+              <img src="rob-monitor.webp" alt="Titan-generation monitoring view for managers and remote operators">
+              <span class="capt">Monitoring</span>
+            </div>
           </div>
 
           <div class="csx-move">
@@ -243,6 +270,16 @@
         <div class="csx-lead">
           <h3 class="ph">Operable by small staff, with fast onboarding times</h3>
           <p>During my tenure, the guided system shipped roughly <b>60% of the full build sequence as guided tasks</b>, built to bring operators to independence in weeks instead of months, and the most recent project onboarded operators within 3 weeks of deployment. Managers got their <b>first real-time field visibility</b>, and the system laid the foundation for external customer deployment.</p>
+        </div>
+        <div class="rob-out">
+          <div class="mv-media">
+            <video src="rob-printapp.mp4" style="aspect-ratio:16/9;width:100%;display:block;border-radius:10px;background:#f4f2ec" muted loop playsinline controls preload="metadata"></video>
+            <span class="capt">The Print operator app</span>
+          </div>
+          <div class="mv-media">
+            <img src="rob-holster.webp" alt="Operator holster designed to carry the print tablet on the jobsite">
+            <span class="capt">Operator holster</span>
+          </div>
         </div>
         <div class="csx-stats" style="margin-top:26px">
           <div class="s"><div class="b">Tasks covering ~60% of the build</div><div class="c">Shipped as guided, task-based operator steps</div></div>
