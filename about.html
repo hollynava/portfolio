@@ -87,6 +87,50 @@
   .cbtns a:hover{opacity:.88}
   footer{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:var(--faint);font-size:12.5px;padding:22px 20px 8px;border-top:1px solid var(--line)}
 
+  /* Redesign: varied grids + cards */
+  .g2{display:grid;gap:20px}
+  .g-58{grid-template-columns:1.42fr 0.82fr}
+  .g-11{grid-template-columns:1fr 1fr}
+  .g-64{grid-template-columns:1.5fr 1fr}
+  @media(max-width:820px){.g-58,.g-11,.g-64{grid-template-columns:1fr}}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:16px;padding:26px 28px}
+  .card.tint{background:var(--page);border-color:var(--line)}
+  .card.ink{background:var(--ink);color:#fff;border-color:var(--ink)}
+  .card h4{font-size:18px;font-weight:600;margin-bottom:9px;letter-spacing:-.01em;color:var(--ink)}
+  .card p{color:var(--muted);font-size:15px;line-height:1.6}
+  .card p + p{margin-top:13px}
+  .card b{color:var(--ink);font-weight:600}
+  .lbl{font-size:11px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:13px}
+  .card.ink .lbl{color:rgba(255,255,255,.5)}
+  .stack{display:grid;gap:20px;align-content:start}
+  .chips{display:flex;flex-wrap:wrap;gap:8px}
+  .chips span{font-size:12.5px;font-weight:500;color:var(--ink);background:var(--tag);border-radius:999px;padding:7px 14px}
+  .qcard p{font-style:italic;font-weight:500;color:#fff;font-size:clamp(15px,1.7vw,20px);line-height:1.4;margin:0}
+  .n2{padding-top:88px}
+
+  /* Two-column grid of standalone cards */
+  .cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+  .col{display:flex;flex-direction:column;gap:20px}
+  @media(max-width:820px){.cols{grid-template-columns:1fr}}
+  .mcard{break-inside:avoid;background:var(--panel);border-radius:26px;padding:40px 42px;margin:0 0 20px}
+  .mcard.sm{padding:30px 34px}
+  .mcard.ink{background:var(--ink);color:#fff}
+  .mcard .eye{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--faint);margin-bottom:14px}
+  .mcard.ink .eye{color:rgba(255,255,255,.5)}
+  .mcard h1{font-size:clamp(26px,3.1vw,40px);margin:0 0 18px;letter-spacing:-.02em;font-weight:600;line-height:1.06}
+  .mcard h2{font-size:clamp(21px,2.3vw,29px);margin:0 0 16px;letter-spacing:-.02em;font-weight:600;line-height:1.1}
+  .mcard > p{color:var(--muted);font-size:16px;line-height:1.6}
+  .mcard > p + p{margin-top:14px}
+  .mcard b{color:var(--ink);font-weight:600}
+  .mcard.ink p{color:#fff}
+  .mcard.ink.qcard p{font-style:italic;font-weight:500;font-size:clamp(16px,1.7vw,21px);line-height:1.42}
+  .mcard .belief:first-child{border-top:none;padding-top:0}
+  .mcard .hist .row:first-child{border-top:none;padding-top:0}
+  .mcard .chips span{background:var(--card);border:1px solid var(--line)}
+  .mq{background:var(--ink);border-radius:18px;padding:26px 28px;margin-top:24px}
+  .mq .eye{color:rgba(255,255,255,.5);margin-bottom:12px}
+  .mq p{margin:0;color:#fff;font-style:italic;font-weight:500;font-size:clamp(15px,1.5vw,18px);line-height:1.45}
+
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in{opacity:1;transform:none}
 </style>
@@ -103,93 +147,100 @@
 
 <div class="wrap">
 
-  <!-- INTRO -->
-  <section class="panel intro reveal">
-    <div class="eyebrow">About</div>
-    <h1>From the whole system to the last detail.</h1>
-    <div class="intro-cols">
-      <div>
-      <p>I'm a design-based product leader and systems thinker who creates clarity in complex spaces, most often where the physical and digital meet. I'm most useful on tough problems that are fragmented and ambiguous, finding the throughline that makes the path forward clear.</p>
-      <p>I think in systems: I work out how a whole ecosystem fits together, then move fluidly between the high-level architecture and the low-level detail, from setting the product vision and defining how the pieces connect, to designing the exact interface someone uses and managing development and delivery. I build products that work for users, the business, and the teams building them, products that can scale and bridge to future capabilities.</p>
-      <p>I do my best work with a direct line to the people I'm building for: users and decision-makers within reach, and with an organization that has few silos and a mission that matters.</p>
-      <p>Currently living and working in Colorado, open to new opportunities and locations. Outside of work, you'll find me outdoors, at the pottery wheel, deep in a podcast, or chasing down great food.</p>
-      </div>
-      <img class="photo" src="holly-about.jpg" alt="Holly Nava">
-    </div>
-  </section>
+  <div class="cols reveal">
 
-  <!-- BELIEFS -->
-  <section class="panel block reveal">
-    <span class="notch">My thoughts on product</span>
-    <h2>A few things I've come to believe</h2>
-    <div class="beliefs">
-      <div class="belief">
-        <h4>Velocity is a poor substitute for quality</h4>
-        <p>Moving fast is frequently necessary but not sufficient, and it can mean going the wrong way faster. Great teams ship consistently, but hold a quality standard they won't drop under pressure, and use short experiments to strengthen and validate direction, never as shortcuts to bypass rigor.</p>
-      </div>
-      <div class="belief">
-        <h4>Trust past behaviors</h4>
-        <p>While people can very clearly articulate what they think they want or will do, past behaviors are much better predictors of how they make decisions. When creating new products, it's more effective to watch what people actually do, and find examples of how they've behaved in similar situations, than to request they anticipate their future reactions.</p>
-      </div>
-      <div class="belief">
-        <h4>Each team has secret superpowers</h4>
-        <p>It pays off to spend time discovering what teams are genuinely best at and energized by, and find opportunities to work to those strengths. Allowing role flexibility makes for happier teams and a truer read of actual capabilities and gaps, rather than trying to force-fit people into rigid roles that sound good on paper but rarely describe real humans.</p>
-      </div>
-      <div class="belief">
-        <h4>You have to call it as you see it</h4>
-        <p>Learning from what doesn't work is as valuable as learning from what does, maybe more. But you have to call a spade a spade, and do it early. It's detrimental to force-fit a solution, or keep a complex one alive, just because someone fell in love with it before it was proven. Teams that speak up honestly, with the freedom to try and sometimes fail, go miles further than those following orders.</p>
-      </div>
-    </div>
-  </section>
+    <!-- LEFT COLUMN -->
+    <div class="col">
 
-  <!-- AI / HOW I WORK -->
-  <section class="panel block reveal">
-    <span class="notch">How I work with AI</span>
-    <h2>AI as a force multiplier, not a substitute for expertise</h2>
-    <div class="prose">
-      <p>I use AI heavily and deliberately, but always on top of real product judgment and craft. On its own it drifts, and it can lull you into false confidence if you don't have the underlying expertise to know where it's likely to go wrong. What makes it powerful is clear direction, trusted data, consistent rules, and the ability to identify the failure modes.</p>
-      <p>At ICON, I used Claude regularly to generate and pressure-test design concepts, comb through lengthy research for undiscovered patterns, manage a design system at scale, and build working prototypes that communicated vision far faster than mockups. When missing team capacity was impacting the team, I built an automated product-management system that processed dozens of meeting transcripts a week, tracked my roadmap against Jira ticket status, and suggested sprint plans and generated progress reports.</p>
-    </div>
-    <blockquote class="bigquote">We have a clear opportunity to rethink the work humans are best at and most satisfied by, while making the redundant work we've always done higher-quality, more consistent, and mind-blowingly fast. Layered on real expertise, it can surface new connections we couldn't see before. Done right, it lets us spend more time with our customers, not less, drawing out the value they actually need.</blockquote>
-  </section>
+      <!-- Intro -->
+      <div class="mcard">
+        <div class="eye">About</div>
+        <h1>From the whole system to the last detail.</h1>
+        <p>I'm a design-based product leader and systems thinker who creates clarity in complex spaces, most often where the physical and digital meet. I'm most useful on tough problems that are fragmented and ambiguous, finding the throughline that makes the path forward clear.</p>
+        <p>I think in systems: I work out how a whole ecosystem fits together, then move fluidly between the high-level architecture and the low-level detail, from setting the product vision and defining how the pieces connect, to designing the exact interface someone uses and managing development and delivery. I build products that work for users, the business, and the teams building them, products that can scale and bridge to future capabilities.</p>
+        <p>I do my best work with a direct line to the people I'm building for: users and decision-makers within reach, and with an organization that has few silos and a mission that matters.</p>
+        <p>Currently living and working in Colorado, open to new opportunities and locations. Outside of work, you'll find me spending time outdoors, at the pottery wheel, learning to sail, deep in a podcast, or chasing down great food.</p>
+        <img src="holly-sketch2.webp" alt="Holly Nava" style="width:70%;margin:24px auto 0;display:block">
+      </div>
 
-  <!-- BACKGROUND -->
-  <section class="panel block reveal">
-    <span class="notch">Background</span>
-    <h2>Selected background</h2>
-    <div class="prose" style="margin-bottom:26px">
-      <p>The full history, with metrics and detail, lives in my <a href="HollyNava-Resume.pdf" target="_blank" rel="noopener" style="color:var(--ink);border-bottom:1px solid var(--line)">résumé</a>, and the deeper stories are in <a href="work.html" style="color:var(--ink);border-bottom:1px solid var(--line)">selected projects</a>.</p>
+      <!-- AI (with quote inside) -->
+      <div class="mcard">
+        <div class="eye">How I work with AI</div>
+        <h2>AI as a force multiplier, not a substitute for expertise</h2>
+        <p>I use AI heavily and deliberately, but always on top of real product judgment and craft. On its own it drifts, and it can lull you into false confidence if you don't have the underlying expertise to know where it's likely to go wrong. What makes it powerful is clear direction, trusted data, consistent rules, and the ability to identify the failure modes.</p>
+        <p>At ICON, I used Claude regularly to generate and pressure-test design concepts, comb through lengthy research for undiscovered patterns, manage a design system at scale, and build working prototypes that communicated vision far faster than mockups. When missing team capacity was impacting the team, I built an automated product-management system that processed dozens of meeting transcripts a week, tracked my roadmap against Jira ticket status, and suggested sprint plans and generated progress reports.</p>
+        <div class="mq">
+          <div class="eye">The opportunity</div>
+          <p>"We have a clear opportunity to rethink the work humans are best at and most satisfied by, while making the redundant work we've always done higher-quality, more consistent, and mind-blowingly fast. Layered on real expertise, it can surface new connections we couldn't see before. Done right, it lets us spend more time with our customers, not less, drawing out the value they actually need."</p>
+        </div>
+      </div>
+
     </div>
-    <div class="hist">
-      <div class="row">
-        <div><div class="role">Director, Digital Product Experience</div><div class="co">ICON · 3D-printed robotic homebuilding, defining the operating system for a new industry (promoted from Principal Product Experience Designer)</div></div>
-        <div class="yr">2022–2026</div>
+
+    <!-- RIGHT COLUMN -->
+    <div class="col">
+
+      <!-- Background + résumé -->
+      <div class="mcard">
+        <div class="eye">Background</div>
+        <h2>Selected background</h2>
+        <div class="hist" style="margin-top:8px">
+          <div class="row">
+            <div><div class="role">Director, Digital Product Experience</div><div class="co">ICON · 3D-printed robotic homebuilding, defining the operating system for a new industry (promoted from Principal Product Experience Designer)</div></div>
+            <div class="yr">2022–2026</div>
+          </div>
+          <div class="row">
+            <div><div class="role">Sr. UX Researcher &amp; Designer</div><div class="co">DUST Identity · patented physical-security technology, finding market fit for novel technology</div></div>
+            <div class="yr">2021–2022</div>
+          </div>
+          <div class="row">
+            <div><div class="role">Sr. UX Researcher &amp; Designer</div><div class="co">Robots &amp; Pencils · product consultancy covering a wide range of industries, incl. a retailer negotiation platform that drove $10M in savings pre-launch</div></div>
+            <div class="yr">2019–2021</div>
+          </div>
+          <div class="row">
+            <div><div class="role">Sr. UX Designer / Product Owner</div><div class="co">Toastmasters International · onboarding and learning platform &amp; accessibility</div></div>
+            <div class="yr">2018–2019</div>
+          </div>
+          <div class="row">
+            <div><div class="role">Experience &amp; Design</div><div class="co">Monigle · brand and experience work with large and complex clients</div></div>
+            <div class="yr">2017–2018</div>
+          </div>
+          <div class="row">
+            <div><div class="role">Sr. Digital Marketing Manager</div><div class="co">AtkinsRéalis · where the marketing-to-product roots began</div></div>
+            <div class="yr">2013–2017</div>
+          </div>
+        </div>
+        <p style="color:var(--muted);font-size:15px;line-height:1.6;margin:24px 0 16px">The full history, with metrics and detail, lives in my résumé — and the deeper stories are in <a href="work.html" style="color:var(--ink);border-bottom:1px solid var(--line)">selected projects</a>.</p>
+        <a href="HollyNava-Resume.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:999px;background:var(--ink);color:#fff;font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase">Download résumé ↓</a>
       </div>
-      <div class="row">
-        <div><div class="role">Sr. UX Researcher &amp; Designer</div><div class="co">DUST Identity · patented physical-security technology, finding market fit for novel technology</div></div>
-        <div class="yr">2021–2022</div>
+
+      <!-- Beliefs -->
+      <div class="mcard">
+        <div class="eye">My thoughts on product</div>
+        <h2>A few things I've come to believe</h2>
+        <div class="beliefs" style="margin-top:8px">
+          <div class="belief">
+            <h4>Velocity is a poor substitute for quality</h4>
+            <p>Moving fast is frequently necessary but not sufficient, and it can mean going the wrong way faster. Great teams ship consistently, but hold a quality standard they won't drop under pressure, and use short experiments to strengthen and validate direction, never as shortcuts to bypass rigor.</p>
+          </div>
+          <div class="belief">
+            <h4>Trust past behaviors</h4>
+            <p>While people can very clearly articulate what they think they want or will do, past behaviors are much better predictors of how they make decisions. When creating new products, it's more effective to watch what people actually do, and find examples of how they've behaved in similar situations, than to request they anticipate their future reactions.</p>
+          </div>
+          <div class="belief">
+            <h4>Each team has secret superpowers</h4>
+            <p>It pays off to spend time discovering what teams are genuinely best at and energized by, and find opportunities to work to those strengths. Allowing role flexibility makes for happier teams and a truer read of actual capabilities and gaps, rather than trying to force-fit people into rigid roles that sound good on paper but rarely describe real humans.</p>
+          </div>
+          <div class="belief">
+            <h4>You have to call it as you see it</h4>
+            <p>Learning from what doesn't work is as valuable as learning from what does, maybe more. But you have to call a spade a spade, and do it early. It's detrimental to force-fit a solution, or keep a complex one alive, just because someone fell in love with it before it was proven. Teams that speak up honestly, with the freedom to try and sometimes fail, go miles further than those following orders.</p>
+          </div>
+        </div>
       </div>
-      <div class="row">
-        <div><div class="role">Sr. UX Researcher &amp; Designer</div><div class="co">Robots &amp; Pencils · product consultancy covering a wide range of industries, incl. a retailer negotiation platform that drove $10M in savings pre-launch</div></div>
-        <div class="yr">2019–2021</div>
-      </div>
-      <div class="row">
-        <div><div class="role">Sr. UX Designer / Product Owner</div><div class="co">Toastmasters International · onboarding and learning platform &amp; accessibility</div></div>
-        <div class="yr">2018–2019</div>
-      </div>
-      <div class="row">
-        <div><div class="role">Experience &amp; Design</div><div class="co">Monigle · brand and experience work with large and complex clients</div></div>
-        <div class="yr">2017–2018</div>
-      </div>
-      <div class="row">
-        <div><div class="role">Sr. Digital Marketing Manager</div><div class="co">AtkinsRéalis · where the marketing-to-product roots began</div></div>
-        <div class="yr">2013–2017</div>
-      </div>
+
     </div>
-    <div style="margin-top:30px">
-      <a href="HollyNava-Resume.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:999px;background:var(--ink);color:#fff;font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase">Download résumé ↓</a>
-    </div>
-  </section>
+
+  </div>
 
 </div>
 
