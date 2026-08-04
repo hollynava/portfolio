@@ -103,8 +103,9 @@
   .mc-card b{display:block;font-size:17px;font-weight:700;color:var(--ink);letter-spacing:-.01em}
   .mc-card b span{font-weight:500;color:var(--muted)}
   .mc-card small{display:block;font-size:13px;color:var(--muted);margin-top:6px;line-height:1.4}
+  .mc-card img{width:100%;aspect-ratio:16/10;object-fit:cover;border-radius:8px;margin-bottom:12px;display:block;border:1px solid var(--line)}
   .mc-spine{margin:18px 0;background:#E5E0D7;border-radius:999px;padding:15px 20px;text-align:center;font-size:14px;font-weight:600;color:var(--ink)}
-  .mc-bottom{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:70%;margin:0 auto}
+  .mc-bottom{display:grid;grid-template-columns:1fr 1fr;gap:16px;max-width:49%;margin:0 auto}
   .mc-bottom .mc-card{background:var(--panel)}
   @media(max-width:880px){.mc-top{grid-template-columns:1fr 1fr}.mc-bottom{max-width:100%}}
   @media(max-width:520px){.mc-top,.mc-bottom{grid-template-columns:1fr}}
@@ -251,15 +252,15 @@
             <div class="csx-modchart">
               <div class="mc-title">The BuildOS ecosystem</div>
               <div class="mc-top">
-                <div class="mc-card"><b>CODEX</b><small>Browse and buy designs</small></div>
-                <div class="mc-card"><b>Design</b><small>Import, inspect and customize designs</small></div>
-                <div class="mc-card"><b>Plan</b><small>Layout, plan and schedule projects</small></div>
-                <div class="mc-card"><b>Print</b><small>Execute robotic construction</small></div>
+                <div class="mc-card"><img src="mc-codex.webp" alt="CODEX screen"><b>CODEX</b><small>Browse and buy designs</small></div>
+                <div class="mc-card"><img src="mc-design.webp" alt="Design screen"><b>Design</b><small>Import, inspect and customize designs</small></div>
+                <div class="mc-card"><img src="mc-plan.webp" alt="Plan screen"><b>Plan</b><small>Layout, plan and schedule projects</small></div>
+                <div class="mc-card"><img src="mc-print.webp" alt="Print screen"><b>Print</b><small>Execute robotic construction</small></div>
               </div>
               <div class="mc-spine">Shared data spine · one foundation every module reads and writes</div>
               <div class="mc-bottom">
-                <div class="mc-card"><b>Fleet <span>· internal</span></b><small>Internal robotics management</small></div>
-                <div class="mc-card"><b>Customer Portal</b><small>Account management, knowledge base and support</small></div>
+                <div class="mc-card"><img src="mc-portal.webp" alt="Customer Portal screen"><b>Customer Portal</b><small>Account management, knowledge base and support</small></div>
+                <div class="mc-card"><img src="mc-fleet.webp" alt="Fleet screen"><b>Fleet <span>· internal</span></b><small>Internal robotics management</small></div>
               </div>
             </div>
           </div>
@@ -311,7 +312,7 @@
   </section>
 
   <a class="nextproj reveal" href="robotics.html">
-    <div><div class="k">Next project</div><div class="t">Making a giant robot operable by anyone</div></div>
+    <div><div class="k">Next project</div><div class="t">Making large scale construction robots operable by anyone</div></div>
     <div class="arrow">›</div>
   </a>
 </div>
