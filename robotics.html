@@ -46,6 +46,7 @@
   .csx-tab:first-child{padding-left:0}
   .csx-tab:hover{color:var(--muted)}
   .csx-tab.on{color:var(--ink);border-bottom-color:var(--ink)}
+  @media(max-width:600px){.csx-tabs{flex-wrap:nowrap;gap:0;justify-content:space-between;overflow:hidden}.csx-tab{font-size:9px;padding:11px 4px;letter-spacing:.02em;white-space:nowrap}.csx-tab:first-child{padding-left:0}.csx-tab:last-child{padding-right:0}}@media(max-width:360px){.csx-tab{font-size:8px;padding:11px 3px;letter-spacing:0}}
 
   /* Panel = text (left) + media (right) */
   .csx-panel{display:none}
@@ -90,8 +91,12 @@
   .mv-media img{width:100%;display:block;border-radius:10px;margin:0}
   .mv-media img.tall{max-width:330px;margin:0 auto}
   .mv-media .capt{display:block;font-size:11px;color:var(--faint);margin-top:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
-  .rob-out{display:grid;grid-template-columns:1.5fr 1fr;gap:26px;align-items:center;margin-top:26px}
-  @media(max-width:880px){.rob-out{grid-template-columns:1fr;gap:20px}}
+  .rob-out{display:grid;grid-template-columns:1.5fr 1fr;gap:26px;align-items:stretch;margin-top:26px}
+  .rob-out .mv-media{display:flex;flex-direction:column}
+  .rob-out .vid{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px;background:#f4f2ec;display:block}
+  .rob-out .holster-wrap{position:relative;flex:1 1 auto;min-height:0;border-radius:10px;overflow:hidden}
+  .rob-out .holster-wrap img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;border-radius:0}
+  @media(max-width:880px){.rob-out{grid-template-columns:1fr;gap:20px}.rob-out .holster-wrap{aspect-ratio:16/9;flex:none}}
   @media(max-width:880px){.csx-move{grid-template-columns:1fr;gap:16px}}
 
   /* Rotating gif (2+ images cross-fading) */
@@ -188,16 +193,10 @@
 
       <!-- PROBLEM -->
       <div class="csx-panel" data-p="problem">
-        <div class="csx-split">
-          <div class="csx-text">
-            <h3 class="ph">Running the machine lived in people's heads</h3>
-            <p>ICON's large-scale 3D-printing robots build homes and infrastructure, and when I joined, the operator interface couldn't keep up: clunky, hard to navigate, and nearly unreadable in real field conditions, outdoors, in glare, wearing gloves.</p>
-            <p>Developers were making UX calls without design input, and the expertise to run a print lived in people's heads and binders, requiring long onboarding times. In practice that meant multiple operators and support staff had to be on site for every build, a hard ceiling on scaling to real customers.</p>
-          </div>
-          <div class="mv-media">
-            <img class="tall" src="rob-block2.webp" alt="The original operator app on the Block 2 machine">
-            <span class="capt">Original Operator App</span>
-          </div>
+        <div class="csx-lead">
+          <h3 class="ph">Running the machine lived in people's heads</h3>
+          <p>ICON's large-scale 3D-printing robots build homes and infrastructure, and when I joined, the operator interface couldn't keep up: clunky, hard to navigate, and nearly unreadable in real field conditions, outdoors, in glare, wearing gloves.</p>
+          <p>Developers were making UX calls without design input, and the expertise to run a print lived in people's heads and binders, requiring long onboarding times. In practice that meant multiple operators and support staff had to be on site for every build, a hard ceiling on scaling to real customers.</p>
         </div>
       </div>
 
@@ -217,8 +216,8 @@
               <p>High-contrast visuals, larger hit targets, simplified navigation, and a large-format variant of the design system, built for glare and gloves instead of an office monitor.</p>
             </div>
             <div class="mv-media">
-              <img class="tall" src="rob-block4.webp" alt="Block 4 operator app mockup on a rugged tablet">
-              <span class="capt">Block 4 Generation</span>
+              <img src="rob-redesign.webp" alt="Before and after — the original operator app redesigned for the Block 4 generation">
+              <span class="capt">Redesign to Block 4 Generation</span>
             </div>
           </div>
 
@@ -273,11 +272,11 @@
         </div>
         <div class="rob-out">
           <div class="mv-media">
-            <video src="rob-printapp.mp4" style="aspect-ratio:16/9;width:100%;display:block;border-radius:10px;background:#f4f2ec" muted loop playsinline controls preload="metadata"></video>
+            <video class="vid" src="rob-printapp.mp4" muted loop playsinline controls preload="metadata"></video>
             <span class="capt">The Print operator app</span>
           </div>
           <div class="mv-media">
-            <img src="rob-holster.webp" alt="Operator holster designed to carry the print tablet on the jobsite">
+            <div class="holster-wrap"><img src="rob-holster.webp" alt="Operator holster designed to carry the print tablet on the jobsite"></div>
             <span class="capt">Operator holster</span>
           </div>
         </div>

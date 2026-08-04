@@ -46,6 +46,7 @@
   .csx-tab:first-child{padding-left:0}
   .csx-tab:hover{color:var(--muted)}
   .csx-tab.on{color:var(--ink);border-bottom-color:var(--ink)}
+  @media(max-width:600px){.csx-tabs{flex-wrap:nowrap;gap:0;justify-content:space-between;overflow:hidden}.csx-tab{font-size:9px;padding:11px 4px;letter-spacing:.02em;white-space:nowrap}.csx-tab:first-child{padding-left:0}.csx-tab:last-child{padding-right:0}}@media(max-width:360px){.csx-tab{font-size:8px;padding:11px 3px;letter-spacing:0}}
 
   /* Panel = text (left) + media (right) */
   .csx-panel{display:none}
