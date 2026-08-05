@@ -157,8 +157,7 @@
   <section class="panel reveal">
     <div class="csx">
       <div class="csx-tabs">
-        <button class="csx-tab on" data-t="overview">Overview</button>
-        <button class="csx-tab" data-t="problem">Problem</button>
+        <button class="csx-tab on" data-t="overview">The Challenge</button>
         <button class="csx-tab" data-t="did">What I did</button>
         <button class="csx-tab" data-t="outcome">Outcome</button>
       </div>
@@ -167,7 +166,8 @@
       <div class="csx-panel on" data-p="overview">
         <div class="csx-split">
           <div class="csx-text">
-            <p>Vitruvius let people describe a dream home in natural language and get renderings and a floor plan from an LLM-based system. It was rushed to a public beta for a marketing milestone (SXSW 2024), and it showed: plans that didn't match the imagery, outputs that didn't hold up, and eroded trust. I was already at ICON, and joined the project team just after launch to evaluate what was really happening, how to improve it, and define what this could honestly become.</p>
+            <p>Vitruvius was ICON's early generative-AI product: describe your dream home in natural language, and an LLM-based system returns your custom home design. It was rushed to a public beta for a marketing milestone and before the experience was ready. While its novel approach was lauded, the seams showed when in serious use: floor plans that didn't match the 3D models, nonsensical outputs, and challenging navigation and AI interactions.</p>
+            <p>For a tool promising actual home designs, that gap between what the AI promised and what it delivered was eroding trust fast. I was already at ICON and joined the project team just after launch to evaluate what was really happening, improve it, and define what it could honestly become.</p>
           </div>
           <div class="csx-media">
             <img src="vit-hero.webp" alt="Vitruvius — describe the home you want and get renderings and a floor plan">
@@ -181,20 +181,9 @@
         </div>
       </div>
 
-      <!-- PROBLEM -->
-      <div class="csx-panel" data-p="problem">
-        <div class="csx-lead">
-          <h3 class="ph">A beta shipped ahead of the trust it needed</h3>
-          <p>Vitruvius was ICON's early internal generative-AI product: describe your dream home in natural language, and an LLM-based system returns interior and exterior renderings and a simple floor plan. It was pushed to a public beta before the experience was ready.</p>
-          <p>In use, the seams showed. Floor plans didn't match the 3D imagery, some outputs were architecturally nonsensical, and navigation confused non-technical users. For a tool asking people to imagine their actual home, that gap between what the AI promised and what it delivered was eroding trust fast. The team was struggling to make the technology work reliably.</p>
-        </div>
-      </div>
-
       <!-- WHAT I DID -->
       <div class="csx-panel" data-p="did">
         <div class="csx-did">
-          <h3 class="ph">Steadied the experience, then pointed it somewhere real</h3>
-
           <div class="csx-move">
             <div>
               <h4>Tested the beta live</h4>
@@ -230,6 +219,11 @@
               <p>Throughout, I framed where a person should hold the decisions that shape the result and where the AI should assist, so people had more control of the outcome and stepped into the loop at the moments that actually mattered, rather than the tool pretending it was further along than it was.</p>
             </div>
             <img src="vit-floorplan.webp" alt="Editable floor plan — putting people in the driver's seat">
+          </div>
+          <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:center;margin-top:14px">
+            <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px"><div style="font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:6px">Before</div><div style="font-size:14px;color:var(--muted);line-height:1.5">A rushed public beta whose designs didn't hold up and interactions were difficult to navigate, eroding valuable trust.</div></div>
+            <div style="font-size:24px;color:var(--muted)">›</div>
+            <div style="background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px"><div style="font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:6px">After</div><div style="font-size:14px;color:var(--ink);line-height:1.5">An easily navigable workflow and mobile-friendly experience with a credible, prioritized path from novelty toward a real, human-in-the-loop design tool.</div></div>
           </div>
         </div>
       </div>

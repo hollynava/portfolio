@@ -93,6 +93,12 @@
   .csx-gif{position:relative;aspect-ratio:16/10;border-radius:10px;overflow:hidden}
   .csx-gif img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;background:var(--panel);opacity:0;transition:opacity .6s ease;margin:0;border-radius:0}
   .csx-gif img.on{opacity:1}
+  .wm-og{display:grid;grid-template-columns:0.72fr 1.28fr;gap:26px;align-items:center;margin-top:26px}
+  .wm-og .stat{background:#fff;border:1px solid var(--line);border-radius:16px;padding:34px 32px}
+  .wm-og .stat .big{font-weight:700;font-size:clamp(46px,6vw,84px);letter-spacing:-.03em;color:var(--ink);line-height:1}
+  .wm-og .stat .sub{font-size:15px;color:var(--muted);line-height:1.5;margin-top:14px}
+  .wm-og .csx-gif{margin:0}
+  @media(max-width:820px){.wm-og{grid-template-columns:1fr}}
 
   /* Module ecosystem chart (last move) */
   .csx-modchart{margin-top:26px;background:#fff;border:1px solid var(--line);border-radius:var(--r2);padding:34px 34px 38px}
@@ -157,8 +163,7 @@
   <section class="panel reveal">
     <div class="csx">
       <div class="csx-tabs">
-        <button class="csx-tab on" data-t="overview">Overview</button>
-        <button class="csx-tab" data-t="problem">Problem</button>
+        <button class="csx-tab on" data-t="overview">The Challenge</button>
         <button class="csx-tab" data-t="did">What I did</button>
         <button class="csx-tab" data-t="outcome">Outcome</button>
       </div>
@@ -167,14 +172,11 @@
       <div class="csx-panel on" data-p="overview">
         <div class="csx-split">
           <div class="csx-text">
-            <p>One of the world's largest retailers negotiated supplier costs through a manual, inconsistent process. I led the UX strategy and design that turned a nearly unusable data platform into a tool buyers could actually read and adjust their leverage from, and it paid off before it even launched.</p>
+            <p>One of the world's largest retailers was conducting supplier negotiations through a manual, inconsistent process, requiring weeks of prep, binders of performance data, and a scatter of disconnected data. A proof-of-concept built in Tableau was meant to help, but it had ballooned to more than thirty tabs and was nearly unusable, taking minutes to load each view, and requiring expertise to make sense of complex data.</p>
+            <p>What was missing was a way to turn all their valuable data into a tool that could leverage it and that a buyer could actually see and act on, fast, responding to the conversation in the room. I led the UX strategy and design that turned that platform into a tool buyers could read and adjust their leverage from, and it paid off before it even launched.</p>
           </div>
           <div class="csx-media">
             <img src="wm-negotiation.webp" alt="Buyers and a supplier in a live negotiation meeting">
-            <div style="display:flex;align-items:baseline;gap:12px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 20px">
-              <div style="font-weight:700;font-size:34px;letter-spacing:-.03em;color:var(--ink);line-height:1;flex:none">$10M</div>
-              <div style="font-size:13px;color:var(--muted);line-height:1.45">saved in the tool's first trial negotiation, from a supplier the buyer had previously failed to move<span style="display:inline-block;margin-left:8px;font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9a7b1f;background:#faf1d6;border:1px solid #efdca0;border-radius:5px;padding:3px 8px;vertical-align:middle">Pre-launch</span></div>
-            </div>
           </div>
         </div>
         <div class="csx-mg full">
@@ -185,20 +187,9 @@
         </div>
       </div>
 
-      <!-- PROBLEM -->
-      <div class="csx-panel" data-p="problem">
-        <div class="csx-lead">
-          <h3 class="ph">Weeks of prep, binders of data, and a tool no one could use</h3>
-          <p>Buyers negotiated supplier costs through a manual, inconsistent process: weeks of preparation, binders of performance data, and a scatter of disconnected tools. A proof-of-concept built in Tableau was meant to help, but it had ballooned to more than thirty data tabs and was nearly unusable, taking several minutes to load each view, with complex visualizations that still needed interpretation.</p>
-          <p>The data existed, but what was missing was a way to turn it into leverage a buyer could actually see and act on, fast, in the room.</p>
-        </div>
-      </div>
-
       <!-- WHAT I DID -->
       <div class="csx-panel" data-p="did">
         <div class="csx-did">
-          <h3 class="ph">Turned tangled data into a decision buyers could read fast</h3>
-
           <div class="csx-move">
             <div>
               <h4>Audited the buyer-tool ecosystem</h4>
@@ -239,9 +230,9 @@
           </div>
 
           <div style="display:grid;grid-template-columns:1fr auto 1fr;gap:18px;align-items:center;margin-top:14px">
-            <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px"><div style="font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:6px">Before</div><div style="font-size:14px;color:var(--muted);line-height:1.5">A 30-plus-tab Tableau proof-of-concept, nearly unusable in a live negotiation.</div></div>
+            <div style="background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px"><div style="font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:6px">Before</div><div style="font-size:14px;color:var(--muted);line-height:1.5">Binders full of sales data and a 30-plus-tab Tableau proof-of-concept, nearly unusable in a live negotiation.</div></div>
             <div style="font-size:24px;color:var(--muted)">›</div>
-            <div style="background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px"><div style="font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:6px">After</div><div style="font-size:14px;color:var(--ink);line-height:1.5">One scannable tool where a buyer could read their leverage, and actively dial it up and adjust it, not just see it.</div></div>
+            <div style="background:#fff;border:1px solid var(--line);border-radius:14px;padding:18px 20px"><div style="font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:6px">After</div><div style="font-size:14px;color:var(--ink);line-height:1.5">One scannable digital tool where a buyer could evaluate their position, get a specific starting number, and adjustable leverage inputs.</div></div>
           </div>
         </div>
       </div>
@@ -252,11 +243,18 @@
           <h3 class="ph">$10M unlocked before the tool officially launched</h3>
           <p>Before the official launch, a buyer used the tool in a trial negotiation and achieved <b>$10M in savings</b>, from a supplier they had previously failed to move. It replaced guesswork with a repeatable, data-grounded negotiation process the team could run again and again. Buyers reported a repeatable process grounded in strategy, new confidence going into critical negotiations, and stronger alignment across functional teams.</p>
         </div>
-        <div class="csx-gif" style="aspect-ratio:1600/893;max-width:70%;margin:26px auto 0">
-          <img class="on" src="wmn-ov.webp" alt="The negotiation tool — scenario overview">
-          <img src="wmn-pos.webp" alt="Position tab — reading the buyer's leverage">
-          <img src="wmn-anchor.webp" alt="Anchor tab — calculating the first ask">
-          <img src="wmn-levers.webp" alt="Levers tab — potential gives and takes">
+        <div class="wm-og">
+          <div class="stat">
+            <div class="big">$10M</div>
+            <div class="sub">saved in the tool's first trial negotiation, from a supplier the buyer had previously failed to move</div>
+            <div style="display:inline-block;margin-top:16px;font-size:9.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#9a7b1f;background:#faf1d6;border:1px solid #efdca0;border-radius:5px;padding:4px 10px">Pre-launch</div>
+          </div>
+          <div class="csx-gif" style="aspect-ratio:1600/893">
+            <img class="on" src="wmn-ov.webp" alt="The negotiation tool — scenario overview">
+            <img src="wmn-pos.webp" alt="Position tab — reading the buyer's leverage">
+            <img src="wmn-anchor.webp" alt="Anchor tab — calculating the first ask">
+            <img src="wmn-levers.webp" alt="Levers tab — potential gives and takes">
+          </div>
         </div>
         <div style="margin-top:30px;display:grid;gap:14px">
           <blockquote style="margin:0;background:var(--card);border:1px solid var(--line);border-radius:18px;padding:24px 26px;font-style:italic;color:var(--ink);font-size:16px;line-height:1.5">"On the negotiation side, we're coming up with new products that enable our team to prepare for negotiations faster and have the capabilities and the data they need. I just saw the latest prototype and I'm very excited about that; it's going to be a big deal for us."<span style="display:block;margin-top:12px;font-style:normal;font-size:12.5px;color:var(--muted);font-weight:600;letter-spacing:.02em">— CEO, one of the world's largest retailers</span></blockquote>
