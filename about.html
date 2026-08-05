@@ -111,7 +111,7 @@
   /* Two-column grid of standalone cards */
   .cols{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
   .col{display:flex;flex-direction:column;gap:20px}
-  @media(max-width:820px){.cols{grid-template-columns:1fr}}
+  @media(max-width:820px){.cols{grid-template-columns:1fr}.col{display:contents}}
   .mcard{break-inside:avoid;background:var(--panel);border-radius:26px;padding:40px 42px;margin:0 0 20px}
   .mcard.sm{padding:30px 34px}
   .mcard.ink{background:var(--ink);color:#fff}
@@ -153,7 +153,7 @@
     <div class="col">
 
       <!-- Intro -->
-      <div class="mcard">
+      <div class="mcard" style="order:1">
         <div class="eye">About</div>
         <h1>From the whole system to the last detail.</h1>
         <p>I'm a design-based product leader and systems thinker who creates clarity in complex spaces, most often where the physical and digital meet. I'm most useful on tough problems that are fragmented and ambiguous, finding the throughline that makes the path forward clear.</p>
@@ -164,7 +164,7 @@
       </div>
 
       <!-- AI (with quote inside) -->
-      <div class="mcard">
+      <div class="mcard" style="order:3">
         <div class="eye">How I work with AI</div>
         <h2>AI as a force multiplier, not a substitute for expertise</h2>
         <p>I use AI heavily and deliberately, but always on top of real product judgment and craft. On its own it drifts, and it can lull you into false confidence if you don't have the underlying expertise to know where it's likely to go wrong. What makes it powerful is clear direction, trusted data, consistent rules, and the ability to identify the failure modes.</p>
@@ -181,7 +181,7 @@
     <div class="col">
 
       <!-- Background + résumé -->
-      <div class="mcard">
+      <div class="mcard" style="order:2">
         <div class="eye">Background</div>
         <h2>Selected background</h2>
         <div class="hist" style="margin-top:8px">
@@ -215,7 +215,7 @@
       </div>
 
       <!-- Beliefs -->
-      <div class="mcard">
+      <div class="mcard" style="order:4">
         <div class="eye">My thoughts on product</div>
         <h2>A few things I've come to believe</h2>
         <div class="beliefs" style="margin-top:8px">
@@ -225,15 +225,15 @@
           </div>
           <div class="belief">
             <h4>Trust past behaviors</h4>
-            <p>While people can very clearly articulate what they think they want or will do, past behaviors are much better predictors of how they make decisions. When creating new products, it's more effective to watch what people actually do, and find examples of how they've behaved in similar situations, than to request they anticipate their future reactions.</p>
+            <p>While people can very clearly articulate what they think they want or will do, past behaviors are much better predictors of how they make decisions. When creating new products, it's critical to watch what people actually do, and find examples of how they've behaved in similar past situations, and avoid asking customers to anticipate future behaviors.</p>
           </div>
           <div class="belief">
-            <h4>Each team has secret superpowers</h4>
-            <p>It pays off to spend time discovering what teams are genuinely best at and energized by, and find opportunities to work to those strengths. Allowing role flexibility makes for happier teams and a truer read of actual capabilities and gaps, rather than trying to force-fit people into rigid roles that sound good on paper but rarely describe real humans.</p>
+            <h4>Leverage the team's superpowers</h4>
+            <p>It pays off to spend time discovering what teammates are genuinely best at and energized by, and find opportunities to work to those strengths. Allowing role flexibility makes for happier teams and a truer read of actual capabilities and gaps.</p>
           </div>
           <div class="belief">
             <h4>You have to call it as you see it</h4>
-            <p>Learning from what doesn't work is as valuable as learning from what does, maybe more. But you have to call a spade a spade, and do it early. It's detrimental to force-fit a solution, or keep a complex one alive, just because someone fell in love with it before it was proven. Teams that speak up honestly, with the freedom to try and sometimes fail, go miles further than those following orders.</p>
+            <p>Learning from what doesn't work is as valuable as learning from what does, likely more. But you have to call a spade a spade, and do it early. It's detrimental to force-fit a solution, or keep a complex one alive too long, because someone fell in love with it before it was proven. Teams that speak up honestly, with the freedom to try and fail fast are the ones that discover the breakthroughs.</p>
           </div>
         </div>
       </div>
