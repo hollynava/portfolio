@@ -119,22 +119,6 @@
 
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in{opacity:1;transform:none}
-
-  /* Password gate */
-  body.locked .gated{display:none !important}
-  .gate{display:none;max-width:var(--max);margin:0 auto 22px}
-  body.locked .gate{display:block}
-  .gatebox{background:var(--panel);border-radius:var(--r);padding:56px;text-align:center}
-  @media(max-width:680px){.gatebox{padding:40px 24px}}
-  .gatebox .gk{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
-  .gatebox h2{font-size:clamp(22px,2.4vw,28px);margin:12px 0 10px;font-weight:600;letter-spacing:-.02em}
-  .gatebox p{color:var(--muted);margin:0 auto 22px;font-size:16px;max-width:44ch}
-  #gateForm{display:flex;gap:10px;flex-wrap:wrap;max-width:480px;margin:0 auto;justify-content:center}
-  #gatePw{flex:1;min-width:200px;padding:13px 16px;border:1px solid var(--line);border-radius:12px;font-size:15px;font-family:inherit;background:#fff;color:var(--ink)}
-  #gatePw:focus{outline:none;border-color:var(--green)}
-  #gateForm button{padding:13px 28px;border-radius:999px;font-weight:600;font-size:13px;letter-spacing:.06em;text-transform:uppercase;background:var(--ink);color:#fff;border:1px solid var(--ink);cursor:pointer}
-  #gateForm button:hover{opacity:.88}
-  .gateErr{color:#b23b3b;font-size:13.5px;margin-top:12px;min-height:18px;text-align:center}
 </style>
 </head>
 <body>
@@ -157,20 +141,6 @@
       <h1>Creating Clarity in Complex Spaces</h1>
       <p>A design-based product leader who turns fragmented, ambiguous problems into coherent product strategy and design.</p>
       <p>I build products that work for users, the business, and the teams creating them, using AI as a force multiplier for quality execution, not a substitute for it.</p>
-    </div>
-  </section>
-
-  <!-- GATE -->
-  <section class="gate" aria-label="Password required">
-    <div class="gatebox">
-      <div class="gk">Private Portfolio</div>
-      <h2>This work is password-protected</h2>
-      <p>Enter the password to view selected projects, testimonials, and more. Reach out if you need it.</p>
-      <form id="gateForm">
-        <input id="gatePw" type="password" placeholder="Password" autocomplete="current-password" aria-label="Password" />
-        <button type="submit">Enter</button>
-      </form>
-      <div id="gateErr" class="gateErr" role="alert"></div>
     </div>
   </section>
 
@@ -248,7 +218,7 @@
     {t:'"I\'ve seen a lot of enterprise solutions throughout my career, and the solution design is exceptional. I\'d go as far as to say this sets the benchmark within the category."', c:'Apple Technical Partner'},
     {t:'"Ridiculously thoughtful is the phrase that comes to mind when I think about Holly. I was particularly impressed by her ability to handle even the toughest clients—effortlessly."', c:'Design Director at Monigle'},
     {t:'"Holly dives deep into the complexities of each project and somehow emerges with designs so beautiful and intuitive, they seem to anticipate user needs before they even articulate them."', c:'Sr. Software Engineer at ICON'},
-    {t:'"Holly spans the gap between engineers in a way I have rarely seen. She\'s unafraid to jump into the deep end of technical discussions. And she doesn\'t just thrive on strategy, she gets her hands dirty and produces cohesive user experiences at an impressive pace."', c:'Principal Mechatronics Engineer at ICON'}
+    {t:'"Holly spans the gap between engineers and users in a way I have rarely seen. She\'s unafraid to jump into the deep end of technical discussions. And she doesn\'t just thrive on strategy, she gets her hands dirty and produces cohesive user experiences at an impressive pace."', c:'Principal Mechatronics Engineer at ICON'}
   ];
   const q=document.getElementById('q'), qc=document.getElementById('qc'), dots=document.getElementById('dots');
   let i=0;
@@ -259,26 +229,6 @@
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  // Password gate (soft gate — deters casual viewing; real protection added at deploy)
-  (function(){
-    const KEY='hnUnlock', PW='5280Vision';
-    const has=()=>{try{return sessionStorage.getItem(KEY)==='1'}catch(e){return false}};
-    const set=()=>{try{sessionStorage.setItem(KEY,'1')}catch(e){}};
-    if(!has()) document.body.classList.add('locked');
-    const f=document.getElementById('gateForm');
-    if(f) f.addEventListener('submit',function(e){
-      e.preventDefault();
-      const v=(document.getElementById('gatePw').value||'').trim();
-      if(v===PW){
-        set();
-        document.body.classList.remove('locked');
-        document.querySelectorAll('.reveal').forEach(el=>el.classList.add('in'));
-        window.scrollTo(0,0);
-      } else {
-        document.getElementById('gateErr').textContent='Incorrect password. Please try again.';
-      }
-    });
-  })();
 </script>
 </body>
 </html>
