@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Robotics — a walkthrough · Holly Nava</title>
+<title>Robotics · a walkthrough · Holly Nava</title>
 <meta name="robots" content="noindex, nofollow, noarchive, nosnippet, noimageindex">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -100,7 +100,7 @@
   <div class="inner">
     <div class="eyebrow">ICON · Robotic construction · Walkthrough</div>
     <h1>Making a building-scale robot operable by anyone</h1>
-    <p>How I turned expert-only operation of ICON's 3D-printing construction robots into a guided, human-in-the-loop system — designed live, while the product was still being invented.</p>
+    <p>How I turned expert-only operation of ICON's 3D-printing construction robots into a guided, human-in-the-loop system while the product was still being invented.</p>
     <div class="scrollcue">Scroll to walk through it ↓</div>
   </div>
 </header>
@@ -109,28 +109,30 @@
 <section class="act">
   <div class="wrap reveal">
     <div class="eyebrow">The stakes</div>
-    <h2 class="stmt">A robot that could print a home — but couldn't run without a crew of experts babysitting it.</h2>
-    <p class="lede">When I joined, every build needed <b>multiple operators and an ICON support engineer on site</b>. The knowledge to run a print lived in people's heads and binders, and onboarding took months. For a company trying to mass-produce housing, that's a hard ceiling on ever reaching real customers.</p>
+    <h2 class="stmt">A robot that could print a home, but couldn't run without a crew of experts babysitting it.</h2>
+    <p class="lede">When I joined, every build needed <b>multiple operators and support engineers on site</b>. The knowledge to run a print was deep and lived mostly in people's heads and binders, resulting in onboarding that took months. For a company trying to mass-produce housing and sell the technology to external operators, that was a hard ceiling on ever reaching real customers.</p>
+    <figure><img class="fig" src="rob-house-operators.webp" alt="Operators in hard hats working inside the walls of a 3D-printed house on site"><figcaption>Operators inside a live 3D-printed build</figcaption></figure>
   </div>
 </section>
 
-<!-- 2 · DUAL R&D -->
-<section class="act band">
-  <div class="wrap reveal">
-    <div class="eyebrow">The complication</div>
-    <h2 class="stmt">I was redesigning the cockpit while the plane was still being built — and flown.</h2>
-    <p class="lede">The product was in <b>active R&D and live production at the same time</b> — I was designing the machine still being invented while operators ran live builds on the one we already had. Every decision had to serve two masters: a dependable tool operators could trust on a real jobsite today, and a fast-moving platform absorbing brand-new hardware and capabilities every few weeks. I designed for both — stable and legible where operators needed certainty, flexible where the science was still moving.</p>
-    <figure><img class="fig" src="rob-titan-prototype.webp" alt="Aerial view of the next-generation Titan robot 3D-printing curved concrete walls on a live jobsite"><figcaption>The next-gen Titan on a live print — invented and operated at once</figcaption></figure>
-  </div>
-</section>
-
-<!-- 3 · JOBSITE REALITY + FIELD CRAFT -->
+<!-- 2 · JOBSITE REALITY + FIELD CRAFT -->
 <section class="act">
   <div class="wrap reveal">
     <div class="eyebrow">The reality</div>
     <h2 class="stmt">Outdoors. Glare. Gloves. A machine you can't look away from.</h2>
-    <p class="lede">I did the research in the field, not from a comfortable desk — watching operators work in real conditions to find where contrast, glove-sized targets, and cognitive load actually broke the experience. Developers had been making UX calls without design, and the interface couldn't keep up with the hardware changing under it. So I rebuilt it for where it's actually used: <b>high-contrast visuals, larger hit targets, simplified navigation</b>, and a large-format variant of the design system.</p>
-    <figure><img class="fig" src="rob-redesign.webp" alt="Before and after — the original operator app redesigned for the field"><figcaption>Before → after — rebuilt for the field</figcaption></figure>
+    <p class="lede">I did the research in the field, not from a comfortable desk, watching operators work in real conditions to find where contrast, glove-sized targets, and cognitive load actually broke the experience. Developers had been making UX calls without design, and the interface was struggling to keep up with the hardware evolving quickly under it. So I rebuilt it for where it's actually used: <b>high-contrast visuals, larger hit targets, simplified navigation</b>, and a large-format variant of the design system. I designed reusable control patterns and surfaces that could be easily accessed when needed, or tucked away when not.</p>
+    <figure><img class="fig" src="rob-redesign.webp" alt="Before and after: the original operator app redesigned for the field"><figcaption>Before → after, rebuilt for the field</figcaption></figure>
+  </div>
+</section>
+
+<!-- 3 · THE COMPLICATION -->
+<section class="act band">
+  <div class="wrap reveal">
+    <div class="eyebrow">The complication</div>
+    <h2 class="stmt">I was redesigning the cockpit while the plane was still being built, and flown.</h2>
+    <p class="lede">A brand-new form factor of the product was in <b>active R&D with features still being invented</b>, while operators ran live builds on the older generations we already had. The design approach had to serve two masters: be a dependable tool operators could trust on a real jobsite today, and provide a fast-moving platform absorbing brand-new hardware and capabilities regularly. I designed for both: stable and legible where operators needed certainty, flexible (and mostly unpolished) where the science was still moving.</p>
+    <figure><img class="fig" src="rob-titan-prototype.webp" alt="Aerial view of the next-generation Titan robot 3D-printing curved concrete walls on a live jobsite"><figcaption>The next-gen prototype on its first demo project, being invented and operated at once</figcaption></figure>
+    <figure><img class="fig" src="rob-service-controls.webp" alt="Service Controls tablet screen with utilitarian pump, printer, and mixer controls for testing features"><figcaption>A low-lift, easy-to-modify controls page for testing features</figcaption></figure>
   </div>
 </section>
 
@@ -138,9 +140,9 @@
 <section class="act">
   <div class="wrap reveal">
     <div class="eyebrow">Across generations</div>
-    <h2 class="stmt">Three hardware generations. Two machines. One design language.</h2>
-    <p class="lede">I didn't design for a single product — I designed across <b>three generations</b>: Block 3, Block 4, and the all-new <b>Titan</b>. That meant two fundamentally different machines — the <b>Vulcan</b> single-story gantry and the multi-story <b>Titan</b> arm — each with its own form factor, capabilities, and constraints. The job was to make them feel like one product: adapt the interface to each machine while keeping the operator's mental model steady from one generation to the next.</p>
-    <figure><img class="fig" src="rob-generations.webp" alt="Two ICON systems side by side — the multi-story Titan construction arm and the single-story Vulcan gantry platform"><figcaption>Two form factors, one system — the Titan arm and the Vulcan gantry</figcaption></figure>
+    <h2 class="stmt">Three hardware generations. Multiple machines. One design language.</h2>
+    <p class="lede">I also wasn't designing for a single robotics suite. I designed for <b>Vulcan</b> Block 3 and Block 4 generations, and the all-new <b>Titan</b> (multiple prototypes). That meant fundamentally different machines: the Vulcan single-story gantry and the multi-story Titan serial arm robot, each with its own form factor, capabilities, and constraints. The job was to reduce complexity for the dev team building and maintaining the software, as well as make it feel like one product for the operators to reduce re-learning.</p>
+    <figure><img class="fig" src="rob-generations.webp" alt="Two ICON systems side by side: the multi-story Titan construction arm and the single-story Vulcan gantry platform"><figcaption>Two form factors, one system: the Titan arm and the Vulcan gantry</figcaption></figure>
   </div>
 </section>
 
@@ -149,7 +151,7 @@
   <div class="wrap reveal">
     <div class="eyebrow">The insight</div>
     <p class="quote">"The real problem wasn't a better screen. It was translating a machine's plan into a human's next step."</p>
-    <p class="lede">Under the hood, the system does automated <b>task-graph traversal</b> of a building design. I partnered closely with the engineers building it — mapping the sequencing and operator hand-offs for brand-new automated behaviors like <b>cable feeding and smart cleaning</b>, and exploring agent-based interaction with the software team (goal-oriented action planning). The aim never changed: shape how each new capability would actually <b>work with</b> an operator, not just be handed to them. An AI-to-human translation layer, designed alongside the people building the machine.</p>
+    <p class="lede">Under the hood, the system does automated <b>task-graph traversal</b> of a building design. I partnered closely with the engineers building it, mapping the sequencing and operator hand-offs for brand-new automated behaviors like <b>cable feeding and smart cleaning</b>, and exploring agent-based interaction with the software team (goal-oriented action planning). The aim never changed: shape how each new capability would actually <b>work with</b> an operator, not just be handed to them. An AI-to-human translation layer, designed alongside the people building the machine.</p>
   </div>
 </section>
 
@@ -158,7 +160,7 @@
   <div class="wrap reveal">
     <div class="eyebrow">The system</div>
     <h2 class="stmt">Expert-only operation became a guided, task-based flow.</h2>
-    <p class="lede">The tool walks operators step by step — upcoming tasks, live status, history — instead of relying on memory. Structural, machine, procedural, and conditional tasks, orchestrated into clear, reliable steps with context-rich 3D, 2D, and camera views.</p>
+    <p class="lede">The tool walks operators step by step (upcoming tasks, live status, history) instead of relying on memory. Structural, machine, procedural, and conditional tasks, orchestrated into clear, reliable steps with context-rich 3D, 2D, and camera views.</p>
     <img class="fig" src="rob-titangen.webp" alt="Titan-generation task-based operator flow with a guided task list">
   </div>
 </section>
@@ -168,7 +170,7 @@
   <div class="wrap reveal">
     <div class="eyebrow">Product judgment</div>
     <h2 class="stmt">Turning easy-to-miss, expensive tasks into obvious ones.</h2>
-    <p class="lede">Refills, blade changes, cleaning steps — each could cost <b>30-plus minutes of delay</b>. I built a prompting and alert system that surfaces them as clear, timely actions, protecting continuous operation and reducing costly stalls.</p>
+    <p class="lede">Refills, blade changes, cleaning steps: each could cost <b>30-plus minutes of delay</b>. I built a prompting and alert system that surfaces them as clear, timely actions, protecting continuous operation and reducing costly stalls.</p>
     <img class="fig" src="rob-newgenprompt.webp" alt="Prompting and alert system flagging refill and blade-change tasks">
   </div>
 </section>
@@ -178,7 +180,7 @@
   <div class="wrap reveal">
     <div class="eyebrow">The workflows</div>
     <h2 class="stmt">Every print, broken into steps a newcomer could follow.</h2>
-    <p class="lede">Task orchestration presents the plan as executable, guided steps — removing guesswork and translation from plan to execution. Positioning and localization, quality checks, and integrated support live right where the work happens.</p>
+    <p class="lede">Task orchestration presents the plan as executable, guided steps, removing guesswork and translation from plan to execution. Positioning and localization, quality checks, and integrated support live right where the work happens.</p>
     <video class="fig" src="rob-printapp.mp4" muted loop autoplay playsinline preload="metadata"></video>
   </div>
 </section>
@@ -187,9 +189,9 @@
 <section class="act band ink">
   <div class="wrap reveal">
     <div class="eyebrow">Automation</div>
-    <h2 class="stmt">As the machine got more autonomous, it had to become more legible — not less.</h2>
-    <p class="lede">I explored how AI could advance the interaction: <b>multi-modal by design</b> — speak, touch, type, show; see, hear, feel. I built a flexible framework for the shift from manual operation toward <b>operator-as-monitor</b> — smart prompts, real-time status, and sound and lighting cues that carry in noisy, outdoor conditions. The machine clearly telegraphs what it's doing and what it will do next, mimicking human communication so trust and control stay with the person. Wake it with a phrase, confirm with one — <b>"Hey Titan" … "Good to go."</b></p>
-    <figure><img class="fig" src="rob-patterns.webp" alt="Physical interaction patterns for autonomous machine states — lighting, audio, and motion cues"><figcaption>Transparent, predictable, safe — physical + digital interaction patterns</figcaption></figure>
+    <h2 class="stmt">As the machine got more autonomous, it had to become more legible, not less.</h2>
+    <p class="lede">I explored how AI could advance the interaction: <b>multi-modal by design</b>: speak, touch, type, show; see, hear, feel. I built a flexible framework for the shift from manual operation toward <b>operator-as-monitor</b>: smart prompts, real-time status, and sound and lighting cues that carry in noisy, outdoor conditions. The machine clearly telegraphs what it's doing and what it will do next, mimicking human communication so trust and control stay with the person. Wake it with a phrase, confirm with one: <b>"Hey Titan" … "Good to go."</b></p>
+    <figure><img class="fig" src="rob-patterns.webp" alt="Physical interaction patterns for autonomous machine states: lighting, audio, and motion cues"><figcaption>Transparent, predictable, safe: physical + digital interaction patterns</figcaption></figure>
   </div>
 </section>
 
@@ -197,10 +199,10 @@
 <section class="act band">
   <div class="wrap reveal">
     <div class="eyebrow">Safety by design</div>
-    <h2 class="stmt">A machine this big has to announce itself — in light, sound, and touch.</h2>
-    <p class="lede">Autonomy raises the stakes: people work close to a machine that moves on its own. I partnered with the <b>industrial design lead</b> to give Titan a consistent language of <b>status lighting and sound</b> — telegraphing what it's doing and what it's about to do — and designed a <b>haptic layer</b> into the operator's device, so critical cues land even when no one is looking at a screen. A fuller, more human experience, and a safer one: the machine acknowledges the people around it and never hides its intent.</p>
+    <h2 class="stmt">A machine this big has to announce itself in light, sound, and touch.</h2>
+    <p class="lede">Autonomy raises the stakes: people work close to a machine that moves on its own. I partnered with the <b>industrial design lead</b> to give Titan a consistent language of <b>status lighting and sound</b> (telegraphing what it's doing and what it's about to do), and designed a <b>haptic layer</b> into the operator's device, so critical cues land even when no one is looking at a screen. A fuller, more human experience, and a safer one: the machine acknowledges the people around it and never hides its intent.</p>
     <figure style="margin:44px auto 0;max-width:440px">
-      <img class="fig" src="rob-titan-render.webp" alt="Titan T21 render — status-lighting strips glowing along the arm and base" style="margin-top:0">
+      <img class="fig" src="rob-titan-render.webp" alt="Titan T21 render with status-lighting strips glowing along the arm and base" style="margin-top:0">
       <figcaption>Status lighting, built into Titan's form</figcaption>
     </figure>
   </div>
@@ -211,8 +213,8 @@
   <div class="wrap reveal">
     <div class="eyebrow">Proximity</div>
     <h2 class="stmt">One operator. Many machines. From the slab to a home office.</h2>
-    <p class="lede">The same system flexes to where you are — up close with physical UI, sounds, and lighting; at a distance over mobile and Bluetooth press-to-talk; or out of view from a desk with a headset. Interaction zones from <b>At Slab</b> and <b>At Printer</b> to <b>Remote Support</b> and <b>Print Command</b>.</p>
-    <img class="fig" src="rob-proximity.webp" alt="Proximity flexibility — interaction zones from on-site to remote">
+    <p class="lede">The same system flexes to where you are: up close with physical UI, sounds, and lighting; at a distance over mobile and Bluetooth press-to-talk; or out of view from a desk with a headset. Interaction zones from <b>At Slab</b> and <b>At Printer</b> to <b>Remote Support</b> and <b>Print Command</b>.</p>
+    <img class="fig" src="rob-proximity.webp" alt="Proximity flexibility: interaction zones from on-site to remote">
     <div class="row3">
       <div><img src="rob-atslab.webp" alt="At-slab, proximity-aware, voice-enabled interaction"><div class="cap">Up close · at slab</div></div>
       <div><img src="rob-remote.webp" alt="Remote monitoring and object detection"><div class="cap">Out of view · remote</div></div>
@@ -226,7 +228,7 @@
   <div class="wrap reveal">
     <div class="eyebrow">Visibility</div>
     <h2 class="stmt">The first real-time window into the field.</h2>
-    <p class="lede">Project and construction managers got near-real-time productivity and performance metrics they'd never had — reducing reliance on separate tracking tools and manual reporting.</p>
+    <p class="lede">Project and construction managers got near-real-time productivity and performance metrics they'd never had, reducing reliance on separate tracking tools and manual reporting.</p>
     <img class="fig" src="rob-monitor.webp" alt="Titan-generation monitoring view for managers and remote operators">
   </div>
 </section>
@@ -235,7 +237,7 @@
 <section class="act">
   <div class="wrap reveal">
     <div class="eyebrow">The outcome</div>
-    <h2 class="stmt">Operable by a small team, with fast onboarding — and a path to customers.</h2>
+    <h2 class="stmt">Operable by a small team, with fast onboarding, and a path to customers.</h2>
     <div class="stats" style="margin-top:44px">
       <div class="stat"><div class="n">5 → 1.5</div><div class="l">People to operate, Block 3 generation → Titan release</div></div>
       <div class="stat"><div class="n">Months → weeks</div><div class="l">Operator onboarding; a recent project reached independence within 3 weeks</div></div>
@@ -249,10 +251,10 @@
 <section class="act band">
   <div class="wrap reveal">
     <div class="eyebrow">What's next</div>
-    <h2 class="stmt">Toward one person running many machines — remotely, by voice.</h2>
-    <p class="lede">Remote access, multi-machine control, and voice operation point at a future where expertise scales without more bodies on every site — supported by an early <b>Fleet</b> system for remote diagnostics, configuration, and support, built for deployment beyond ICON-run jobs.</p>
-    <p class="quote" style="margin-top:34px;max-width:34ch">"It wasn't just about improving usability — it was about shaping a system that could evolve alongside the technology, the operators, and the future of construction itself."</p>
-    <p class="lede" style="margin-top:30px"><b>How I work on problems like this:</b> I think in systems and move between the vision and the pixel — defining where a person should hold the decisions and where the machine should assist, then designing that seam hand-in-hand with the engineers building it. On something still being invented, the craft is holding a dependable experience steady while the ground keeps moving underneath it.</p>
+    <h2 class="stmt">Toward one person running many machines, remotely, by voice.</h2>
+    <p class="lede">Remote access, multi-machine control, and voice operation point at a future where expertise scales without more bodies on every site, supported by an early <b>Fleet</b> system for remote diagnostics, configuration, and support, built for deployment beyond ICON-run jobs.</p>
+    <p class="quote" style="margin-top:34px;max-width:34ch">"It wasn't just about improving usability; it was about shaping a system that could evolve alongside the technology, the operators, and the future of construction itself."</p>
+    <p class="lede" style="margin-top:30px"><b>How I work on problems like this:</b> I think in systems and move between the vision and the pixel, defining where a person should hold the decisions and where the machine should assist, then designing that seam hand-in-hand with the engineers building it. On something still being invented, the craft is holding a dependable experience steady while the ground keeps moving underneath it.</p>
   </div>
 </section>
 
@@ -260,7 +262,7 @@
 <section class="connect">
   <div class="eyebrow">Thanks for walking through it</div>
   <h2>Happy to go deeper on any of this.</h2>
-  <p>The messy middle — the tradeoffs, the engineering partnership, the calls that didn't work — is my favorite part to talk about.</p>
+  <p>The messy middle (the tradeoffs, the engineering partnership, the calls that didn't work) is my favorite part to talk about.</p>
   <div class="cbtns">
     <a href="mailto:holly.a.nava@gmail.com">Email</a>
     <a class="ghost" href="work.html">See other work</a>
@@ -268,7 +270,7 @@
 </section>
 <footer>
   <span>© 2026 Holly Nava</span>
-  <span>Robotics — interview walkthrough</span>
+  <span>Robotics · interview walkthrough</span>
 </footer>
 
 <script>
