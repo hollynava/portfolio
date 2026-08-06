@@ -119,27 +119,28 @@
   <div class="wrap reveal">
     <div class="eyebrow">The complication</div>
     <h2 class="stmt">I was redesigning the cockpit while the plane was still being built — and flown.</h2>
-    <p class="lede">The product was in <b>active R&D and live production at the same time</b>. Every decision had to serve two masters at once: a dependable tool operators could trust on a real jobsite today, and a fast-moving platform absorbing brand-new hardware and capabilities every few weeks. I designed for both — stable and legible where operators needed certainty, flexible where the science was still moving.</p>
+    <p class="lede">The product was in <b>active R&D and live production at the same time</b> — I was designing the machine still being invented while operators ran live builds on the one we already had. Every decision had to serve two masters: a dependable tool operators could trust on a real jobsite today, and a fast-moving platform absorbing brand-new hardware and capabilities every few weeks. I designed for both — stable and legible where operators needed certainty, flexible where the science was still moving.</p>
+    <figure><img class="fig" src="rob-titan-prototype.webp" alt="Aerial view of the next-generation Titan robot 3D-printing curved concrete walls on a live jobsite"><figcaption>The next-gen Titan on a live print — invented and operated at once</figcaption></figure>
   </div>
 </section>
 
-<!-- 3 · JOBSITE REALITY -->
+<!-- 3 · JOBSITE REALITY + FIELD CRAFT -->
 <section class="act">
   <div class="wrap reveal">
     <div class="eyebrow">The reality</div>
     <h2 class="stmt">Outdoors. Glare. Gloves. A machine you can't look away from.</h2>
-    <p class="lede">I did the research in the field, not from a comfortable desk — watching operators work in real conditions to find where contrast, glove-sized targets, and cognitive load actually broke the experience. Developers had been making UX calls without design; the interface couldn't keep up with hardware changing under it.</p>
-    <figure><img class="fig" src="rob-holster.webp" alt="Operator holster designed to carry the print tablet on the jobsite"><figcaption>Designed for the body and the jobsite, not the desk</figcaption></figure>
+    <p class="lede">I did the research in the field, not from a comfortable desk — watching operators work in real conditions to find where contrast, glove-sized targets, and cognitive load actually broke the experience. Developers had been making UX calls without design, and the interface couldn't keep up with the hardware changing under it. So I rebuilt it for where it's actually used: <b>high-contrast visuals, larger hit targets, simplified navigation</b>, and a large-format variant of the design system.</p>
+    <figure><img class="fig" src="rob-redesign.webp" alt="Before and after — the original operator app redesigned for the field"><figcaption>Before → after — rebuilt for the field</figcaption></figure>
   </div>
 </section>
 
-<!-- 4 · REBUILT FOR THE FIELD -->
+<!-- 4 · ACROSS GENERATIONS -->
 <section class="act">
   <div class="wrap reveal">
-    <div class="eyebrow">Design craft</div>
-    <h2 class="stmt">Built for glare and gloves, not an office monitor.</h2>
-    <p class="lede">High-contrast visuals, larger hit targets, simplified navigation, and a large-format variant of the design system — carried across two hardware generations, <b>Block 3 → Block 4</b>.</p>
-    <figure><img class="fig" src="rob-redesign.webp" alt="Before and after — the original operator app redesigned for the Block 4 generation"><figcaption>Before → after, Block 4 generation</figcaption></figure>
+    <div class="eyebrow">Across generations</div>
+    <h2 class="stmt">Three hardware generations. Two machines. One design language.</h2>
+    <p class="lede">I didn't design for a single product — I designed across <b>three generations</b>: Block 3, Block 4, and the all-new <b>Titan</b>. That meant two fundamentally different machines — the <b>Vulcan</b> single-story gantry and the multi-story <b>Titan</b> arm — each with its own form factor, capabilities, and constraints. The job was to make them feel like one product: adapt the interface to each machine while keeping the operator's mental model steady from one generation to the next.</p>
+    <figure><img class="fig" src="rob-generations.webp" alt="Two ICON systems side by side — the multi-story Titan construction arm and the single-story Vulcan gantry platform"><figcaption>Two form factors, one system — the Titan arm and the Vulcan gantry</figcaption></figure>
   </div>
 </section>
 
@@ -198,10 +199,10 @@
     <div class="eyebrow">Safety by design</div>
     <h2 class="stmt">A machine this big has to announce itself — in light, sound, and touch.</h2>
     <p class="lede">Autonomy raises the stakes: people work close to a machine that moves on its own. I partnered with the <b>industrial design lead</b> to give Titan a consistent language of <b>status lighting and sound</b> — telegraphing what it's doing and what it's about to do — and designed a <b>haptic layer</b> into the operator's device, so critical cues land even when no one is looking at a screen. A fuller, more human experience, and a safer one: the machine acknowledges the people around it and never hides its intent.</p>
-    <div style="margin-top:44px;display:flex;justify-content:center">
-      <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/reel/DP4Ckr9kaVA/?utm_source=ig_embed" data-instgrm-version="14" style="max-width:400px;width:100%;margin:0;background:#FFF;border:0;border-radius:14px;box-shadow:0 1px 12px rgba(0,0,0,.08)"></blockquote>
-    </div>
-    <p style="text-align:center;font-size:12px;color:var(--faint);letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-top:16px">Titan in motion — light + sound in action · <a href="https://www.instagram.com/reel/DP4Ckr9kaVA/" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:underline">watch on Instagram ↗</a></p>
+    <figure style="margin:44px auto 0;max-width:440px">
+      <img class="fig" src="rob-titan-render.webp" alt="Titan T21 render — status-lighting strips glowing along the arm and base" style="margin-top:0">
+      <figcaption>Status lighting, built into Titan's form</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -282,6 +283,5 @@
   const vio=new IntersectionObserver(es=>es.forEach(e=>{e.isIntersecting?e.target.play().catch(()=>{}):e.target.pause()}),{threshold:.25});
   vids.forEach(v=>vio.observe(v));
 </script>
-<script async src="https://www.instagram.com/embed.js"></script>
 </body>
 </html>
