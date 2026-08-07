@@ -76,6 +76,10 @@
   .row3 img{width:100%;border-radius:12px;display:block}
   .row3 .cap{font-size:11px;color:var(--faint);letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-top:10px;text-align:center}
   @media(max-width:760px){.row3{grid-template-columns:1fr;gap:24px}}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
+  .row2 img{width:100%;border-radius:12px;display:block}
+  .row2 .cap{font-size:11px;color:var(--faint);letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-top:10px;text-align:center}
+  @media(max-width:760px){.row2{grid-template-columns:1fr;gap:24px}}
 
   video.fig{aspect-ratio:16/9;object-fit:cover;background:#0f0e0c}
 
@@ -116,9 +120,9 @@
 <section class="act">
   <div class="wrap reveal">
     <div class="eyebrow">The starting point</div>
-    <h2 class="stmt">The software made sense at a desk. On the slab, it fell apart.</h2>
-    <p class="lede">When I joined, the operator interface had been built by the engineers building the robot. It worked in an office and broke in the field: washed out in direct sunlight, targets too small for gloved hands, and navigation that assumed you already knew the machine. Running a print meant memorizing the tool, not reading it.</p>
-    <figure><img class="fig" src="rob-titan-prototype.webp" alt="Aerial view of the robot 3D-printing curved concrete walls on a live jobsite"><figcaption>A live print on a real jobsite, where the software actually had to work</figcaption></figure>
+    <h2 class="stmt">A neglected experience that fell apart on the slab.</h2>
+    <p class="lede">When I joined, the operator interface had been designed by software engineers without UX support. It functioned but poorly in the field: washed out in direct sunlight and screen glare, targets too small for gloved hands, and complex navigation that assumed you already knew the machine. Running a print meant memorizing the tool, not using it, and multiple operators were required due to the complexity of the system.</p>
+    <figure style="margin:48px auto 0;max-width:440px"><img class="fig" src="rob-block2-screen.webp" alt="The original operator print screen, dense and hard to read in the field" style="margin-top:0"><figcaption>Initial print screen view</figcaption></figure>
   </div>
 </section>
 
@@ -128,7 +132,10 @@
     <div class="eyebrow">The research</div>
     <h2 class="stmt">I went to the slab to find what actually broke.</h2>
     <p class="lede">I shadowed operators in real conditions (sun, heat, dust, gloves, noise) and ran usability testing on the interface itself, trying different access points and interaction approaches to see what held up under load and what quietly failed. After that the problems weren't opinions, they were observed.</p>
-    <figure><img class="fig" src="rob-house-operators.webp" alt="Operators in hard hats working inside the walls of a 3D-printed house on site"><figcaption>Shadowing operators in real conditions</figcaption></figure>
+    <div class="row2">
+      <div><img src="rob-operationoutside.webp" alt="Operators running a print outdoors in bright sun"><div class="cap">Slab operations in Austin's sun and heat</div></div>
+      <div><img src="rob-shadow.webp" alt="Shadowing an operator at work on the jobsite"><div class="cap">Shadowing an operator on site</div></div>
+    </div>
   </div>
 </section>
 
@@ -141,12 +148,12 @@
     <div class="points">
       <div class="point"><b>Large-format, high-contrast design system:</b> a variant of the component library built to stay legible in glare and usable in gloves.</div>
       <div class="point"><b>Design across senses:</b> screen, haptics, lights, and sound working together for attention management and safety, so critical cues land even when no one is looking at a screen.</div>
-      <div class="point"><b>Navigation and surfaces:</b> flexible surfaces that open when needed and tuck away when not, with shortcuts to the screens that matter.</div>
+      <div class="point"><b>Navigation and surfaces:</b> flexible surfaces that open when needed and tuck away when not, with shortcuts to key screens.</div>
       <div class="point"><b>Consolidated monitoring:</b> unified alert patterns and visual gauges in place of scattered readouts and text-based errors.</div>
       <div class="point"><b>Full-screen print paths:</b> the plan rendered big and legible, so an operator can read the build at a glance.</div>
     </div>
-    <figure><img class="fig" src="rob-redesign.webp" alt="Before and after, the original operator app redesigned for the field"><figcaption>Before → after, rebuilt for the field</figcaption></figure>
-    <figure><img class="fig" src="rob-interface.webp" alt="Consolidated monitoring dashboard with position, gauges, and unified alerts"><figcaption>Consolidated monitoring: position, gauges, and unified alerts</figcaption></figure>
+    <figure style="margin:48px auto 0;max-width:460px"><img class="fig" src="rob-block4-tablet.webp" alt="Redesigned large-format operator interface on the Block 4 tablet" style="margin-top:0"><figcaption>Redesigned for the field</figcaption></figure>
+    <figure><video class="fig" src="rob-lights.mp4" muted loop autoplay playsinline preload="metadata"></video><figcaption>Multi-sensory cues: light and sound</figcaption></figure>
   </div>
 </section>
 
@@ -155,13 +162,13 @@
   <div class="wrap reveal">
     <div class="eyebrow">A moving target</div>
     <h2 class="stmt">Designed while it was still being invented, across very different machines.</h2>
-    <p class="lede">I designed across products in active R&D, over multiple generations and two very different form factors: the Vulcan single-story gantry and the Titan multi-story arm. Two approaches kept it coherent while the ground kept shifting.</p>
+    <p class="lede">Throughout my time at ICON, I designed across products in active R&D, over multiple generations and two very different form factors: the Vulcan single-story gantry and the Titan multi-story arm. As the design evolved, two key approaches helped keep it coherent while the ground kept shifting.</p>
     <div class="points">
-      <div class="point"><b>Service Controls:</b> a low-lift place to drop in new controls for testing and validating features quickly, accessible when needed but out of the way during normal, production-ready operation.</div>
-      <div class="point"><b>Global control patterns:</b> interaction patterns designed once and reused across products, so each new machine felt like the same tool instead of a relearn.</div>
+      <div class="point"><b>Service Controls:</b> a low-lift place to drop in new controls for testing and validating features quickly, accessible, but out of the way during normal, production-ready operations.</div>
+      <div class="point"><b>Shared product patterns:</b> interaction patterns designed once and reused across products, so each new machine felt like the same tool instead of a relearn.</div>
     </div>
-    <figure><img class="fig" src="rob-service-controls.webp" alt="Service Controls tablet screen with utilitarian pump, printer, and mixer controls for testing features"><figcaption>Service Controls: a low-lift page for testing features</figcaption></figure>
-    <figure><img class="fig" src="rob-generations.webp" alt="Two ICON systems side by side, the multi-story Titan arm and the single-story Vulcan gantry"><figcaption>Two form factors, one system: the Titan arm and the Vulcan gantry</figcaption></figure>
+    <figure><img class="fig" src="rob-generations.webp" alt="Two ICON systems side by side, the multi-story Titan arm and the single-story Vulcan gantry"><figcaption>Multi-machine design, for R&D and production</figcaption></figure>
+    <figure><img class="fig" src="rob-service-tablet.webp" alt="Service Controls page for testing and validating features on the tablet"><figcaption>Service Controls: low-lift testing, tucked away in production</figcaption></figure>
   </div>
 </section>
 
@@ -176,7 +183,7 @@
       <div class="point"><b>Auto-play:</b> an operator-controlled switch for whether the machine prints the next item on its own. Autonomy you can turn on or off.</div>
       <div class="point"><b>User prompting:</b> pulling attention exactly when a manual or non-automated step is needed, and not a moment before.</div>
     </div>
-    <figure><img class="fig" src="rob-newgenprompt.webp" alt="Operator print view with a task queue and a prompt surfacing a blade change and material refill"><figcaption>Task-based operation with prompts for the steps only a person can do</figcaption></figure>
+    <figure><img class="fig" src="rob-prompt-tablet.webp" alt="Operator screen prompting for a manual step during an otherwise automated print"><figcaption>Prompting as a key prerequisite to automated operation</figcaption></figure>
   </div>
 </section>
 
@@ -185,7 +192,7 @@
   <div class="wrap reveal">
     <div class="eyebrow">The core idea</div>
     <h2 class="stmt">It all came together as task-based construction.</h2>
-    <p class="lede">Those features were pointing at one idea, and it became the keystone: translating construction itself into tasks. Together with the software engineers, we defined a system to translate each design and process into a <b>dependency-based task-graph</b> that we could surface as on-screen tasks with embedded guidance to support operators whenever they needed it. Routines, prompts, and auto-play became parts of that flow rather than separate tools, and expert knowledge was now built into the sequence instead of living in someone's head.</p>
+    <p class="lede">Those features were pointing at one idea, and it became the keystone: translating construction itself into discrete tasks. Together with the software engineers, we defined a system to translate each design element and process into a <b>dependency-based task-graph</b> that we could surface as on-screen tasks with embedded guidance to support operators whenever they needed it. Routines, prompts, and auto-play became parts of that flow rather than separate tools, and expert knowledge was now built into the sequence instead of living in someone's head.</p>
     <img class="fig" src="rob-titangen.webp" alt="The build expressed as an ordered, guided task list with live status">
     <video class="fig" src="rob-printapp.mp4" muted loop autoplay playsinline preload="metadata"></video>
   </div>
@@ -198,18 +205,15 @@
     <h2 class="stmt">One operator's screen, wired into the whole project.</h2>
     <p class="lede">The operator tool was never an island. I connected it to the products around it so the field, the office, and the data stayed in sync.</p>
     <div class="points">
-      <div class="point"><b>Plan as the bridge to operations:</b> a digital site plan that assigns selected designs (and their specific print paths) to a designated printer, pulling design updates straight from the Design module into the machine's instructions.</div>
-      <div class="point"><b>Placement translation:</b> mapping where a design sits in the 3D environment relative to the physical machine, so print placement is accurate, with fine adjustment from detailed scanning.</div>
+      <div class="point"><b>Plan module as the bridge to operations:</b> a digital site plan that assigns selected designs (and their specific print paths) to a designated printer, and pulls design updates straight from the Design module into the digital instructions for the machine.</div>
+      <div class="point"><b>Placement translation:</b> mapping where a design sits in the 3D environment relative to the physical machine, so print placement is accurate, with additional adjustment enabled from detailed scanning.</div>
       <div class="point"><b>Scheduling:</b> configuring shift schedules and staffing for realistic print-time estimates, with a preview of the print build-up.</div>
-      <div class="point"><b>Data flowing back:</b> task progress, performance, and material consumption shipped back to Plan for PM and CM visibility, and to Foundry for deeper analysis and reliability work.</div>
+      <div class="point"><b>Data sharing:</b> task progress, performance, and material consumption shipped back to Plan for PM and CM visibility of project status, and to Foundry for deeper analysis and reliability work.</div>
       <div class="point"><b>Shared components:</b> one set of 3D models and patterns reused across the ecosystem, for accuracy and faster development.</div>
-      <div class="point"><b>Fleet:</b> a management product for inventory, configuration, and deployment across machines.</div>
+      <div class="point"><b>Fleet:</b> a management product for inventory, configuration settings, and deployments across machines.</div>
     </div>
-    <div class="row3">
-      <div><img src="rob-guided.webp" alt="Digital site plan and print visualizer connecting designs to a printer"><div class="cap">Plan · site plan to printer</div></div>
-      <div><img src="rob-monitor.webp" alt="Near-real-time field metrics for project and construction managers"><div class="cap">Visibility · progress and status</div></div>
-      <div><img src="rob-fleet.webp" alt="Fleet dashboard for inventory, configuration, and deployment across machines"><div class="cap">Fleet · across machines</div></div>
-    </div>
+    <figure><img class="fig" src="rob-position-tablet.webp" alt="Plan and position view connecting the site plan to a specific printer"><figcaption>Plan and position, connected to operations</figcaption></figure>
+    <figure><video class="fig" src="rob-planshared.mp4" muted loop autoplay playsinline preload="metadata"></video><figcaption>Using common components across tools and users</figcaption></figure>
   </div>
 </section>
 
@@ -226,7 +230,7 @@
       <div class="point"><b>Software engineers:</b> turning architectural designs into tasks a person could follow, plus 3D interfaces and scheduling and machine complexity.</div>
       <div class="point"><b>Product stakeholders:</b> from architects and construction-manager workflows to support engineers and data analysts.</div>
     </div>
-    <figure><img class="fig" src="rob-patterns.webp" alt="Interaction patterns mapping where the machine acts and where the operator decides"><figcaption>Where the machine acts, where the person decides</figcaption></figure>
+    <figure><img class="fig" src="rob-titan-prototype.webp" alt="Aerial view of the next-generation Titan robot 3D-printing a structure on its first demo project"><figcaption>First demo print for the next-gen Titan printer</figcaption></figure>
   </div>
 </section>
 
@@ -235,17 +239,17 @@
   <div class="wrap reveal">
     <div class="eyebrow">The vision</div>
     <h2 class="stmt">Once the work was tasks, it could be spoken.</h2>
-    <p class="lede">With operation expressed as text-based tasks, I began prototyping where it could go next. This was direction I set and explored, not something that shipped while I was there, but it is exactly where the foundation was built to go.</p>
+    <p class="lede">With operation expressed as text-based tasks, I began prototyping where it could go next. This was direction I set and explored, not something that shipped while I was there, but clarified where the foundation was built to go.</p>
     <div class="points">
       <div class="point"><b>Spoken-language operation</b> and instant data access via chat, built directly on the task foundation.</div>
       <div class="point"><b>Operation at different proximities to the slab,</b> from up close to fully remote, and what each one needs.</div>
       <div class="point"><b>Physical interaction modes and access points</b> on the machines themselves.</div>
     </div>
-    <img class="fig" src="rob-proximity.webp" alt="Interaction zones from on-site to remote, mapped by proximity to the slab">
+    <figure><img class="fig" src="rob-whatsnext.webp" alt="Task alerts surfaced hands-free through an in-ear device and a watch"><figcaption>Glanceable and hands-free: alerts through an earbud and a watch</figcaption></figure>
     <div class="row3">
+      <div><img src="rob-proximity.webp" alt="Interaction zones mapped by proximity to the slab"><div class="cap">Across proximities</div></div>
       <div><img src="rob-atslab.webp" alt="Up-close, proximity-aware, voice-enabled interaction at the slab"><div class="cap">Up close · at slab</div></div>
       <div><img src="rob-remote.webp" alt="Remote monitoring and object detection from a distance"><div class="cap">Out of view · remote</div></div>
-      <div><img src="rob-whatsnext.webp" alt="Task alerts surfaced hands-free through an in-ear device and a watch"><div class="cap">On the body · glanceable</div></div>
     </div>
   </div>
 </section>
@@ -262,15 +266,6 @@
       <div class="stat"><div class="n">60%</div><div class="l">Of the build sequence delivered as guided, task-based steps</div></div>
       <div class="stat"><div class="n">30%</div><div class="l">Reduction in print time from forced, automated sequencing</div></div>
     </div>
-  </div>
-</section>
-
-<!-- 11 · REFLECTION -->
-<section class="act band">
-  <div class="wrap reveal">
-    <div class="eyebrow">In the end</div>
-    <p class="quote">"It wasn't just about improving usability; it was about shaping a system that could evolve alongside the technology, the operators, and the future of construction itself."</p>
-    <p class="lede" style="margin-top:30px"><b>How I work on problems like this:</b> I think in systems and move between the vision and the pixel, defining where a person should hold the decisions and where the machine should assist, then designing that seam hand in hand with the engineers building it. On something still being invented, the craft is holding a dependable experience steady while the ground keeps moving underneath it.</p>
   </div>
 </section>
 
