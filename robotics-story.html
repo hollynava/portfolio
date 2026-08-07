@@ -77,9 +77,15 @@
   .row3 .cap{font-size:11px;color:var(--faint);letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-top:10px;text-align:center}
   @media(max-width:760px){.row3{grid-template-columns:1fr;gap:24px}}
   .row2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:40px}
-  .row2 img{width:100%;border-radius:12px;display:block}
+  .row2 img{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:12px;display:block}
   .row2 .cap{font-size:11px;color:var(--faint);letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-top:10px;text-align:center}
   @media(max-width:760px){.row2{grid-template-columns:1fr;gap:24px}}
+
+  /* Two-column split (text left, media right) */
+  .split{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5vw,60px);align-items:center}
+  .split .media .fig{margin-top:0}
+  .split .media>figure+figure{margin-top:20px}
+  @media(max-width:820px){.split{grid-template-columns:1fr;gap:0}.split .media{margin-top:36px}}
 
   video.fig{aspect-ratio:16/9;object-fit:cover;background:#0f0e0c}
 
@@ -119,10 +125,16 @@
 <!-- 1 · THE STARTING POINT -->
 <section class="act">
   <div class="wrap reveal">
-    <div class="eyebrow">The starting point</div>
-    <h2 class="stmt">A neglected experience that fell apart on the slab.</h2>
-    <p class="lede">When I joined, the operator interface had been designed by software engineers without UX support. It functioned but poorly in the field: washed out in direct sunlight and screen glare, targets too small for gloved hands, and complex navigation that assumed you already knew the machine. Running a print meant memorizing the tool, not using it, and multiple operators were required due to the complexity of the system.</p>
-    <figure style="margin:48px auto 0;max-width:440px"><img class="fig" src="rob-block2-screen.webp" alt="The original operator print screen, dense and hard to read in the field" style="margin-top:0"><figcaption>Initial print screen view</figcaption></figure>
+    <div class="split">
+      <div class="text">
+        <div class="eyebrow">The starting point</div>
+        <h2 class="stmt">A neglected experience that fell apart on the slab.</h2>
+        <p class="lede">When I joined, the operator interface had been designed by software engineers without UX support. It functioned but poorly in the field: washed out in direct sunlight and screen glare, targets too small for gloved hands, and complex navigation that assumed you already knew the machine. Running a print meant memorizing the tool, not using it, and multiple operators were required due to the complexity of the system.</p>
+      </div>
+      <div class="media">
+        <figure><img class="fig" src="rob-block2-screen.webp" alt="The original operator print screen, dense and hard to read in the field"><figcaption>Initial print screen view</figcaption></figure>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -134,7 +146,7 @@
     <p class="lede">I shadowed operators in real conditions (sun, heat, dust, gloves, noise) and ran usability testing on the interface itself, trying different access points and interaction approaches to see what held up under load and what quietly failed. After that the problems weren't opinions, they were observed.</p>
     <div class="row2">
       <div><img src="rob-operationoutside.webp" alt="Operators running a print outdoors in bright sun"><div class="cap">Slab operations in Austin's sun and heat</div></div>
-      <div><img src="rob-shadow.webp" alt="Shadowing an operator at work on the jobsite"><div class="cap">Shadowing an operator on site</div></div>
+      <div><img src="rob-shadow.webp" alt="Shadowing operators at work on the jobsite"><div class="cap">Shadowing operators on site</div></div>
     </div>
   </div>
 </section>
@@ -142,17 +154,23 @@
 <!-- 3 · THE REDESIGN -->
 <section class="act">
   <div class="wrap reveal">
-    <div class="eyebrow">The redesign</div>
-    <h2 class="stmt">Rebuilt for the hand, the eye, and the noise.</h2>
-    <p class="lede">I redesigned the operator experience around field reality, cutting cognitive load at every step. The interface stopped fighting the environment and started working with it.</p>
-    <div class="points">
-      <div class="point"><b>Large-format, high-contrast design system:</b> a variant of the component library built to stay legible in glare and usable in gloves.</div>
-      <div class="point"><b>Design across senses:</b> screen, haptics, lights, and sound working together for attention management and safety, so critical cues land even when no one is looking at a screen.</div>
-      <div class="point"><b>Navigation and surfaces:</b> flexible surfaces that open when needed and tuck away when not, with shortcuts to key screens.</div>
-      <div class="point"><b>Consolidated monitoring:</b> unified alert patterns and visual gauges in place of scattered readouts and text-based errors.</div>
-      <div class="point"><b>Full-screen print paths:</b> the plan rendered big and legible, so an operator can read the build at a glance.</div>
+    <div class="split">
+      <div class="text">
+        <div class="eyebrow">The redesign</div>
+        <h2 class="stmt">Rebuilt for the hand, the eye, and the noise.</h2>
+        <p class="lede">I redesigned the operator experience around field reality, cutting cognitive load at every step. The interface stopped fighting the environment and started working with it.</p>
+        <div class="points">
+          <div class="point"><b>Large-format, high-contrast design system:</b> a variant of the component library built to stay legible in glare and usable in gloves.</div>
+          <div class="point"><b>Design across senses:</b> screen, haptics, lights, and sound working together for attention management and safety, so critical cues land even when no one is looking at a screen.</div>
+          <div class="point"><b>Navigation and surfaces:</b> flexible surfaces that open when needed and tuck away when not, with shortcuts to key screens.</div>
+          <div class="point"><b>Consolidated monitoring:</b> unified alert patterns and visual gauges in place of scattered readouts and text-based errors.</div>
+          <div class="point"><b>Full-screen print paths:</b> the plan rendered big and legible, so an operator can read the build at a glance.</div>
+        </div>
+      </div>
+      <div class="media">
+        <figure><img class="fig" src="rob-block4-tablet.webp" alt="Redesigned large-format operator interface on the Block 4 tablet"><figcaption>Redesigned for the field</figcaption></figure>
+      </div>
     </div>
-    <figure style="margin:48px auto 0;max-width:460px"><img class="fig" src="rob-block4-tablet.webp" alt="Redesigned large-format operator interface on the Block 4 tablet" style="margin-top:0"><figcaption>Redesigned for the field</figcaption></figure>
     <figure><video class="fig" src="rob-lights.mp4" muted loop autoplay playsinline preload="metadata"></video><figcaption>Multi-sensory cues: light and sound</figcaption></figure>
   </div>
 </section>
@@ -160,14 +178,20 @@
 <!-- 4 · DESIGNING UNDER ACTIVE DEVELOPMENT -->
 <section class="act band">
   <div class="wrap reveal">
-    <div class="eyebrow">A moving target</div>
-    <h2 class="stmt">Designed while it was still being invented, across very different machines.</h2>
-    <p class="lede">Throughout my time at ICON, I designed across products in active R&D, over multiple generations and two very different form factors: the Vulcan single-story gantry and the Titan multi-story arm. As the design evolved, two key approaches helped keep it coherent while the ground kept shifting.</p>
-    <div class="points">
-      <div class="point"><b>Service Controls:</b> a low-lift place to drop in new controls for testing and validating features quickly, accessible, but out of the way during normal, production-ready operations.</div>
-      <div class="point"><b>Shared product patterns:</b> interaction patterns designed once and reused across products, so each new machine felt like the same tool instead of a relearn.</div>
+    <div class="split">
+      <div class="text">
+        <div class="eyebrow">A moving target</div>
+        <h2 class="stmt">Designed while it was still being invented, across very different machines.</h2>
+        <p class="lede">Throughout my time at ICON, I designed across products in active R&D, over multiple generations and two very different form factors: the Vulcan single-story gantry and the Titan multi-story arm. As the design evolved, two key approaches helped keep it coherent while the ground kept shifting.</p>
+        <div class="points">
+          <div class="point"><b>Service Controls:</b> a low-lift place to drop in new controls for testing and validating features quickly, accessible, but out of the way during normal, production-ready operations.</div>
+          <div class="point"><b>Shared product patterns:</b> interaction patterns designed once and reused across products, so each new machine felt like the same tool instead of a relearn.</div>
+        </div>
+      </div>
+      <div class="media">
+        <figure><img class="fig" src="rob-generations.webp" alt="Two ICON systems side by side, the multi-story Titan arm and the single-story Vulcan gantry"><figcaption>Multi-machine design, for R&D and production</figcaption></figure>
+      </div>
     </div>
-    <figure><img class="fig" src="rob-generations.webp" alt="Two ICON systems side by side, the multi-story Titan arm and the single-story Vulcan gantry"><figcaption>Multi-machine design, for R&D and production</figcaption></figure>
     <figure><img class="fig" src="rob-service-tablet.webp" alt="Service Controls page for testing and validating features on the tablet"><figcaption>Service Controls: low-lift testing, tucked away in production</figcaption></figure>
   </div>
 </section>
@@ -194,50 +218,62 @@
     <h2 class="stmt">It all came together as task-based construction.</h2>
     <p class="lede">Those features were pointing at one idea, and it became the keystone: translating construction itself into discrete tasks. Together with the software engineers, we defined a system to translate each design element and process into a <b>dependency-based task-graph</b> that we could surface as on-screen tasks with embedded guidance to support operators whenever they needed it. Routines, prompts, and auto-play became parts of that flow rather than separate tools, and expert knowledge was now built into the sequence instead of living in someone's head.</p>
     <img class="fig" src="rob-titangen.webp" alt="The build expressed as an ordered, guided task list with live status">
-    <video class="fig" src="rob-printapp.mp4" muted loop autoplay playsinline preload="metadata"></video>
+    <video class="fig" src="rob-printapp.mp4" data-speed="2" muted loop autoplay playsinline preload="metadata"></video>
   </div>
 </section>
 
 <!-- 7 · THE ECOSYSTEM -->
 <section class="act">
   <div class="wrap reveal">
-    <div class="eyebrow">The ecosystem</div>
-    <h2 class="stmt">One operator's screen, wired into the whole project.</h2>
-    <p class="lede">The operator tool was never an island. I connected it to the products around it so the field, the office, and the data stayed in sync.</p>
-    <div class="points">
-      <div class="point"><b>Plan module as the bridge to operations:</b> a digital site plan that assigns selected designs (and their specific print paths) to a designated printer, and pulls design updates straight from the Design module into the digital instructions for the machine.</div>
-      <div class="point"><b>Placement translation:</b> mapping where a design sits in the 3D environment relative to the physical machine, so print placement is accurate, with additional adjustment enabled from detailed scanning.</div>
-      <div class="point"><b>Scheduling:</b> configuring shift schedules and staffing for realistic print-time estimates, with a preview of the print build-up.</div>
-      <div class="point"><b>Data sharing:</b> task progress, performance, and material consumption shipped back to Plan for PM and CM visibility of project status, and to Foundry for deeper analysis and reliability work.</div>
-      <div class="point"><b>Shared components:</b> one set of 3D models and patterns reused across the ecosystem, for accuracy and faster development.</div>
-      <div class="point"><b>Fleet:</b> a management product for inventory, configuration settings, and deployments across machines.</div>
+    <div class="split">
+      <div class="text">
+        <div class="eyebrow">The ecosystem</div>
+        <h2 class="stmt">One operator's screen, wired into the whole project.</h2>
+        <p class="lede">The operator tool was never an island. I connected it to the products around it so the field, the office, and the data stayed in sync.</p>
+        <div class="points">
+          <div class="point"><b>Plan module as the bridge to operations:</b> a digital site plan that assigns selected designs (and their specific print paths) to a designated printer, and pulls design updates straight from the Design module into the digital instructions for the machine.</div>
+          <div class="point"><b>Placement translation:</b> mapping where a design sits in the 3D environment relative to the physical machine, so print placement is accurate, with additional adjustment enabled from detailed scanning.</div>
+          <div class="point"><b>Scheduling:</b> configuring shift schedules and staffing for realistic print-time estimates, with a preview of the print build-up.</div>
+          <div class="point"><b>Data sharing:</b> task progress, performance, and material consumption shipped back to Plan for PM and CM visibility of project status, and to Foundry for deeper analysis and reliability work.</div>
+          <div class="point"><b>Shared components:</b> one set of 3D models and patterns reused across the ecosystem, for accuracy and faster development.</div>
+          <div class="point"><b>Fleet:</b> a management product for inventory, configuration settings, and deployments across machines.</div>
+        </div>
+      </div>
+      <div class="media">
+        <figure><img class="fig" src="rob-position-tablet.webp" alt="Plan and position view connecting the site plan to a specific printer"><figcaption>Plan and position, connected to operations</figcaption></figure>
+        <figure><video class="fig" src="rob-planshared.mp4" muted loop autoplay playsinline preload="metadata"></video><figcaption>Using common components across tools and users</figcaption></figure>
+      </div>
     </div>
-    <figure><img class="fig" src="rob-position-tablet.webp" alt="Plan and position view connecting the site plan to a specific printer"><figcaption>Plan and position, connected to operations</figcaption></figure>
-    <figure><video class="fig" src="rob-planshared.mp4" muted loop autoplay playsinline preload="metadata"></video><figcaption>Using common components across tools and users</figcaption></figure>
   </div>
 </section>
 
 <!-- 8 · THE COLLABORATION -->
 <section class="act band">
   <div class="wrap reveal">
-    <div class="eyebrow">The collaboration</div>
-    <h2 class="stmt">The design lived at the seams between teams.</h2>
-    <p class="lede">None of this worked in isolation. I sat between disciplines and translated in every direction.</p>
-    <div class="points">
-      <div class="point"><b>Mechanical engineers:</b> turning new hardware capability into system and operator behavior, targeting what to automate and when, and shaping issue-resolution processes.</div>
-      <div class="point"><b>Operators:</b> grounding the work in real conditions and the non-robotic duties they juggle, and respecting their attention limits, frustrations, and potential hazards.</div>
-      <div class="point"><b>Embedded and firmware engineers:</b> turning machine signals into human alerts, and raw errors into resolvable conditions.</div>
-      <div class="point"><b>Software engineers:</b> turning architectural designs into tasks a person could follow, plus 3D interfaces and scheduling and machine complexity.</div>
-      <div class="point"><b>Product stakeholders:</b> from architects and construction-manager workflows to support engineers and data analysts.</div>
+    <div class="split">
+      <div class="text">
+        <div class="eyebrow">The collaboration</div>
+        <h2 class="stmt">The design lived at the seams between teams.</h2>
+        <p class="lede">None of this worked in isolation. I sat between disciplines and translated in every direction.</p>
+        <div class="points">
+          <div class="point"><b>Mechanical engineers:</b> turning new hardware capability into system and operator behavior, targeting what to automate and when, and shaping issue-resolution processes.</div>
+          <div class="point"><b>Operators:</b> grounding the work in real conditions and the non-robotic duties they juggle, and respecting their attention limits, frustrations, and potential hazards.</div>
+          <div class="point"><b>Embedded and firmware engineers:</b> turning machine signals into human alerts, and raw errors into resolvable conditions.</div>
+          <div class="point"><b>Software engineers:</b> turning architectural designs into tasks a person could follow, plus 3D interfaces and scheduling and machine complexity.</div>
+          <div class="point"><b>Product stakeholders:</b> from architects and construction-manager workflows to support engineers and data analysts.</div>
+        </div>
+      </div>
+      <div class="media">
+        <figure><img class="fig" src="rob-titan-prototype.webp" alt="Aerial view of the next-generation Titan robot 3D-printing a structure on its first demo project"><figcaption>First demo print for the next-gen Titan printer</figcaption></figure>
+      </div>
     </div>
-    <figure><img class="fig" src="rob-titan-prototype.webp" alt="Aerial view of the next-generation Titan robot 3D-printing a structure on its first demo project"><figcaption>First demo print for the next-gen Titan printer</figcaption></figure>
   </div>
 </section>
 
-<!-- 9 · THE VISION -->
+<!-- 9 · ENVISIONING WHAT'S NEXT -->
 <section class="act band ink">
   <div class="wrap reveal">
-    <div class="eyebrow">The vision</div>
+    <div class="eyebrow">Envisioning what's next</div>
     <h2 class="stmt">Once the work was tasks, it could be spoken.</h2>
     <p class="lede">With operation expressed as text-based tasks, I began prototyping where it could go next. This was direction I set and explored, not something that shipped while I was there, but clarified where the foundation was built to go.</p>
     <div class="points">
@@ -262,7 +298,7 @@
     <p class="lede">Every task, every automated step, every remote view was a piece of the same goal: expertise that scales without more bodies on every site. The direction held even as the hardware kept changing underneath it.</p>
     <div class="stats" style="margin-top:44px">
       <div class="stat"><div class="n">5 → 1.5</div><div class="l">People to operate, Block 3 generation to Titan release</div></div>
-      <div class="stat"><div class="n">Months → weeks</div><div class="l">Operator onboarding; a recent project reached independence within 3 weeks</div></div>
+      <div class="stat"><div class="n">Months<br>→&nbsp;weeks</div><div class="l">Operator onboarding; a recent project reached independence within 3 weeks</div></div>
       <div class="stat"><div class="n">60%</div><div class="l">Of the build sequence delivered as guided, task-based steps</div></div>
       <div class="stat"><div class="n">30%</div><div class="l">Reduction in print time from forced, automated sequencing</div></div>
     </div>
@@ -271,13 +307,7 @@
 
 <!-- CONNECT -->
 <section class="connect">
-  <div class="eyebrow">Thanks for walking through it</div>
-  <h2>Happy to go deeper on any of this.</h2>
-  <p>The messy middle (the tradeoffs, the engineering partnership, the calls that didn't work) is my favorite part to talk about.</p>
-  <div class="cbtns">
-    <a href="mailto:holly.a.nava@gmail.com">Email</a>
-    <a class="ghost" href="work.html">See other work</a>
-  </div>
+  <h2 style="font-size:clamp(30px,5vw,54px)">Thanks for walking through it.</h2>
 </section>
 <footer>
   <span>© 2026 Holly Nava</span>
@@ -294,7 +324,8 @@
   // Autoplay video when visible
   const vids=document.querySelectorAll('video');
   const vio=new IntersectionObserver(es=>es.forEach(e=>{e.isIntersecting?e.target.play().catch(()=>{}):e.target.pause()}),{threshold:.25});
-  vids.forEach(v=>vio.observe(v));
+  const applyRate=v=>{if(v.dataset.speed)v.playbackRate=parseFloat(v.dataset.speed);};
+  vids.forEach(v=>{applyRate(v);v.addEventListener('loadedmetadata',()=>applyRate(v));v.addEventListener('play',()=>applyRate(v));vio.observe(v);});
 </script>
 </body>
 </html>
