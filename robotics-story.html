@@ -87,6 +87,16 @@
   .split .media>figure+figure{margin-top:20px}
   @media(max-width:820px){.split{grid-template-columns:1fr;gap:0}.split .media{margin-top:36px}}
 
+  /* Side-by-side media pair (video + cover image, equal height) */
+  .pair{display:grid;grid-template-columns:1.5fr 1fr;gap:20px;align-items:stretch;margin-top:48px}
+  .pair figure.col{display:flex;flex-direction:column;margin:0}
+  .pair .fig{margin-top:0}
+  .pair video.fig{aspect-ratio:16/9;object-fit:cover;flex:none}
+  .pair .cover{position:relative;flex:1 1 auto;min-height:0;border-radius:16px;overflow:hidden}
+  .pair .cover img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;margin:0;border-radius:0}
+  .pair figcaption{margin-top:12px}
+  @media(max-width:820px){.pair{grid-template-columns:1fr}.pair .cover{aspect-ratio:16/9;flex:none}}
+
   video.fig{aspect-ratio:16/9;object-fit:cover;background:#0f0e0c}
 
   /* Reveal */
@@ -192,7 +202,7 @@
         <figure><img class="fig" src="rob-generations.webp" alt="Two ICON systems side by side, the multi-story Titan arm and the single-story Vulcan gantry"><figcaption>Multi-machine design, for R&D and production</figcaption></figure>
       </div>
     </div>
-    <figure><img class="fig" src="rob-service-tablet.webp" alt="Service Controls page for testing and validating features on the tablet"><figcaption>Service Controls: low-lift testing, tucked away in production</figcaption></figure>
+    <figure><img class="fig" src="rob-service-tablet.webp" alt="Service Controls page for testing and validating features on the tablet" style="width:70%;margin:0 auto"><figcaption>Service Controls: low-lift testing, tucked away in production</figcaption></figure>
   </div>
 </section>
 
@@ -207,7 +217,7 @@
       <div class="point"><b>Auto-play:</b> an operator-controlled switch for whether the machine prints the next item on its own. Autonomy you can turn on or off.</div>
       <div class="point"><b>User prompting:</b> pulling attention exactly when a manual or non-automated step is needed, and not a moment before.</div>
     </div>
-    <figure><img class="fig" src="rob-prompt-tablet.webp" alt="Operator screen prompting for a manual step during an otherwise automated print"><figcaption>Prompting as a key prerequisite to automated operation</figcaption></figure>
+    <figure><img class="fig" src="rob-prompt-tablet.webp" alt="Operator screen prompting for a manual step during an otherwise automated print" style="width:70%;margin:0 auto"><figcaption>Prompting as a key prerequisite to automated operation</figcaption></figure>
   </div>
 </section>
 
@@ -218,7 +228,16 @@
     <h2 class="stmt">It all came together as task-based construction.</h2>
     <p class="lede">Those features were pointing at one idea, and it became the keystone: translating construction itself into discrete tasks. Together with the software engineers, we defined a system to translate each design element and process into a <b>dependency-based task-graph</b> that we could surface as on-screen tasks with embedded guidance to support operators whenever they needed it. Routines, prompts, and auto-play became parts of that flow rather than separate tools, and expert knowledge was now built into the sequence instead of living in someone's head.</p>
     <img class="fig" src="rob-titangen.webp" alt="The build expressed as an ordered, guided task list with live status">
-    <video class="fig" src="rob-printapp.mp4" data-speed="2" muted loop autoplay playsinline preload="metadata"></video>
+    <div class="pair">
+      <figure class="col">
+        <video class="fig" src="rob-printapp.mp4" data-speed="2" muted loop autoplay playsinline preload="metadata"></video>
+        <figcaption>The Print operator app</figcaption>
+      </figure>
+      <figure class="col">
+        <div class="cover"><img src="rob-holster.webp" alt="Operator holster designed to carry the print tablet on the jobsite"></div>
+        <figcaption>Operator holster</figcaption>
+      </figure>
+    </div>
   </div>
 </section>
 
