@@ -242,7 +242,7 @@
     if(!block||!v) return;
     var MUTED='<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 9.5l4 5M20.5 9.5l-4 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>';
     var LOUD='<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 9a4 4 0 010 6" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>';
-    var wantSound=false;
+    var wantSound=true; // start with sound on; the browser may mute the very first hover until you interact with the page
     function paint(){ if(snd){ snd.innerHTML = wantSound ? LOUD : MUTED; snd.setAttribute('aria-label', wantSound ? 'Mute' : 'Unmute'); } }
     function reveal(){ v.style.opacity='1'; if(snd){ snd.style.opacity='1'; snd.style.pointerEvents='auto'; } }
     function conceal(){ v.style.opacity='0'; if(snd){ snd.style.opacity='0'; snd.style.pointerEvents='none'; } }
