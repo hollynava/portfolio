@@ -42,6 +42,9 @@
   /* Hero */
   .hero{display:grid;grid-template-columns:0.45fr 1.55fr;gap:56px;align-items:center}
   .hero .photo{width:100%;aspect-ratio:4/5;border-radius:22px;object-fit:cover;object-position:center top;display:block}
+  .sndbtn{position:absolute;right:12px;bottom:12px;z-index:2;width:34px;height:34px;display:grid;place-items:center;border:none;border-radius:999px;background:rgba(0,0,0,.55);color:#fff;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s,background .2s}
+  .sndbtn:hover{background:rgba(0,0,0,.72)}
+  .sndbtn svg{display:block}
   .hero .eyebrow{font-weight:700;font-size:clamp(15px,1.6vw,18px);letter-spacing:.08em;text-transform:uppercase}
   .hero .eyebrow span{color:var(--muted);font-weight:600}
   .hero h1{font-size:clamp(28px,3.6vw,45px);margin:22px 0 24px}
@@ -138,6 +141,7 @@
     <div class="photo" id="heroMedia" style="overflow:hidden;position:relative;padding:0">
       <img id="heroImg" src="holly-sketch1.webp" alt="Holly Nava" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;transition:opacity .45s ease">
       <video id="heroVid" src="holly-welcome.mp4" muted playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:contain;opacity:0;transition:opacity .45s ease"></video>
+      <button id="heroSnd" class="sndbtn" type="button" aria-label="Unmute"></button>
     </div>
     <div>
       <div class="eyebrow">Holly Nava</div>
@@ -232,15 +236,22 @@
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  // Hero: hovering anywhere on the top block reveals the welcome video (with sound if the browser allows) over the sketch
+  // Hero: hovering the top block reveals the welcome video over the sketch; the sound button toggles audio
   (function(){
-    var v=document.getElementById('heroVid'), block=document.querySelector('section.hero');
+    var v=document.getElementById('heroVid'), block=document.querySelector('section.hero'), snd=document.getElementById('heroSnd');
     if(!block||!v) return;
+    var MUTED='<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 9.5l4 5M20.5 9.5l-4 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>';
+    var LOUD='<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 9a4 4 0 010 6" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>';
+    var wantSound=false;
+    function paint(){ if(snd){ snd.innerHTML = wantSound ? LOUD : MUTED; snd.setAttribute('aria-label', wantSound ? 'Mute' : 'Unmute'); } }
+    function reveal(){ v.style.opacity='1'; if(snd){ snd.style.opacity='1'; snd.style.pointerEvents='auto'; } }
+    function conceal(){ v.style.opacity='0'; if(snd){ snd.style.opacity='0'; snd.style.pointerEvents='none'; } }
     var warm=function(){ if(v.preload!=='auto'){ v.preload='auto'; v.load(); } }; // load during idle, not up front
     if('requestIdleCallback' in window){ requestIdleCallback(warm,{timeout:4000}); } else { setTimeout(warm,2500); }
-    block.addEventListener('mouseenter', function(){ v.currentTime=0; v.style.opacity='1'; v.muted=false; v.play().catch(function(){ v.muted=true; v.play().catch(function(){}); }); }); // try sound, fall back to muted
-    block.addEventListener('mouseleave', function(){ v.style.opacity='0'; v.pause(); v.muted=true; });
-    v.addEventListener('ended', function(){ v.style.opacity='0'; v.muted=true; }); // when it finishes, settle back to the sketch
+    block.addEventListener('mouseenter', function(){ v.currentTime=0; v.muted=!wantSound; reveal(); v.play().catch(function(){ v.muted=true; v.play().catch(function(){}); }); });
+    block.addEventListener('mouseleave', function(){ conceal(); v.pause(); });
+    v.addEventListener('ended', conceal); // settle back to the sketch
+    if(snd){ paint(); snd.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); wantSound=!wantSound; v.muted=!wantSound; if(wantSound && v.paused){ v.play().catch(function(){}); } paint(); }); }
   })();
 </script>
 </body>
