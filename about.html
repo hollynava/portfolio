@@ -47,6 +47,8 @@
   .sndbtn{position:absolute;right:12px;bottom:12px;z-index:2;width:34px;height:34px;display:grid;place-items:center;border:none;border-radius:999px;background:rgba(0,0,0,.55);color:#fff;cursor:pointer;opacity:0;pointer-events:none;transition:opacity .3s,background .2s}
   .sndbtn:hover{background:rgba(0,0,0,.72)}
   .sndbtn svg{display:block}
+  .playbtn-c{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:2;width:54px;height:54px;display:grid;place-items:center;border:none;border-radius:999px;background:rgba(0,0,0,.55);color:#fff;cursor:pointer}
+  .playbtn-c svg{display:block;margin-left:3px}
   .intro .eyebrow{font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
   .intro h1{font-size:clamp(26px,3.5vw,45px);margin:14px 0 0}
   .intro p{color:var(--muted);font-size:17px}
@@ -167,6 +169,7 @@
           <img src="holly-sketch2.webp" alt="Holly Nava" style="display:block;width:100%">
           <video id="aboutVid" src="holly-intro.mp4" muted playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .45s ease"></video>
           <button id="aboutSnd" class="sndbtn" type="button" aria-label="Unmute"></button>
+          <button id="aboutPlay" class="playbtn-c" type="button" aria-label="Play intro" style="display:none"><svg width="16" height="18" viewBox="0 0 16 18" aria-hidden="true"><path d="M0 0l16 9-16 9z" fill="currentColor"/></svg></button>
         </div>
       </div>
 
@@ -269,22 +272,34 @@
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  // About portrait: hovering the image plays the intro video over the sketch; the sound button toggles audio
+  // About portrait: desktop hovers to play (mute toggle); touch devices show a tap-to-play button
   (function(){
-    var m=document.getElementById('aboutMedia'), v=document.getElementById('aboutVid'), snd=document.getElementById('aboutSnd');
+    var m=document.getElementById('aboutMedia'), v=document.getElementById('aboutVid'),
+        snd=document.getElementById('aboutSnd'), playBtn=document.getElementById('aboutPlay');
     if(!m||!v) return;
     var MUTED='<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 9.5l4 5M20.5 9.5l-4 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>';
     var LOUD='<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 9a4 4 0 010 6" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>';
-    var wantSound=false;
-    function paint(){ if(snd){ snd.innerHTML = wantSound ? LOUD : MUTED; snd.setAttribute('aria-label', wantSound ? 'Mute' : 'Unmute'); } }
-    function reveal(){ v.style.opacity='1'; if(snd){ snd.style.opacity='1'; snd.style.pointerEvents='auto'; } }
-    function conceal(){ v.style.opacity='0'; if(snd){ snd.style.opacity='0'; snd.style.pointerEvents='none'; } }
+    var canHover = !window.matchMedia || window.matchMedia('(hover: hover)').matches;
     var warm=function(){ if(v.preload!=='auto'){ v.preload='auto'; v.load(); } }; // load during idle, not up front
     if('requestIdleCallback' in window){ requestIdleCallback(warm,{timeout:4000}); } else { setTimeout(warm,2500); }
-    m.addEventListener('mouseenter', function(){ v.currentTime=0; v.muted=!wantSound; reveal(); v.play().catch(function(){ v.muted=true; v.play().catch(function(){}); }); });
-    m.addEventListener('mouseleave', function(){ conceal(); v.pause(); });
-    v.addEventListener('ended', conceal); // settle back to the sketch
-    if(snd){ paint(); snd.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); wantSound=!wantSound; v.muted=!wantSound; if(wantSound && v.paused){ v.play().catch(function(){}); } paint(); }); }
+    if(canHover){
+      var wantSound=false;
+      var paint=function(){ if(snd){ snd.innerHTML = wantSound ? LOUD : MUTED; snd.setAttribute('aria-label', wantSound ? 'Mute' : 'Unmute'); } };
+      var reveal=function(){ v.style.opacity='1'; if(snd){ snd.style.opacity='1'; snd.style.pointerEvents='auto'; } };
+      var conceal=function(){ v.style.opacity='0'; if(snd){ snd.style.opacity='0'; snd.style.pointerEvents='none'; } };
+      m.addEventListener('mouseenter', function(){ v.currentTime=0; v.muted=!wantSound; reveal(); v.play().catch(function(){ v.muted=true; v.play().catch(function(){}); }); });
+      m.addEventListener('mouseleave', function(){ conceal(); v.pause(); });
+      v.addEventListener('ended', conceal);
+      if(snd){ paint(); snd.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); wantSound=!wantSound; v.muted=!wantSound; if(wantSound && v.paused){ v.play().catch(function(){}); } paint(); }); }
+    } else {
+      if(snd) snd.style.display='none';
+      if(playBtn){
+        playBtn.style.display='';
+        playBtn.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); v.currentTime=0; v.muted=false; v.style.opacity='1'; playBtn.style.display='none'; v.play().catch(function(){ v.muted=true; v.play().catch(function(){}); }); });
+      }
+      v.addEventListener('ended', function(){ v.style.opacity='0'; if(playBtn) playBtn.style.display=''; });
+      v.addEventListener('click', function(){ v.pause(); v.style.opacity='0'; if(playBtn) playBtn.style.display=''; }); // tap the video to stop
+    }
   })();
 </script>
 </body>
