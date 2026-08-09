@@ -72,6 +72,7 @@ function loginPage(error = false) {
   .gk{font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
   h1{font-size:clamp(22px,4vw,28px);margin:12px 0 10px;font-weight:600;letter-spacing:-.02em}
   p{color:var(--muted);margin:0 auto 22px;font-size:16px;line-height:1.5;max-width:44ch}
+  p a{color:var(--ink);text-decoration:underline;text-underline-offset:2px}
   form{display:flex;gap:10px;flex-wrap:wrap;max-width:480px;margin:0 auto;justify-content:center}
   input{flex:1;min-width:200px;padding:13px 16px;border:1px solid var(--line);border-radius:12px;font:inherit;font-size:15px;background:#fff;color:var(--ink)}
   input:focus{outline:none;border-color:var(--ink)}
@@ -83,7 +84,7 @@ function loginPage(error = false) {
   <div class="box">
     <div class="gk">Private Portfolio</div>
     <h1>This work is password-protected</h1>
-    <p>Enter the password to view selected projects, testimonials, and more. Reach out if you need it.</p>
+    <p>Enter the password to view selected projects, testimonials, and more. <a href="https://www.linkedin.com/in/hollynava" target="_blank" rel="noopener">Reach out if you need it.</a></p>
     <form method="POST">
       <input name="password" type="password" placeholder="Password" autofocus autocomplete="current-password" aria-label="Password">
       <button type="submit">Enter</button>
