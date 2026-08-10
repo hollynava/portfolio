@@ -41,6 +41,14 @@
   .pwbtn:hover{opacity:.88}
   .pwbtn span{font-size:14px;line-height:1;transition:transform .2s}
   .pwbtn:hover span{transform:translateX(3px)}
+  .cs-hero{display:flex;align-items:center;justify-content:space-between;gap:36px}
+  .cs-hero-text{flex:1 1 auto;min-width:0}
+  .cs-bubble{flex:0 0 auto;position:relative;width:172px;height:172px;border-radius:50%;overflow:hidden;background:var(--ink);cursor:pointer}
+  .cs-bubble video{width:100%;height:100%;object-fit:cover;object-position:center 22%;display:block}
+  .cs-bubble .snd{position:absolute;right:9px;bottom:9px;width:30px;height:30px;display:grid;place-items:center;border:none;border-radius:999px;background:rgba(0,0,0,.5);color:#fff;cursor:pointer}
+  .cs-bubble .snd svg{display:block}
+  @media(max-width:760px){.cs-hero{gap:24px}.cs-bubble{width:132px;height:132px}}
+  @media(max-width:520px){.cs-hero{flex-direction:column;align-items:flex-start}}
 
   /* ---- Tabbed case-study body ---- */
   .csx{display:block}
@@ -163,11 +171,17 @@
 <div class="wrap">
   <!-- HERO -->
   <section class="panel cs-hero reveal">
-    <div class="eyebrow">ICON · 3D-printed robotic homebuilding</div>
-    <h1>Making large scale construction robots operable by anyone</h1>
-    <div class="cs-hero-row">
-      <div class="tags"><span class="tag">Robotics</span><span class="tag">Automation</span><span class="tag">UX Design + Research</span></div>
-      <a class="pwbtn" href="robotics-story.html">Project Walkthrough <span>→</span></a>
+    <div class="cs-hero-text">
+      <div class="eyebrow">ICON · 3D-printed robotic homebuilding</div>
+      <h1>Making large scale construction robots operable by anyone</h1>
+      <div class="cs-hero-row">
+        <div class="tags"><span class="tag">Robotics</span><span class="tag">Automation</span><span class="tag">UX Design + Research</span></div>
+        <a class="pwbtn" href="robotics-story.html">Project Walkthrough <span>→</span></a>
+      </div>
+    </div>
+    <div class="cs-bubble" id="csBubble">
+      <video id="csVid" src="quote-robotics.mp4" muted loop autoplay playsinline preload="metadata"></video>
+      <button class="snd" id="csSnd" type="button" aria-label="Unmute"></button>
     </div>
   </section>
 
@@ -343,6 +357,20 @@
     else v.pause();
   }),{threshold:.35});
   document.querySelectorAll('.csx-panel video').forEach(v=>{v.muted=true;vio.observe(v);});
+
+  // Quote bubble: muted loop by default; click to hear the quote once, then back to muted loop
+  (function(){
+    var b=document.getElementById('csBubble'), v=document.getElementById('csVid'), snd=document.getElementById('csSnd');
+    if(!b||!v) return;
+    var MUTED='<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 9.5l4 5M20.5 9.5l-4 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>';
+    var LOUD='<svg viewBox="0 0 24 24" width="14" height="14" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 9a4 4 0 010 6" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>';
+    var on=false;
+    function paint(){ snd.innerHTML=on?LOUD:MUTED; snd.setAttribute('aria-label',on?'Mute':'Unmute'); }
+    function set(want){ on=want; if(on){ v.loop=false; v.muted=false; v.currentTime=0; } else { v.loop=true; v.muted=true; } v.play().catch(function(){}); paint(); }
+    paint();
+    b.addEventListener('click', function(){ set(!on); });
+    v.addEventListener('ended', function(){ if(on) set(false); });
+  })();
 </script>
 </body>
 </html>
