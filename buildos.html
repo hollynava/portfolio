@@ -136,6 +136,16 @@
   footer{max-width:var(--max);margin:0 auto;display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;color:var(--faint);font-size:12.5px;padding:22px 20px 8px;border-top:1px solid var(--line)}
   .reveal{opacity:0;transform:translateY(14px);transition:opacity .6s ease,transform .6s ease}
   .reveal.in{opacity:1;transform:none}
+  .cs-hero{display:flex;align-items:center;justify-content:space-between;gap:36px}
+  .cs-hero-text{flex:1 1 auto;min-width:0}
+  .cs-vid{flex:0 0 auto;position:relative;width:176px;aspect-ratio:3/4;border-radius:16px;overflow:hidden;background:transparent;cursor:pointer}
+  .cs-vid img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center top;display:block}
+  .cs-vid video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 18%;opacity:0;transition:opacity .3s ease;display:block}
+  .cs-vid .pbtn{position:absolute;right:8px;bottom:8px;z-index:2;width:32px;height:32px;display:grid;place-items:center;border:none;border-radius:999px;background:rgba(0,0,0,.45);color:#fff;cursor:pointer;transition:background .2s}
+  .cs-vid .pbtn:hover{background:rgba(0,0,0,.62)}
+  .cs-vid .pbtn svg{display:block}
+  @media(max-width:760px){.cs-hero{gap:24px}.cs-vid{width:136px}}
+  @media(max-width:520px){.cs-hero{flex-direction:column;align-items:flex-start}}
 </style>
 </head>
 <body>
@@ -149,9 +159,17 @@
 <div class="wrap">
   <!-- HERO -->
   <section class="panel cs-hero reveal">
+    <div class="cs-hero-text">
     <div class="eyebrow">ICON · 3D-printed robotic homebuilding</div>
     <h1>BuildOS — a product ecosystem for 3D-printed robotic construction</h1>
     <div class="tags"><span class="tag">Product Strategy</span><span class="tag">Systems Design</span><span class="tag">0→1</span></div>
+  
+    </div>
+    <div class="cs-vid" id="csVidBox">
+      <img src="holly-sketch1.webp" alt="Holly Nava">
+      <video id="csV" src="quote-buildos.mp4" muted playsinline preload="metadata"></video>
+      <button class="pbtn" id="csBtn" type="button" aria-label="Play"></button>
+    </div>
   </section>
 
   <!-- TABBED BODY: tabs on top, each tab = media (left) + content (right) -->
@@ -305,8 +323,8 @@
     </div>
   </section>
 
-  <a class="nextproj reveal" href="robotics.html">
-    <div><div class="k">Next project</div><div class="t">Making large scale construction robots operable by anyone</div></div>
+  <a class="nextproj reveal" href="opensignal.html">
+    <div><div class="k">Next project</div><div class="t">OpenSignal — from idea to focused working app within a week</div></div>
     <div class="arrow">›</div>
   </a>
 </div>
@@ -357,6 +375,20 @@
     else v.pause();
   }),{threshold:.35});
   document.querySelectorAll('.csx-panel video').forEach(v=>{v.muted=true;vio.observe(v);});
+</script>
+<script>
+  (function(){
+    var box=document.getElementById('csVidBox'), v=document.getElementById('csV'), btn=document.getElementById('csBtn');
+    if(!box||!v) return;
+    var PLAY='<svg width="13" height="15" viewBox="0 0 13 15" aria-hidden="true"><path d="M0 0l13 7.5L0 15z" fill="currentColor"/></svg>';
+    var PAUSE='<svg width="12" height="14" viewBox="0 0 12 14" aria-hidden="true"><rect x="1" width="3.4" height="14" rx="1" fill="currentColor"/><rect x="7.6" width="3.4" height="14" rx="1" fill="currentColor"/></svg>';
+    function paint(p){ btn.innerHTML=p?PAUSE:PLAY; btn.setAttribute('aria-label',p?'Pause':'Play'); }
+    function play(){ v.muted=false; v.style.opacity='1'; v.play().catch(function(){ v.muted=true; v.play().catch(function(){}); }); paint(true); }
+    function pause(){ v.pause(); paint(false); }
+    paint(false);
+    box.addEventListener('click', function(){ if(v.paused) play(); else pause(); });
+    v.addEventListener('ended', function(){ v.style.opacity='0'; try{v.currentTime=0;}catch(e){} paint(false); });
+  })();
 </script>
 </body>
 </html>
