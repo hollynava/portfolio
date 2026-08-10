@@ -36,6 +36,11 @@
   .cs-hero h1{font-size:clamp(26px,3.8vw,44px);margin:12px 0 20px;max-width:none}
   .tags{display:flex;gap:8px;flex-wrap:wrap}
   .tag{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#57524a;background:var(--tag);padding:8px 13px;border-radius:7px}
+  .cs-hero-row{display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap}
+  .pwbtn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:999px;background:var(--ink);color:#fff;font-weight:600;font-size:12px;letter-spacing:.06em;text-transform:uppercase;white-space:nowrap;transition:opacity .2s}
+  .pwbtn:hover{opacity:.88}
+  .pwbtn span{font-size:14px;line-height:1;transition:transform .2s}
+  .pwbtn:hover span{transform:translateX(3px)}
 
   /* ---- Tabbed case-study body ---- */
   .csx{display:block}
@@ -160,7 +165,10 @@
   <section class="panel cs-hero reveal">
     <div class="eyebrow">ICON · 3D-printed robotic homebuilding</div>
     <h1>Making large scale construction robots operable by anyone</h1>
-    <div class="tags"><span class="tag">Robotics</span><span class="tag">Automation</span><span class="tag">UX Design + Research</span></div>
+    <div class="cs-hero-row">
+      <div class="tags"><span class="tag">Robotics</span><span class="tag">Automation</span><span class="tag">UX Design + Research</span></div>
+      <a class="pwbtn" href="robotics-story.html">Project Walkthrough <span>→</span></a>
+    </div>
   </section>
 
   <!-- TABBED BODY: tabs on top, each tab = media (left) + content (right) -->
@@ -299,7 +307,6 @@
 </section>
 <footer>
   <span>© 2026 Holly Nava</span>
-  <a href="robotics-story.html" style="color:inherit;text-decoration:underline;text-underline-offset:2px">Walkthrough →</a>
   <span>Clarity in complex spaces</span>
 </footer>
 
