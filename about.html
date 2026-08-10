@@ -49,6 +49,9 @@
   .sndbtn svg{display:block}
   .playbtn-c{position:absolute;right:12px;bottom:12px;z-index:2;width:44px;height:44px;display:grid;place-items:center;border:none;border-radius:999px;background:rgba(0,0,0,.55);color:#fff;cursor:pointer}
   .playbtn-c svg{display:block;margin-left:3px}
+  .about-media .pbtn{position:absolute;right:10px;bottom:10px;z-index:2;width:34px;height:34px;display:grid;place-items:center;border:none;border-radius:999px;background:rgba(0,0,0,.45);color:#fff;cursor:pointer;transition:background .2s}
+  .about-media .pbtn:hover{background:rgba(0,0,0,.62)}
+  .about-media .pbtn svg{display:block}
   .intro .eyebrow{font-weight:700;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
   .intro h1{font-size:clamp(26px,3.5vw,45px);margin:14px 0 0}
   .intro p{color:var(--muted);font-size:17px}
@@ -173,11 +176,10 @@
         <p>I think in systems: I work out how a whole ecosystem fits together, then move fluidly between the high-level architecture and the low-level detail, from setting the product vision and defining how the pieces connect, to designing the exact interface someone uses and managing development and delivery. I build products that work for users, the business, and the teams building them, products that can scale and bridge to future capabilities.</p>
         <p>I do my best work with a direct line to the people I'm building for: users and decision-makers within reach, and with an organization that has few silos and a mission that matters.</p>
         <p>Currently living and working in Colorado, open to new opportunities and locations. Outside of work, you'll find me spending time outdoors, at the pottery wheel, learning to sail, deep in a podcast, or chasing down great food.</p>
-        <div class="about-media" id="aboutMedia" style="position:relative;width:70%;margin:24px auto 0;overflow:hidden;border-radius:16px">
+        <div class="about-media" id="aboutMedia" style="position:relative;width:70%;margin:24px auto 0;overflow:hidden;border-radius:16px;cursor:pointer">
           <img src="holly-sketch2.webp" alt="Holly Nava" style="display:block;width:100%">
-          <video id="aboutVid" src="holly-intro.mp4" muted playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .45s ease"></video>
-          <button id="aboutSnd" class="sndbtn" type="button" aria-label="Unmute"></button>
-          <button id="aboutPlay" class="playbtn-c" type="button" aria-label="Play intro" style="display:none"><svg width="16" height="18" viewBox="0 0 16 18" aria-hidden="true"><path d="M0 0l16 9-16 9z" fill="currentColor"/></svg></button>
+          <video id="aboutVid" src="holly-intro.mp4" muted playsinline preload="metadata" style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .3s ease"></video>
+          <button class="pbtn" id="aboutBtn" type="button" aria-label="Play"></button>
         </div>
       </div>
 
@@ -308,34 +310,18 @@
   const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.08});
   document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
 
-  // About portrait: desktop hovers to play (mute toggle); touch devices show a tap-to-play button
+  // About portrait: click to play the intro with sound; button toggles play / pause; returns to the sketch when it finishes
   (function(){
-    var m=document.getElementById('aboutMedia'), v=document.getElementById('aboutVid'),
-        snd=document.getElementById('aboutSnd'), playBtn=document.getElementById('aboutPlay');
-    if(!m||!v) return;
-    var MUTED='<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 9.5l4 5M20.5 9.5l-4 5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg>';
-    var LOUD='<svg viewBox="0 0 24 24" width="15" height="15" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9H4z" fill="currentColor"/><path d="M16.5 9a4 4 0 010 6" stroke="currentColor" stroke-width="1.8" fill="none" stroke-linecap="round"/></svg>';
-    var canHover = !window.matchMedia || window.matchMedia('(hover: hover)').matches;
-    var warm=function(){ if(v.preload!=='auto'){ v.preload='auto'; v.load(); } }; // load during idle, not up front
-    if('requestIdleCallback' in window){ requestIdleCallback(warm,{timeout:4000}); } else { setTimeout(warm,2500); }
-    if(canHover){
-      var wantSound=false;
-      var paint=function(){ if(snd){ snd.innerHTML = wantSound ? LOUD : MUTED; snd.setAttribute('aria-label', wantSound ? 'Mute' : 'Unmute'); } };
-      var reveal=function(){ v.style.opacity='1'; if(snd){ snd.style.opacity='1'; snd.style.pointerEvents='auto'; } };
-      var conceal=function(){ v.style.opacity='0'; if(snd){ snd.style.opacity='0'; snd.style.pointerEvents='none'; } };
-      m.addEventListener('mouseenter', function(){ v.currentTime=0; v.muted=!wantSound; reveal(); v.play().catch(function(){ v.muted=true; v.play().catch(function(){}); }); });
-      m.addEventListener('mouseleave', function(){ conceal(); v.pause(); });
-      v.addEventListener('ended', conceal);
-      if(snd){ paint(); snd.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); wantSound=!wantSound; v.muted=!wantSound; if(wantSound && v.paused){ v.play().catch(function(){}); } paint(); }); }
-    } else {
-      if(snd) snd.style.display='none';
-      if(playBtn){
-        playBtn.style.display='';
-        playBtn.addEventListener('click', function(e){ e.preventDefault(); e.stopPropagation(); v.currentTime=0; v.muted=false; v.style.opacity='1'; playBtn.style.display='none'; v.play().catch(function(){ v.muted=true; v.play().catch(function(){}); }); });
-      }
-      v.addEventListener('ended', function(){ v.style.opacity='0'; if(playBtn) playBtn.style.display=''; });
-      v.addEventListener('click', function(){ v.pause(); v.style.opacity='0'; if(playBtn) playBtn.style.display=''; }); // tap the video to stop
-    }
+    var box=document.getElementById('aboutMedia'), v=document.getElementById('aboutVid'), btn=document.getElementById('aboutBtn');
+    if(!box||!v) return;
+    var PLAY='<svg width="14" height="16" viewBox="0 0 14 16" aria-hidden="true"><path d="M0 0l14 8L0 16z" fill="currentColor"/></svg>';
+    var PAUSE='<svg width="13" height="15" viewBox="0 0 13 15" aria-hidden="true"><rect x="1" width="3.6" height="15" rx="1" fill="currentColor"/><rect x="8.4" width="3.6" height="15" rx="1" fill="currentColor"/></svg>';
+    function paint(p){ btn.innerHTML=p?PAUSE:PLAY; btn.setAttribute('aria-label',p?'Pause':'Play'); }
+    function play(){ v.muted=false; v.style.opacity='1'; v.play().catch(function(){ v.muted=true; v.play().catch(function(){}); }); paint(true); }
+    function pause(){ v.pause(); paint(false); }
+    paint(false);
+    box.addEventListener('click', function(){ if(v.paused) play(); else pause(); });
+    v.addEventListener('ended', function(){ v.style.opacity='0'; try{v.currentTime=0;}catch(e){} paint(false); });
   })();
 </script>
 </body>
